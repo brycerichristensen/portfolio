@@ -9,114 +9,26 @@
   <link href="https://fonts.googleapis.com/css2?family=Spectral:wght@400;700&display=swap" rel="stylesheet">
   
   <style>
-    /* Global Styles */
-    body {
-      font-family: 'Spectral', 'Times New Roman', serif;
-      margin: 0;
-      padding: 0;
-      line-height: 1.6;
-      background: #ffffff;
-      color: #000000;
-    }
-
-    /* Header */
-    header {
-      background-color: #1e3a8a; /* Blue header */
-      color: #ffffff;
-      padding: 2rem;
-      text-align: center;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
-
-    header h1 {
-      font-size: 3rem;
-      margin: 0.5rem 0;
-    }
-
-    nav a {
-      color: #ffffff;
-      margin: 0 1rem;
-      text-decoration: none;
-      font-weight: 700;
-    }
-
-    nav a:hover {
-      text-decoration: underline;
-    }
-
-    /* Sections */
-    section {
-      padding: 2rem;
-      max-width: 900px;
-      margin: auto;
-    }
-
-    h2 {
-      color: #1e3a8a; /* Blue headings */
-      font-weight: 700;
-    }
-
-    /* Projects Grid */
-    .projects {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 1rem;
-    }
-
-    @media(min-width: 700px) {
-      .projects { grid-template-columns: 1fr 1fr; }
-    }
-
-    /* Project Cards */
-    .card {
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      padding: 1rem;
-      cursor: pointer;
-      transition: 0.3s;
-      background: #f9f9f9;
-    }
-
-    .card:hover {
-      background: #e0e7ff; /* light blue hover */
-    }
-
-    .card h3 {
-      margin-top: 0;
-      color: #1e3a8a;
-    }
-
-    .details {
-      display: none;
-      margin-top: 0.5rem;
-      color: #333;
-    }
-
-    /* Contact */
-    #contact a {
-      color: #1e3a8a;
-      text-decoration: none;
-    }
-
-    #contact a:hover {
-      text-decoration: underline;
-    }
-
-    footer {
-      background: #f4f4f4;
-      text-align: center;
-      padding: 1rem;
-      margin-top: 2rem;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
+    body { font-family: 'Spectral', 'Times New Roman', serif; margin:0; padding:0; line-height:1.6; background:#fff; color:#000; }
+    header { background-color:#1e3a8a; color:#fff; padding:2rem; text-align:center; position:sticky; top:0; z-index:1000; }
+    header h1 { font-size:3rem; margin:0.5rem 0; }
+    nav a { color:#fff; margin:0 1rem; text-decoration:none; font-weight:700; }
+    nav a:hover { text-decoration:underline; }
+    section { padding:2rem; max-width:900px; margin:auto; }
+    h2 { color:#1e3a8a; font-weight:700; }
+    .projects { display:grid; grid-template-columns:1fr; gap:1rem; }
+    @media(min-width:700px) { .projects { grid-template-columns:1fr 1fr; } }
+    .card { border:1px solid #ccc; border-radius:8px; padding:1rem; cursor:pointer; transition:0.3s; background:#f9f9f9; }
+    .card:hover { background:#e0e7ff; }
+    .card h3 { margin-top:0; color:#1e3a8a; }
+    #contact a { color:#1e3a8a; text-decoration:none; }
+    #contact a:hover { text-decoration:underline; }
+    footer { background:#f4f4f4; text-align:center; padding:1rem; margin-top:2rem; }
+    html { scroll-behavior:smooth; }
   </style>
 </head>
 <body>
+
   <!-- Header -->
   <header>
     <h1>Bryce Christensen</h1>
@@ -138,39 +50,29 @@
   <section id="projects">
     <h2>Projects</h2>
     <div class="projects">
-      <div class="card" onclick="toggleDetails(this)">
-        <h3>Propulsion Control System</h3>
-        <p>Click to see details...</p>
-        <div class="details">
-          <ul>
-            <li>Static Configuration</li>
-            <li>Flight Configuration</li>
-          </ul>
-        </div>
+      <div class="card">
+        <h3>Propulsion Control System - Static Configuration</h3>
+        <p><a href="propulsion_static.html" style="color:#1e3a8a;">View Project →</a></p>
       </div>
 
-      <div class="card" onclick="toggleDetails(this)">
+      <div class="card">
+        <h3>Propulsion Control System - Flight Configuration</h3>
+        <p><a href="propulsion_flight.html" style="color:#1e3a8a;">View Project →</a></p>
+      </div>
+
+      <div class="card">
         <h3>Vertical-Landing Leg Deployment System</h3>
-        <p>Click to see details...</p>
-        <div class="details">
-          <p>Designed and tested servo-actuated landing legs for rocket landing devices.</p>
-        </div>
+        <p><a href="vertical_deployment.html" style="color:#1e3a8a;">View Project →</a></p>
       </div>
 
-      <div class="card" onclick="toggleDetails(this)">
+      <div class="card">
         <h3>Compliant Mechanism Mechanical Battery</h3>
-        <p>Click to see details...</p>
-        <div class="details">
-          <p>Developed energy storage mechanisms for mechanical systems.</p>
-        </div>
+        <p><a href="payload.html" style="color:#1e3a8a;">View Project →</a></p>
       </div>
 
-      <div class="card" onclick="toggleDetails(this)">
+      <div class="card">
         <h3>Other Rocketry Projects</h3>
-        <p>Click to see details...</p>
-        <div class="details">
-          <p>Various additional projects in rocketry and propulsion experimentation.</p>
-        </div>
+        <p><a href="rockets.html" style="color:#1e3a8a;">View Project →</a></p>
       </div>
     </div>
   </section>
@@ -188,13 +90,5 @@
     <p>© 2025 Bryce Christensen</p>
   </footer>
 
-  <!-- JavaScript for Project Expand/Collapse -->
-  <script>
-    function toggleDetails(card) {
-      const details = card.querySelector(".details");
-      const isVisible = details.style.display === "block";
-      details.style.display = isVisible ? "none" : "block";
-    }
-  </script>
 </body>
 </html>
