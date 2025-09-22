@@ -18,6 +18,12 @@
       font-weight:700;
       cursor:pointer;
       text-decoration:none;
+      display:block;
+      width:100%;
+      box-sizing:border-box;
+      position:sticky;
+      top:0;
+      z-index:1001; /* above header */
     }
     #construction-banner:hover { background-color:#c0e0ff; }
 
@@ -28,7 +34,7 @@
       padding:2rem;
       text-align:center;
       position:sticky;
-      top:0;
+      top:38px; /* height of the banner */
       z-index:1000;
     }
     header h1 { font-size:3rem; margin:0.5rem 0; }
@@ -37,22 +43,40 @@
     nav a:hover { text-decoration:underline; }
 
     /* Section scroll fix for sticky header */
-    section { padding:2rem; max-width:1000px; margin:auto; }
+    section { padding:2rem; max-width:1000px; margin:auto; text-align:center; }
     section::before {
       content: "";
       display: block;
-      height:120px;
-      margin-top: -120px;
+      height:160px; /* accommodates sticky header + banner */
+      margin-top: -160px;
       visibility: hidden;
     }
 
     h2 { color:#1e3a8a; font-weight:700; }
-    #about-container { display:flex; flex-direction:column; gap:1rem; align-items:center; }
+
+    #about-container { display:flex; flex-direction:column; gap:1rem; align-items:center; text-align:left; }
     #about-text { flex:1; }
     #about-text p { margin:0; }
     #profile-pic { flex:1; text-align:center; }
     #profile-pic img { max-width:200px; border-radius:50%; }
     @media(min-width:700px) { #about-container { flex-direction:row; } }
+
+    /* Prominent Button */
+    .portfolio-button {
+      display:inline-block;
+      padding:1rem 2rem;
+      font-size:1.25rem;
+      font-weight:700;
+      color:#fff;
+      background-color:#1e3a8a;
+      border:none;
+      border-radius:8px;
+      cursor:pointer;
+      text-decoration:none;
+      transition:0.3s;
+      margin-top:1rem;
+    }
+    .portfolio-button:hover { background-color:#154080; }
 
     #contact a { color:#1e3a8a; text-decoration:none; }
     #contact a:hover { text-decoration:underline; }
@@ -82,12 +106,19 @@
     <h2>About Me</h2>
     <div id="about-container">
       <div id="about-text">
-        <p>Hi! I’m Bryce Christensen, an aerospace engineering student from Utah, passionate about rocketry and propulsion systems. I enjoy designing, building, and testing rocket hardware, from propulsion control systems to innovative energy-storage payloads. In my free time, I like biking, climbing, and experimenting with small-scale rocket projects. My goal is to contribute to next-generation aerospace technologies that push the boundaries of space exploration.</p>
+        <p>Hi! I’m Bryce, a mechanical engineer passionate about designing innovative solutions to challenging problems. I love rocketry and space exploration, which has led me to gain hands-on experience in projects such as propulsion control systems, high-power rockets, and energy-storage payloads. My goal is to contribute to next-generation aerospace technologies that push the boundaries of what’s possible. Check out some of my projects below!</p>
       </div>
       <div id="profile-pic">
         <img src="images/profile_pic" alt="Bryce Christensen">
       </div>
     </div>
+  </section>
+
+  <!-- Portfolio Button Section -->
+  <section id="portfolio-button">
+    <a class="portfolio-button" href="https://drive.google.com/file/d/1pr8d8r1FiOHyHIYI4dVYC_4RUioj6vFd/view?usp=sharing" target="_blank">
+      View Current Portfolio
+    </a>
   </section>
 
   <!-- Contact Section -->
