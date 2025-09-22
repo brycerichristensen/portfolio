@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Propulsion Control System | Bryce Christensen</title>
+  <link href="https://fonts.googleapis.com/css2?family=Spectral:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Spectral', 'Times New Roman', serif; margin:0; padding:0; line-height:1.6; background:#fff; color:#000; }
+    header { background-color:#1e3a8a; color:#fff; padding:2rem; text-align:center; position:sticky; top:0; z-index:1000; }
+    header h1 { font-size:3rem; margin:0.5rem 0; }
+    nav a { color:#fff; margin:0 1rem; text-decoration:none; font-weight:700; }
+    nav a:hover { text-decoration:underline; }
+    section { padding:2rem; max-width:900px; margin:auto; }
+    h2 { color:#1e3a8a; font-weight:700; }
+    footer { background:#f4f4f4; text-align:center; padding:1rem; margin-top:2rem; }
+    #contact a { color:#1e3a8a; text-decoration:none; }
+    #contact a:hover { text-decoration:underline; }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Bryce Christensen</h1>
+  <nav>
+    <a href="index.html">Portfolio Home</a>
+  </nav>
+</header>
+
+<section>
+  <h2>Propulsion Control System</h2>
+  <ul>
+    <li>Static Configuration</li>
+    <li>Flight Configuration</li>
+  </ul>
+  <p>Details about the propulsion system go here. You can describe your design, testing, and results.</p>
+</section>
+
+<section id="contact">
+  <h2>Contact</h2>
+  <p>Email: <a href="mailto:brycerichristensen@gmail.com">brycerichristensen@gmail.com</a></p>
+  <p>LinkedIn: <a href="http://www.linkedin.com/in/brycerichristensen" target="_blank">linkedin.com/in/brycerichristensen</a></p>
+  <p>Phone: (936) 900-3932</p>
+</section>
+
+<footer>
+  <p>© 2025 Bryce Christensen</p>
+</footer>
+
+</body>
+</html>
