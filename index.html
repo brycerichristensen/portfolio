@@ -30,10 +30,14 @@
     #profile-pic { flex:1; text-align:center; }
     #profile-pic img { max-width:200px; border-radius:50%; }
     @media(min-width:700px) { #about-container { flex-direction:row; } }
-
-    .under-construction { text-align:center; padding:4rem; font-size:1.25rem; }
-    .under-construction a { color:#1e3a8a; text-decoration:none; font-weight:700; }
-    .under-construction a:hover { text-decoration:underline; }
+    .projects { display:grid; grid-template-columns:1fr; gap:1rem; margin-top:2rem; }
+    @media(min-width:700px) { .projects { grid-template-columns:1fr 1fr; } }
+    .card { border:1px solid #ccc; border-radius:8px; padding:1rem; cursor:pointer; transition:0.3s; background:#f9f9f9; text-align:center; }
+    .card:hover { background:#e0e7ff; }
+    .card img { width:100%; max-height:150px; object-fit:cover; border-radius:5px; margin-bottom:0.5rem; }
+    .card h3 { margin:0.5rem 0; color:#1e3a8a; }
+    .card a { color:#1e3a8a; text-decoration:none; font-weight:700; }
+    .card a:hover { text-decoration:underline; }
 
     #contact a { color:#1e3a8a; text-decoration:none; }
     #contact a:hover { text-decoration:underline; }
@@ -48,7 +52,7 @@
     <h1>Bryce Christensen</h1>
     <nav>
       <a href="#about">About</a>
-      <a href="#portfolio">Portfolio</a>
+      <a href="#projects">Projects</a>
       <a href="#contact">Contact</a>
     </nav>
   </header>
@@ -66,12 +70,33 @@
     </div>
   </section>
 
-  <!-- Temporary Portfolio Section -->
-  <section id="portfolio">
-    <h2>Portfolio</h2>
-    <div class="under-construction">
-      <p>My full portfolio website is currently under construction.</p>
-      <p>In the meantime, you can view it here: <a href="https://drive.google.com/file/d/1pr8d8r1FiOHyHIYI4dVYC_4RUioj6vFd/view?usp=sharing" target="_blank">Google Drive Portfolio</a></p>
+  <!-- Projects Section (all link to Google Drive) -->
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="projects">
+      <div class="card">
+        <img src="images/test_fire.png" alt="Propulsion Control System">
+        <h3>Propulsion Control System</h3>
+        <p><a href="https://drive.google.com/file/d/1pr8d8r1FiOHyHIYI4dVYC_4RUioj6vFd/view?usp=sharing" target="_blank">View Portfolio →</a></p>
+      </div>
+
+      <div class="card">
+        <img src="images/CAD_legs.png" alt="Vertical-Landing Leg Deployment System">
+        <h3>Vertical-Landing Leg Deployment System</h3>
+        <p><a href="https://drive.google.com/file/d/1pr8d8r1FiOHyHIYI4dVYC_4RUioj6vFd/view?usp=sharing" target="_blank">View Portfolio →</a></p>
+      </div>
+
+      <div class="card">
+        <img src="images/battery_prototype.png" alt="Compliant Mechanism Mechanical Battery">
+        <h3>Compliant Mechanism Mechanical Battery</h3>
+        <p><a href="https://drive.google.com/file/d/1pr8d8r1FiOHyHIYI4dVYC_4RUioj6vFd/view?usp=sharing" target="_blank">View Portfolio →</a></p>
+      </div>
+
+      <div class="card">
+        <img src="images/bomb_pop.png" alt="Other Rocketry Projects">
+        <h3>Other Rocketry Projects</h3>
+        <p><a href="https://drive.google.com/file/d/1pr8d8r1FiOHyHIYI4dVYC_4RUioj6vFd/view?usp=sharing" target="_blank">View Portfolio →</a></p>
+      </div>
     </div>
   </section>
 
