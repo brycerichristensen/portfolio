@@ -12,7 +12,17 @@
     header h1 { font-size:3rem; margin:0.5rem 0; }
     nav a { color:#fff; margin:0 1rem; text-decoration:none; font-weight:700; }
     nav a:hover { text-decoration:underline; }
-    section { padding:2rem; max-width:1000px; margin:auto; scroll-margin-top: 100px; }
+
+    /* Section scroll fix for sticky header */
+    section { padding:2rem; max-width:1000px; margin:auto; }
+    section::before {
+      content: "";
+      display: block;
+      height:120px; /* header height */
+      margin-top: -120px; /* pull section back up visually */
+      visibility: hidden;
+    }
+
     h2 { color:#1e3a8a; font-weight:700; }
     #about-container { display:flex; flex-direction:column; gap:1rem; align-items:center; }
     #about-text { flex:1; }
@@ -102,3 +112,4 @@
 
 </body>
 </html>
+
