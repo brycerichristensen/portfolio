@@ -4,25 +4,120 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Bryce Christensen | Portfolio</title>
+  
+  <!-- Google Fonts: Spectral -->
+  <link href="https://fonts.googleapis.com/css2?family=Spectral:wght@400;700&display=swap" rel="stylesheet">
+  
   <style>
-    body { font-family: Arial, sans-serif; margin: 0; padding: 0; line-height: 1.6; }
-    header { background: #222; color: #fff; padding: 1rem 2rem; text-align: center; position: sticky; top: 0; }
-    nav a { color: #fff; margin: 0 1rem; text-decoration: none; }
-    nav a:hover { text-decoration: underline; }
-    section { padding: 2rem; max-width: 900px; margin: auto; }
-    h1, h2 { color: #333; }
-    .projects { display: grid; grid-template-columns: 1fr; gap: 1rem; }
-    .card { border: 1px solid #ccc; border-radius: 8px; padding: 1rem; cursor: pointer; transition: 0.3s; }
-    .card:hover { background: #f9f9f9; }
-    .details { display: none; margin-top: 0.5rem; color: #444; }
-    footer { background: #f4f4f4; text-align: center; padding: 1rem; margin-top: 2rem; }
-    html { scroll-behavior: smooth; }
+    /* Global Styles */
+    body {
+      font-family: 'Spectral', 'Times New Roman', serif;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+      background: #ffffff;
+      color: #000000;
+    }
+
+    /* Header */
+    header {
+      background-color: #1e3a8a; /* Blue header */
+      color: #ffffff;
+      padding: 2rem;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    header h1 {
+      font-size: 3rem;
+      margin: 0.5rem 0;
+    }
+
+    nav a {
+      color: #ffffff;
+      margin: 0 1rem;
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    /* Sections */
+    section {
+      padding: 2rem;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    h2 {
+      color: #1e3a8a; /* Blue headings */
+      font-weight: 700;
+    }
+
+    /* Projects Grid */
+    .projects {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+
     @media(min-width: 700px) {
       .projects { grid-template-columns: 1fr 1fr; }
+    }
+
+    /* Project Cards */
+    .card {
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      padding: 1rem;
+      cursor: pointer;
+      transition: 0.3s;
+      background: #f9f9f9;
+    }
+
+    .card:hover {
+      background: #e0e7ff; /* light blue hover */
+    }
+
+    .card h3 {
+      margin-top: 0;
+      color: #1e3a8a;
+    }
+
+    .details {
+      display: none;
+      margin-top: 0.5rem;
+      color: #333;
+    }
+
+    /* Contact */
+    #contact a {
+      color: #1e3a8a;
+      text-decoration: none;
+    }
+
+    #contact a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      background: #f4f4f4;
+      text-align: center;
+      padding: 1rem;
+      margin-top: 2rem;
+    }
+
+    html {
+      scroll-behavior: smooth;
     }
   </style>
 </head>
 <body>
+  <!-- Header -->
   <header>
     <h1>Bryce Christensen</h1>
     <nav>
@@ -32,50 +127,68 @@
     </nav>
   </header>
 
+  <!-- About Section -->
   <section id="about">
     <h2>About Me</h2>
     <p>Hi! I'm Bryce, an aerospace engineering student passionate about rocketry, propulsion, and avionics. 
        I enjoy building, experimenting, and pushing the limits of technology.</p>
   </section>
 
+  <!-- Projects Section -->
   <section id="projects">
     <h2>Projects</h2>
     <div class="projects">
       <div class="card" onclick="toggleDetails(this)">
-        <h3>Hybrid Rocket Engine</h3>
-        <p>Click to see more...</p>
+        <h3>Propulsion Control System</h3>
+        <p>Click to see details...</p>
         <div class="details">
-          <p>Developed and tested a hybrid rocket motor with real-time pressure/temperature data acquisition.</p>
+          <ul>
+            <li>Static Configuration</li>
+            <li>Flight Configuration</li>
+          </ul>
         </div>
       </div>
+
       <div class="card" onclick="toggleDetails(this)">
-        <h3>3D Printed Landing Legs</h3>
-        <p>Click to see more...</p>
+        <h3>Vertical-Landing Leg Deployment System</h3>
+        <p>Click to see details...</p>
         <div class="details">
-          <p>Designed and tested servo-actuated landing legs for a reusable rocket landing device.</p>
+          <p>Designed and tested servo-actuated landing legs for rocket landing devices.</p>
         </div>
       </div>
+
       <div class="card" onclick="toggleDetails(this)">
-        <h3>Avionics & Telemetry</h3>
-        <p>Click to see more...</p>
+        <h3>Compliant Mechanism Mechanical Battery</h3>
+        <p>Click to see details...</p>
         <div class="details">
-          <p>Built an avionics system with LoRa telemetry, dual-deployment, and real-time altitude callouts.</p>
+          <p>Developed energy storage mechanisms for mechanical systems.</p>
+        </div>
+      </div>
+
+      <div class="card" onclick="toggleDetails(this)">
+        <h3>Other Rocketry Projects</h3>
+        <p>Click to see details...</p>
+        <div class="details">
+          <p>Various additional projects in rocketry and propulsion experimentation.</p>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- Contact Section -->
   <section id="contact">
     <h2>Contact</h2>
-    <p>Email: <a href="mailto:your@email.com">your@email.com</a></p>
-    <p>GitHub: <a href="https://github.com/yourusername" target="_blank">github.com/yourusername</a></p>
-    <p>LinkedIn: <a href="https://linkedin.com/in/yourusername" target="_blank">linkedin.com/in/yourusername</a></p>
+    <p>Email: <a href="mailto:brycerichristensen@gmail.com">brycerichristensen@gmail.com</a></p>
+    <p>LinkedIn: <a href="http://www.linkedin.com/in/brycerichristensen" target="_blank">linkedin.com/in/brycerichristensen</a></p>
+    <p>Phone: (936) 900-3932</p>
   </section>
 
+  <!-- Footer -->
   <footer>
     <p>© 2025 Bryce Christensen</p>
   </footer>
 
+  <!-- JavaScript for Project Expand/Collapse -->
   <script>
     function toggleDetails(card) {
       const details = card.querySelector(".details");
