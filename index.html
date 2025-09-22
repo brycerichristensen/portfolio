@@ -9,7 +9,19 @@
   <style>
     body { font-family: 'Spectral', 'Times New Roman', serif; margin:0; padding:0; background:#fff; color:#000; line-height:1.6; }
 
-    /* Clickable Header Banner */
+    /* Construction Banner */
+    #construction-banner {
+      background-color:#e0f0ff;
+      color:#1e3a8a;
+      text-align:center;
+      padding:0.75rem;
+      font-weight:700;
+      cursor:pointer;
+      text-decoration:none;
+    }
+    #construction-banner:hover { background-color:#c0e0ff; }
+
+    /* Header */
     header {
       background-color:#1e3a8a;
       color:#fff;
@@ -18,15 +30,8 @@
       position:sticky;
       top:0;
       z-index:1000;
-      cursor:pointer;
-      text-decoration:none;
-      display:block;
     }
-    header:hover { background-color:#154080; }
-
-    header h1 { font-size:2rem; margin:0.25rem 0; }
-    header p { font-size:1rem; margin:0; }
-
+    header h1 { font-size:3rem; margin:0.5rem 0; }
     nav { margin-top:0.5rem; }
     nav a { color:#fff; margin:0 1rem; text-decoration:none; font-weight:700; }
     nav a:hover { text-decoration:underline; }
@@ -49,75 +54,38 @@
     #profile-pic img { max-width:200px; border-radius:50%; }
     @media(min-width:700px) { #about-container { flex-direction:row; } }
 
-    .projects { display:grid; grid-template-columns:1fr; gap:1rem; margin-top:2rem; }
-    @media(min-width:700px) { .projects { grid-template-columns:1fr 1fr; } }
-    .card { border:1px solid #ccc; border-radius:8px; padding:1rem; cursor:pointer; transition:0.3s; background:#f9f9f9; text-align:center; }
-    .card:hover { background:#e0e7ff; }
-    .card img { width:100%; max-height:150px; object-fit:cover; border-radius:5px; margin-bottom:0.5rem; }
-    .card h3 { margin:0.5rem 0; color:#1e3a8a; }
-    .card a { color:#1e3a8a; text-decoration:none; font-weight:700; }
-    .card a:hover { text-decoration:underline; }
-
     #contact a { color:#1e3a8a; text-decoration:none; }
     #contact a:hover { text-decoration:underline; }
+
     footer { background:#f4f4f4; text-align:center; padding:1rem; margin-top:2rem; }
     html { scroll-behavior:smooth; }
   </style>
 </head>
 <body>
 
-  <!-- Clickable Header -->
-  <a href="https://drive.google.com/file/d/1pr8d8r1FiOHyHIYI4dVYC_4RUioj6vFd/view?usp=sharing" target="_blank" style="text-decoration:none;">
-    <header>
-      <h1>Website Under Construction</h1>
-      <p>Click here for current portfolio</p>
-      <nav>
-        <a href="#about">About</a>
-        <a href="#projects">Projects</a>
-        <a href="#contact">Contact</a>
-      </nav>
-    </header>
+  <!-- Construction Banner -->
+  <a id="construction-banner" href="https://drive.google.com/file/d/1pr8d8r1FiOHyHIYI4dVYC_4RUioj6vFd/view?usp=sharing" target="_blank">
+    Website Under Construction – Click here for current portfolio
   </a>
+
+  <!-- Header -->
+  <header>
+    <h1>Bryce Christensen</h1>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
 
   <!-- About Section -->
   <section id="about">
     <h2>About Me</h2>
     <div id="about-container">
       <div id="about-text">
-        <p>Hi! I’m Bryce Christensen, an aerospace engineering student passionate about rocketry and propulsion systems. I enjoy designing, building, and testing rocket hardware, from propulsion control systems to innovative energy-storage payloads. I’m particularly interested in combining mechanical design with avionics to create innovative solutions. My goal is to contribute to next-generation aerospace technologies that push the boundaries of space exploration.</p>
+        <p>Hi! I’m Bryce Christensen, an aerospace engineering student from Utah, passionate about rocketry and propulsion systems. I enjoy designing, building, and testing rocket hardware, from propulsion control systems to innovative energy-storage payloads. In my free time, I like biking, climbing, and experimenting with small-scale rocket projects. My goal is to contribute to next-generation aerospace technologies that push the boundaries of space exploration.</p>
       </div>
       <div id="profile-pic">
         <img src="images/profile_pic" alt="Bryce Christensen">
-      </div>
-    </div>
-  </section>
-
-  <!-- Projects Section -->
-  <section id="projects">
-    <h2>Projects</h2>
-    <div class="projects">
-      <div class="card">
-        <img src="images/test_fire.png" alt="Propulsion Control System">
-        <h3>Propulsion Control System</h3>
-        <p><a href="https://drive.google.com/file/d/1pr8d8r1FiOHyHIYI4dVYC_4RUioj6vFd/view?usp=sharing" target="_blank">View Portfolio →</a></p>
-      </div>
-
-      <div class="card">
-        <img src="images/CAD_legs.png" alt="Vertical-Landing Leg Deployment System">
-        <h3>Vertical-Landing Leg Deployment System</h3>
-        <p><a href="https://drive.google.com/file/d/1pr8d8r1FiOHyHIYI4dVYC_4RUioj6vFd/view?usp=sharing" target="_blank">View Portfolio →</a></p>
-      </div>
-
-      <div class="card">
-        <img src="images/battery_prototype.png" alt="Compliant Mechanism Mechanical Battery">
-        <h3>Compliant Mechanism Mechanical Battery</h3>
-        <p><a href="https://drive.google.com/file/d/1pr8d8r1FiOHyHIYI4dVYC_4RUioj6vFd/view?usp=sharing" target="_blank">View Portfolio →</a></p>
-      </div>
-
-      <div class="card">
-        <img src="images/bomb_pop.png" alt="Other Rocketry Projects">
-        <h3>Other Rocketry Projects</h3>
-        <p><a href="https://drive.google.com/file/d/1pr8d8r1FiOHyHIYI4dVYC_4RUioj6vFd/view?usp=sharing" target="_blank">View Portfolio →</a></p>
       </div>
     </div>
   </section>
