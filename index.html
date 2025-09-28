@@ -8,20 +8,27 @@
   <link href="https://fonts.googleapis.com/css2?family=Spectral:wght@400;700&display=swap" rel="stylesheet">
   <style>
     body { font-family: 'Spectral', 'Times New Roman', serif; margin:0; padding:0; background:#fff; color:#000; line-height:1.6; }
-    header { background-color:#1e3a8a; color:#fff; padding:2rem; text-align:center; position:sticky; top:0; z-index:1000; }
+
+    /* Banner */
+    .banner {
+      background-color: #facc15;
+      color: #000;
+      text-align: center;
+      padding: 1rem;
+      font-weight: bold;
+    }
+    .banner a {
+      color: #1e3a8a;
+      text-decoration: underline;
+    }
+
+    /* Header */
+    header { background-color:#1e3a8a; color:#fff; padding:2rem; text-align:center; }
     header h1 { font-size:3rem; margin:0.5rem 0; }
     nav a { color:#fff; margin:0 1rem; text-decoration:none; font-weight:700; }
     nav a:hover { text-decoration:underline; }
 
-    /* Section scroll fix for sticky header */
     section { padding:2rem; max-width:1000px; margin:auto; }
-    section::before {
-      content: "";
-      display: block;
-      height:120px; /* header height */
-      margin-top: -120px; /* pull section back up visually */
-      visibility: hidden;
-    }
 
     h2 { color:#1e3a8a; font-weight:700; }
     #about-container { display:flex; flex-direction:column; gap:1rem; align-items:center; }
@@ -30,19 +37,30 @@
     #profile-pic { flex:1; text-align:center; }
     #profile-pic img { max-width:200px; border-radius:50%; }
     @media(min-width:700px) { #about-container { flex-direction:row; } }
+
+    /* Projects Grid */
     .projects { display:grid; grid-template-columns:1fr; gap:1rem; margin-top:2rem; }
     @media(min-width:700px) { .projects { grid-template-columns:1fr 1fr; } }
     .card { border:1px solid #ccc; border-radius:8px; padding:1rem; cursor:pointer; transition:0.3s; background:#f9f9f9; text-align:center; }
     .card:hover { background:#e0e7ff; }
     .card img { width:100%; max-height:150px; object-fit:cover; border-radius:5px; margin-bottom:0.5rem; }
     .card h3 { margin:0.5rem 0; color:#1e3a8a; }
+
+    /* Contact */
     #contact a { color:#1e3a8a; text-decoration:none; }
     #contact a:hover { text-decoration:underline; }
+
     footer { background:#f4f4f4; text-align:center; padding:1rem; margin-top:2rem; }
     html { scroll-behavior:smooth; }
   </style>
 </head>
 <body>
+
+  <!-- Banner -->
+  <div class="banner">
+    Website under construction - Click here for current PDF version 
+    <a href="https://drive.google.com/file/d/1pr8d8r1FiOHyHIYI4dVYC_4RUioj6vFd/view?usp=sharing" target="_blank">Google Drive</a>.
+  </div>
 
   <!-- Header -->
   <header>
@@ -112,4 +130,3 @@
 
 </body>
 </html>
-
