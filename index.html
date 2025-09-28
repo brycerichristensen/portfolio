@@ -14,13 +14,12 @@
       background-color: #c0e0ff;
       color: #000;
       text-align: center;
-      position:sticky;
+      position: sticky;
+      top: 0;
+      z-index: 2000;
       padding: 1rem;
       font-weight: bold;
-    }
-    .banner a {
-      color: #1e3a8a;
-      text-decoration: underline;
+      cursor: pointer;
     }
 
     /* Header */
@@ -57,11 +56,12 @@
 </head>
 <body>
 
-  <!-- Banner -->
-  <div class="banner">
-    Website under construction - Click here for current PDF version 
-    <a href="https://drive.google.com/file/d/1pr8d8r1FiOHyHIYI4dVYC_4RUioj6vFd/view?usp=sharing" target="_blank">Google Drive</a>.
-  </div>
+  <!-- Banner (whole thing clickable) -->
+  <a href="https://drive.google.com/file/d/1pr8d8r1FiOHyHIYI4dVYC_4RUioj6vFd/view?usp=sharing" target="_blank" style="text-decoration:none;">
+    <div class="banner">
+      Website under construction – Click here for current PDF version
+    </div>
+  </a>
 
   <!-- Header -->
   <header>
@@ -131,3 +131,4 @@
 
 </body>
 </html>
+
