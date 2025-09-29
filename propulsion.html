@@ -3,134 +3,126 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Propulsion Project</title>
+  <title>Propulsion Control System | Bryce Christensen</title>
+  <link href="https://fonts.googleapis.com/css2?family=Spectral:wght@400;700&display=swap" rel="stylesheet">
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      line-height: 1.6;
+    body { 
+      font-family: 'Spectral', 'Times New Roman', serif; 
+      margin:0; padding:0; 
+      line-height:1.6; 
+      background:#fff; color:#000; 
     }
-
-    header {
-      background: #f4f4f4;
-      padding: 10px 20px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
+    header { 
+      background-color:#1e3a8a; 
+      color:#fff; 
+      padding:1.5rem; 
+      text-align:center; 
+      position:sticky; 
+      top:0; 
+      z-index:1000; 
     }
+    header h1 { font-size:2.5rem; margin:0.5rem 0; }
+    nav a { color:#fff; margin:0 1rem; text-decoration:none; font-weight:700; }
+    nav a:hover { text-decoration:underline; }
+    section { padding:2rem; max-width:1000px; margin:auto; }
+    h2 { color:#1e3a8a; font-weight:700; margin-bottom:1rem; }
+    footer { background:#f4f4f4; text-align:center; padding:1rem; margin-top:2rem; }
+    #contact a { color:#1e3a8a; text-decoration:none; }
+    #contact a:hover { text-decoration:underline; }
 
-    header nav a {
-      margin: 0 10px;
-      text-decoration: none;
-      color: #007acc;
-      font-weight: bold;
-    }
-
-    section {
-      padding: 40px 20px;
-    }
-
-    section h2 {
-      text-align: center;
-      margin-bottom: 20px;
-    }
-
+    /* Layout for alternating content */
     .content-block {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin: 40px 0;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      margin:2rem 0;
+      gap:2rem;
     }
-
     .content-block img, 
     .content-block iframe {
-      max-width: 45%;
-      border-radius: 10px;
+      max-width:45%;
+      border-radius:8px;
     }
-
     .content-block p {
-      max-width: 45%;
+      max-width:50%;
     }
-
-    /* Alternate layouts */
-    .left-text {
-      flex-direction: row;
-    }
-
-    .right-text {
-      flex-direction: row-reverse;
-    }
+    .left-text { flex-direction:row; }
+    .right-text { flex-direction:row-reverse; }
   </style>
 </head>
 <body>
 
-  <header>
-    <div>
-      <a href="index.html">← Return to Main Page</a>
-    </div>
-    <nav>
-      <a href="#static">Static Configuration</a>
-      <a href="#flight">Flight Configuration</a>
-    </nav>
-  </header>
+<header>
+  <h1>Bryce Christensen</h1>
+  <nav>
+    <a href="index.html">Portfolio Home</a>
+    <a href="#static">Static Configuration</a>
+    <a href="#flight">Flight Configuration</a>
+  </nav>
+</header>
 
-  <!-- Static Configuration Section -->
-  <section id="static">
-    <h2>Static Configuration</h2>
-    <p>This section introduces the static testing setup and early results from propulsion experiments.</p>
+<section id="static">
+  <h2>Static Configuration</h2>
+  <p>This section introduces the static testing setup and early results from propulsion experiments.</p>
 
-    <div class="content-block left-text">
-      <p>Paragraph about first setup goes here.</p>
-      <img src="images/static1.jpg" alt="Static setup image 1">
-    </div>
+  <div class="content-block left-text">
+    <p>Paragraph about first static setup goes here.</p>
+    <img src="images/static1.jpg" alt="Static setup image 1">
+  </div>
 
-    <div class="content-block right-text">
-      <p>Paragraph about second setup goes here.</p>
-      <img src="images/static2.jpg" alt="Static setup image 2">
-    </div>
+  <div class="content-block right-text">
+    <p>Paragraph about second static test goes here.</p>
+    <img src="images/static2.jpg" alt="Static setup image 2">
+  </div>
 
-    <div class="content-block left-text">
-      <p>Paragraph about third setup goes here.</p>
-      <iframe width="560" height="315" src="https://www.youtube.com/embed/4QkmdE4Ems4" 
-              title="YouTube video" frameborder="0" allowfullscreen></iframe>
-    </div>
+  <div class="content-block left-text">
+    <p>Paragraph about third setup goes here.</p>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/4QkmdE4Ems4" 
+            title="YouTube video" frameborder="0" allowfullscreen></iframe>
+  </div>
 
-    <div class="content-block right-text">
-      <p>Paragraph about fourth setup goes here.</p>
-      <img src="images/static3.jpg" alt="Static setup image 3">
-    </div>
-  </section>
+  <div class="content-block right-text">
+    <p>Paragraph about fourth static configuration goes here.</p>
+    <img src="images/static3.jpg" alt="Static setup image 3">
+  </div>
+</section>
 
-  <!-- Flight Configuration Section -->
-  <section id="flight">
-    <h2>Flight Configuration</h2>
-    <p>This section explains how the propulsion system was integrated into the rocket for flight.</p>
+<section id="flight">
+  <h2>Flight Configuration</h2>
+  <p>This section explains how the propulsion system was integrated into the rocket for flight.</p>
 
-    <div class="content-block left-text">
-      <p>Paragraph about first flight setup goes here.</p>
-      <img src="images/flight1.jpg" alt="Flight setup image 1">
-    </div>
+  <div class="content-block left-text">
+    <p>Paragraph about first flight setup goes here.</p>
+    <img src="images/flight1.jpg" alt="Flight setup image 1">
+  </div>
 
-    <div class="content-block right-text">
-      <p>Paragraph about second flight setup goes here.</p>
-      <img src="images/flight2.jpg" alt="Flight setup image 2">
-    </div>
+  <div class="content-block right-text">
+    <p>Paragraph about second flight setup goes here.</p>
+    <img src="images/flight2.jpg" alt="Flight setup image 2">
+  </div>
 
-    <div class="content-block left-text">
-      <p>Paragraph about third flight setup goes here.</p>
-      <iframe width="560" height="315" src="https://www.youtube.com/embed/4QkmdE4Ems4" 
-              title="YouTube video" frameborder="0" allowfullscreen></iframe>
-    </div>
+  <div class="content-block left-text">
+    <p>Paragraph about third flight configuration goes here.</p>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/4QkmdE4Ems4" 
+            title="YouTube video" frameborder="0" allowfullscreen></iframe>
+  </div>
 
-    <div class="content-block right-text">
-      <p>Paragraph about fourth flight setup goes here.</p>
-      <img src="images/flight3.jpg" alt="Flight setup image 3">
-    </div>
-  </section>
+  <div class="content-block right-text">
+    <p>Paragraph about fourth flight integration goes here.</p>
+    <img src="images/flight3.jpg" alt="Flight setup image 3">
+  </div>
+</section>
+
+<section id="contact">
+  <h2>Contact</h2>
+  <p>Email: <a href="mailto:brycerichristensen@gmail.com">brycerichristensen@gmail.com</a></p>
+  <p>LinkedIn: <a href="http://www.linkedin.com/in/brycerichristensen" target="_blank">linkedin.com/in/brycerichristensen</a></p>
+  <p>Phone: (936) 900-3932</p>
+</section>
+
+<footer>
+  <p>© 2025 Bryce Christensen</p>
+</footer>
 
 </body>
 </html>
