@@ -6,47 +6,163 @@
   <title>Other Rocketry Projects | Bryce Christensen</title>
   <link href="https://fonts.googleapis.com/css2?family=Spectral:wght@400;700&display=swap" rel="stylesheet">
   <style>
-    body { font-family:'Spectral','Times New Roman',serif; margin:0; padding:0; line-height:1.6; background:#fff; color:#000; }
-    header { background-color:#1e3a8a; color:#fff; padding:2rem; text-align:center; position:sticky; top:0; z-index:1000; }
+    body { font-family: 'Spectral', 'Times New Roman', serif; margin:0; padding:0; line-height:1.6; background:#fff; color:#000; }
+    
+    /* Sticky Header */
+    header { background-color:#1e3a8a; color:#fff; padding:1rem 2rem; text-align:center; position:sticky; top:0; z-index:1000; }
     header h1 { font-size:3rem; margin:0.5rem 0; }
     nav a { color:#fff; margin:0 1rem; text-decoration:none; font-weight:700; }
     nav a:hover { text-decoration:underline; }
+
+    /* Hero Banner */
+    .hero {
+      position: relative;
+      background-image: url('images/bomb_pop1.png');
+      background-size: cover;
+      background-position: center;
+      height: 300px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #fff;
+      text-align: center;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top:0; left:0; right:0; bottom:0;
+      background-color: rgba(0,0,0,0.5); /* dark overlay */
+      z-index:1;
+    }
+    .hero h2 {
+      position: relative;
+      z-index:2;
+      font-size:4rem; /* project title bigger */
+      margin:0;
+    }
+
+    /* Intro paragraph */
+    .intro { max-width:900px; margin:2rem auto; font-size:1.1rem; } /* slightly smaller text */
+
+    /* Sub-project sections */
     section { padding:2rem; max-width:900px; margin:auto; }
-    h2 { color:#1e3a8a; font-weight:700; }
-    footer { background:#f4f4f4; text-align:center; padding:1rem; margin-top:2rem; }
+    h3 { font-size: 2rem; color:#1e3a8a; margin-top:2rem; margin-bottom:1rem; }
+    
+    /* Alternating content */
+    .content-row { display:flex; flex-direction:column; gap:1rem; margin-bottom:2rem; align-items:center; }
+    .content-row img, .content-row video { max-width:400px; width:100%; border-radius:8px; }
+    .content-left { flex-direction: column; }
+    .content-right { flex-direction: column; }
+    @media(min-width:700px) {
+      .content-left { flex-direction: row; justify-content: space-between; }
+      .content-left .text { order:1; width:55%; }
+      .content-left .media { order:2; width:40%; }
+
+      .content-right { flex-direction: row; justify-content: space-between; }
+      .content-right .text { order:2; width:55%; text-align:right; }
+      .content-right .media { order:1; width:40%; }
+    }
+
+    /* Contact */
     #contact a { color:#1e3a8a; text-decoration:none; }
     #contact a:hover { text-decoration:underline; }
+
+    footer { background:#f4f4f4; text-align:center; padding:1rem; margin-top:2rem; }
   </style>
 </head>
 <body>
 
-<header>
-  <h1>Bryce Christensen</h1>
-  <nav>
-    <a href="index.html">Portfolio Home</a>
-  </nav>
-</header>
+  <!-- Sticky Header -->
+  <header>
+    <h1>Bryce Christensen</h1>
+    <nav>
+      <a href="index.html">Portfolio Home</a>
+      <a href="#bombpop">Bomb Pop</a>
+      <a href="#legatus">Legatus</a>
+      <a href="#praetor">Praetor</a>
+      <a href="#1776">1776</a>
+    </nav>
+  </header>
 
-<section>
-  <h2>Other Rocketry Projects</h2>
-  <p>This section includes various additional projects in rocketry and propulsion experimentation. Highlights include:</p>
-  <ul>
-    <li>Experimental propulsion tests</li>
-    <li>Avionics and telemetry integration</li>
-    <li>Reusable rocket component designs</li>
-  </ul>
-</section>
+  <!-- Hero Banner -->
+  <div class="hero">
+    <h2>Other Rocketry Projects</h2>
+  </div>
 
-<section id="contact">
-  <h2>Contact</h2>
-  <p>Email: <a href="mailto:brycerichristensen@gmail.com">brycerichristensen@gmail.com</a></p>
-  <p>LinkedIn: <a href="http://www.linkedin.com/in/brycerichristensen" target="_blank">linkedin.com/in/brycerichristensen</a></p>
-  <p>Phone: (936) 900-3932</p>
-</section>
+  <!-- Intro Paragraph -->
+  <div class="intro">
+    <p>Here you can provide an overview of your other rocketry projects, highlighting the focus of each sub-project. Introduce the goals or overall theme of this collection of work.</p>
+  </div>
 
-<footer>
-  <p>© 2025 Bryce Christensen</p>
-</footer>
+  <!-- Bomb Pop -->
+  <section id="bombpop">
+    <h3>Bomb Pop</h3>
+    <div class="content-row content-left">
+      <div class="text"><p>Paragraph describing Bomb Pop overview.</p></div>
+      <div class="media"><img src="images/placeholder.png" alt="Bomb Pop Image 1"></div>
+    </div>
+    <div class="content-row content-right">
+      <div class="text"><p>Paragraph describing Bomb Pop video.</p></div>
+      <div class="media">
+        <video controls>
+          <source src="videos/placeholder_vertical.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+    </div>
+  </section>
+
+  <!-- Legatus -->
+  <section id="legatus">
+    <h3>Legatus</h3>
+    <div class="content-row content-left">
+      <div class="text"><p>Paragraph describing first Legatus image.</p></div>
+      <div class="media"><img src="images/placeholder.png" alt="Legatus Image 1"></div>
+    </div>
+    <div class="content-row content-right">
+      <div class="text"><p>Paragraph describing second Legatus image.</p></div>
+      <div class="media"><img src="images/placeholder.png" alt="Legatus Image 2"></div>
+    </div>
+  </section>
+
+  <!-- Praetor -->
+  <section id="praetor">
+    <h3>Praetor</h3>
+    <div class="content-row content-left">
+      <div class="text"><p>Paragraph describing Praetor image.</p></div>
+      <div class="media"><img src="images/placeholder.png" alt="Praetor Image"></div>
+    </div>
+    <div class="content-row content-right">
+      <div class="text"><p>Paragraph describing Praetor video.</p></div>
+      <div class="media">
+        <video controls>
+          <source src="videos/placeholder_horizontal.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+    </div>
+  </section>
+
+  <!-- 1776 -->
+  <section id="1776">
+    <h3>1776</h3>
+    <div class="content-row content-left">
+      <div class="text"><p>Paragraph describing 1776 project.</p></div>
+      <div class="media"><img src="images/placeholder.png" alt="1776 Image"></div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <h2>Contact</h2>
+    <p>Email: <a href="mailto:brycerichristensen@gmail.com">brycerichristensen@gmail.com</a></p>
+    <p>LinkedIn: <a href="http://www.linkedin.com/in/brycerichristensen" target="_blank">linkedin.com/in/brycerichristensen</a></p>
+    <p>Phone: (936) 900-3932</p>
+  </section>
+
+  <footer>
+    <p>© 2025 Bryce Christensen</p>
+  </footer>
 
 </body>
 </html>
