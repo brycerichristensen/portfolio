@@ -39,7 +39,7 @@
       .before-after img { flex:1; min-width:120px; max-width:100%; }
     }
     @media(min-width:1000px) {
-      .before-after { flex-direction: column; } /* vertically stacked for simplicity */
+      .before-after { flex-direction: column; }
       .before-after img { max-width:50%; } /* 50% smaller */
     }
 
@@ -51,10 +51,12 @@
 
     footer { background:#f4f4f4; text-align:center; padding:1rem; margin-top:2rem; }
 
-    /* Cropped images */
-    .square-image { width:300px; height:300px; object-fit:cover; }
-    .zoom-center { object-fit:cover; object-position:center; }
-    .team-photo { width:400px; height:300px; object-fit:cover; object-position:center; }
+    /* Cropped / resized images */
+    .square-image { width:240px; height:240px; object-fit:cover; } /* 20% smaller than original 300px */
+    .pt-graph { width:120%; height:auto; } /* 20% bigger */
+    .team-photo { width:400px; height:250px; object-fit:cover; object-position:center; } /* crop top/bottom for horizontal */
+    .fsm-diagram { width:140%; height:auto; } /* 40% bigger */
+    .zoom-center { object-fit:cover; object-position:center; } /* used for before/after */
   </style>
 </head>
 <body>
@@ -116,7 +118,7 @@
         <p>The figure on the right shows the pressure transducer data from a recent static fire. While some noise is still present, the data is much cleaner and can more easily be analyzed. PT1 reads the oxidizer tank pressure, which drops as expected during the 10-second test. PTs 2-4 were placed at various points within the system to determine efficiencies and pressure drops. During the test, hot paraffin wax clogged the port to PT4, causing it to read ambient pressures for the entire test. PT5 was not used, so it is not graphed. These higher-quality results helped us measure the combustion efficiency of our engine and improve on the next iteration.</p>
       </div>
       <div class="media">
-        <img src="images/pressure_transducers.png" alt="Data Acquisition">
+        <img src="images/pressure_transducers.png" alt="Data Acquisition" class="pt-graph">
       </div>
     </div>
 
@@ -145,7 +147,7 @@
         <p>I am leading a group of six in designing, integrating, and testing the flight configuration control system. To keep the project on track, I established a clear schedule with deadlines for each team member, ensuring that objectives are accomplished in a timely manner. I analyzed the project requirements and created a comprehensive state machine to guarantee proper system functionality, which has been implemented in C++ to run simultaneously on the propulsion control unit, ground station, and oxidizer fill trailer. The figure on the right shows the states and transition logic required for the FSM.</p>
       </div>
       <div class="media">
-        <img src="images/download (3).png" alt="State Machine Diagram">
+        <img src="images/download (3).png" alt="State Machine Diagram" class="fsm-diagram">
       </div>
     </div>
 
