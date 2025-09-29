@@ -42,10 +42,15 @@
     }
 
     /* Intro paragraph */
-    .intro { max-width:900px; margin:2rem auto; font-size:1.1rem; } /* slightly smaller text */
+    .intro { max-width:900px; margin:2rem auto; font-size:1.1rem; }
 
     /* Sub-project sections */
-    section { padding:2rem; max-width:900px; margin:auto; }
+    section { 
+      padding:2rem; 
+      max-width:900px; 
+      margin:auto; 
+      scroll-margin-top: 100px; /* ensures sticky header doesn't cover section */
+    }
     h3 { font-size: 1.8rem; color:#1e3a8a; margin-top:2rem; margin-bottom:1rem; }
     
     /* Alternating content */
@@ -207,4 +212,3 @@
 
 </body>
 </html>
-
