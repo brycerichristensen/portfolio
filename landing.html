@@ -8,7 +8,7 @@
   <style>
     body { font-family: 'Spectral', 'Times New Roman', serif; margin:0; padding:0; line-height:1.6; background:#fff; color:#000; }
     
-    html { scroll-behavior: smooth; scroll-padding-top: 80px; } /* sticky header offset */
+    html { scroll-behavior: smooth; scroll-padding-top: 80px; }
 
     /* Sticky Header */
     header { background-color:#1e3a8a; color:#fff; padding:1rem 2rem; text-align:center; position:sticky; top:0; z-index:1000; }
@@ -19,7 +19,7 @@
     /* Hero Banner */
     .hero {
       position: relative;
-      background-image: url('images/CAD_legs.png'); /* placeholder image */
+      background-image: url('images/CAD_legs.png');
       background-size: cover;
       background-position: center;
       height: 300px;
@@ -33,15 +33,10 @@
       content: '';
       position: absolute;
       top:0; left:0; right:0; bottom:0;
-      background-color: rgba(0,0,0,0.5); /* dark overlay */
+      background-color: rgba(0,0,0,0.5);
       z-index:1;
     }
-    .hero h2 {
-      position: relative;
-      z-index:2;
-      font-size:4rem;
-      margin:0;
-    }
+    .hero h2 { position: relative; z-index:2; font-size:4rem; margin:0; }
 
     /* Intro paragraph */
     .intro { max-width:900px; margin:2rem auto; font-size:1.1rem; text-align:center; }
@@ -66,7 +61,7 @@
       .content-right .text { order:2; width:55%; text-align:left; }
       .content-right .media { order:1; width:40%; }
 
-      .content-right .media img.second-image { width:50%; height:auto; } /* 50% smaller for second image */
+      .content-right .media img.third-image { width:85%; height:auto; } /* slightly smaller */
     }
 
     /* Contact */
@@ -115,7 +110,7 @@
       <p>I 3D printed and assembled the prototype, paying close attention to tolerances for accurate fit. I integrated the electronics and verified that the system actuated the landing legs reliably when within a set proximity to the ground.</p>
     </div>
     <div class="media">
-      <img src="images/download (7).png" alt="Landing Image 2" class="second-image">
+      <img src="images/download (7).png" alt="Landing Image 2">
     </div>
   </div>
 
@@ -124,7 +119,7 @@
       <p>The final setup demonstrates precise, repeatable landing leg deployment, showcasing the combination of mechanical design, electronics, and programming in a single integrated system. This prototype earned first place out of 150 students in an electrical engineering design competition.</p>
     </div>
     <div class="media">
-      <img src="images/download (6).png" alt="Landing Image 3">
+      <img src="images/download (6).png" alt="Landing Image 3" class="third-image">
     </div>
   </div>
 </section>
@@ -143,3 +138,4 @@
 
 </body>
 </html>
+
