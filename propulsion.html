@@ -46,53 +46,45 @@
 
     /* Sections */
     section { 
-      padding:1.5rem 2rem; 
+      padding:2rem; 
       max-width:900px; 
       margin:auto; 
       scroll-margin-top: 100px;
     }
-    h3 { font-size: 1.8rem; color:#1e3a8a; margin-top:1.5rem; margin-bottom:1rem; }
+    h3 { font-size: 1.8rem; color:#1e3a8a; margin-top:2rem; margin-bottom:1rem; }
 
-    /* Alternating content */
+    /* Content rows */
     .content-row { display:flex; flex-direction:column; gap:1rem; margin-bottom:2rem; align-items:center; }
-    .content-row img { width:100%; border-radius:8px; object-fit: cover; }
+    .content-row img { max-width:100%; width:100%; border-radius:8px; }
     .text { text-align:left; }
-
-    @media(min-width:700px) {
-      .content-left { flex-direction: row; justify-content: space-between; }
-      .content-left .text { order:1; width:55%; }
-      .content-left .media { order:2; width:40%; }
-
-      .content-right { flex-direction: row; justify-content: space-between; }
-      .content-right .text { order:2; width:55%; text-align:left; }
-      .content-right .media { order:1; width:40%; }
-
-      /* Before/After images next to text */
-      .before-after { flex-direction: row; gap:1rem; justify-content:flex-start; }
-      .before-after img { width:48%; height:auto; border-radius:8px; }
-    }
 
     /* Video */
     .video-container {
-      margin: 1.5rem auto 0 auto;
+      margin: 1rem auto 2rem auto;
       text-align: center;
     }
-
     .video-container iframe {
-      width: 50%;  /* smaller size */
-      height: calc(50% * 9 / 16); /* maintain 16:9 */
+      width: 560px;
+      height: 315px;
       border-radius: 8px;
     }
 
-    /* Specific images adjustments */
-    .square-img { width:100%; height:300px; }
-    .team-photo { width:100%; height:300px; object-fit:cover; object-position:center; }
-
-    /* Contact */
-    #contact a { color:#1e3a8a; text-decoration:none; }
-    #contact a:hover { text-decoration:underline; }
+    /* Before/After stacked images */
+    .before-after {
+      display:flex;
+      flex-direction:column;
+      gap:1rem;
+      width:100%;
+    }
+    .before-after img {
+      width:100%;
+      height:auto;
+      border-radius:8px;
+    }
 
     footer { background:#f4f4f4; text-align:center; padding:1rem; margin-top:2rem; }
+    #contact a { color:#1e3a8a; text-decoration:none; }
+    #contact a:hover { text-decoration:underline; }
   </style>
 </head>
 <body>
@@ -133,17 +125,16 @@
   <section id="static">
     <h3>Static Configuration</h3>
 
-    <!-- Overview -->
     <div class="content-row">
       <div class="text">
         <p>This project focused on optimizing and refining the static configuration’s data collection and control system. Key objectives included reducing signal noise in the sensors, improving reliability and robustness, and cutting down setup time to streamline launch-day operations, as electronics setup had previously been the primary bottleneck.</p>
       </div>
     </div>
 
-    <!-- First Image Row with updated paragraph -->
+    <!-- First Image Row: before/after stacked -->
     <div class="content-row content-left">
       <div class="text">
-        <p>The previous DAQ system suffered from significant sensor noise, largely caused by messy wiring, screw terminals, and suboptimal soldering. In some cases, poor soldering even led to sensor shorting, which compromised data quality. To address this, I resoldered the pressure transducer protoboard, replaced screw terminals with soldered joints and quick-disconnect outlets, and upgraded the voltage regulation system using a buck converter and capacitor. The images on the right illustrate the pressure transducer electronics before and after these improvements.</p>
+        <p>The previous DAQ system suffered from significant sensor noise, largely caused by messy wiring, screw terminals, and suboptimal soldering. In some cases, poor soldering even led to sensor shorting, which compromised data quality. To address this, I resoldered the pressure transducer protoboard, replaced screw terminals with soldered joints and quick-disconnect outlets, and upgraded the voltage regulation system using a buck converter and capacitor. The images below illustrate the pressure transducer electronics before and after these improvements.</p>
       </div>
       <div class="media before-after">
         <img src="images/20250929_103219.jpg" alt="Static Before Wiring">
@@ -151,36 +142,35 @@
       </div>
     </div>
 
-    <!-- Second Image Row -->
+    <!-- Second Image Row: smaller square image -->
     <div class="content-row content-right">
       <div class="text">
         <p>During a previous hot-fire test, the delay between ignition and run-valve actuation was too short, which resulted in engine failure. I modified the LabVIEW code to correct this timing, preventing future delays from affecting performance. Additionally, I added two pressure transducers to the system, increasing our sensing capability from three to five. Finally, I replaced the bulky ignition switch with a smaller, more robust MOSFET, improving both reliability and system compactness. In the image on the left, I am setting up the controls box in preparation for a static fire.</p>
       </div>
       <div class="media" style="max-width:300px;">
-        <img src="images/20241207_101705.jpg" alt="Setting up electronics" class="square-img">
+        <img src="images/20241207_101705.jpg" alt="Setting up electronics" style="object-fit:cover; width:300px; height:300px;">
       </div>
     </div>
 
-    <!-- Third Image Row -->
+    <!-- Third Image Row: PT data (unchanged) -->
     <div class="content-row content-left">
       <div class="text">
         <p>The figure on the right shows the pressure transducer data from a recent static fire. While some noise is still present, the data is much cleaner and can more easily be analyzed. PT1 reads the oxidizer tank pressure, which drops as expected during the 10-second test. PTs 2-4 were placed at various points within the system to determine efficiencies and pressure drops. During the test, hot paraffin wax clogged the port to PT4, causing it to read ambient pressures for the entire test. PT5 was not used, so it is not graphed. These higher-quality results helped us measure the combustion efficiency of our engine and improve on the next iteration.</p>
       </div>
       <div class="media">
-        <img src="images/pressure_transducers.png" alt="Data Acquisition" class="square-img">
+        <img src="images/pressure_transducers.png" alt="Data Acquisition">
       </div>
     </div>
 
-    <!-- Fourth Image Row -->
+    <!-- Fourth Image Row: team photo zoomed center 75% -->
     <div class="content-row content-right">
       <div class="text">
         <p>The changes I led my team in implementing reduced setup time from two hours to just 30 minutes. Instead of screwing wires into place and constantly checking for shorts or other errors, we now simply plug in the pressure transducers, connect everything to the engine, and begin collecting data. Overall, the system is more robust, easier to troubleshoot, and provides cleaner, more reliable measurements.</p>
       </div>
       <div class="media">
-        <img src="images/IMG_2159 (1).jpeg" alt="Team Photo at Static Fire" class="team-photo">
+        <img src="images/IMG_2159 (1).jpeg" alt="Team Photo at Static Fire" style="object-fit:cover; width:100%; height:400px; object-position:center;">
       </div>
     </div>
-
   </section>
 
   <!-- Flight Configuration -->
@@ -226,4 +216,3 @@
 
 </body>
 </html>
-
