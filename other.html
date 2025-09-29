@@ -22,7 +22,7 @@
     /* Hero Banner */
     .hero {
       position: relative;
-      background-image: url('images/bomb_pop1.png'); /* same as main page */
+      background-image: url('images/bomb_pop1.png');
       background-size: cover;
       background-position: center;
       height: 300px;
@@ -36,7 +36,7 @@
       content: '';
       position: absolute;
       top:0; left:0; right:0; bottom:0;
-      background-color: rgba(0,0,0,0.5); /* dark overlay */
+      background-color: rgba(0,0,0,0.5);
       z-index:1;
     }
     .hero h2 {
@@ -58,13 +58,14 @@
     .content-row img, .content-row video { max-width:400px; width:100%; border-radius:8px; }
     .content-left { flex-direction: column; }
     .content-right { flex-direction: column; }
+    .text { text-align:left; }
     @media(min-width:700px) {
       .content-left { flex-direction: row; justify-content: space-between; }
       .content-left .text { order:1; width:55%; }
       .content-left .media { order:2; width:40%; }
 
       .content-right { flex-direction: row; justify-content: space-between; }
-      .content-right .text { order:2; width:55%; text-align:right; }
+      .content-right .text { order:2; width:55%; text-align:left; }
       .content-right .media { order:1; width:40%; }
     }
 
@@ -101,24 +102,19 @@
 <!-- Bomb Pop -->
 <section id="bombpop">
   <h3>Bomb Pop</h3>
-  <div class="content-row">
-    <div class="text">
-      <p>Overview of Bomb Pop project with initial description and objectives.</p>
-    </div>
-  </div>
 
   <div class="content-row content-left">
     <div class="text">
-      <p>Description of vertical picture for Bomb Pop.</p>
+      <p>For my advanced launch competition rocket, Bomb Pop, I worked with an L1000 motor and designed it with dual-deploy recovery and live telemetry. I integrated an onboard camera and carefully refined the flight systems to reach an apogee of 8,055 feet AGL — only 55 feet from our target. This project earned first place in the competition, reflecting both precise engineering and execution.</p>
     </div>
     <div class="media">
-      <img src="images/bomb_pop1.png" alt="Bomb Pop Picture">
+      <img src="images/download (9).png" alt="Bomb Pop Picture">
     </div>
   </div>
 
   <div class="content-row content-right">
     <div class="text">
-      <p>Description of vertical video for Bomb Pop.</p>
+      <p>I documented the launch with a vertical video, showing the rocket’s ascent and dual-deploy recovery in real time.</p>
     </div>
     <div class="media">
       <video controls>
@@ -131,21 +127,22 @@
 <!-- Legatus -->
 <section id="legatus">
   <h3>Legatus</h3>
+
   <div class="content-row content-left">
     <div class="text">
-      <p>Description of first Legatus picture.</p>
+      <p>Legatus is my Tripoli L2 certification rocket, powered by a J270 motor and fabricated using carbon fiber. I designed a custom avionics bay and integrated an onboard camera. I hand-soldered the flight computer, including SMT components, and ensured dual-deploy recovery for safe landings. This project challenged me to combine advanced fabrication techniques with precise electronics integration.</p>
     </div>
     <div class="media">
-      <img src="images/legatus1.png" alt="Legatus Picture 1">
+      <img src="images/legatus_unfinished_finished.png" alt="Legatus Picture 1">
     </div>
   </div>
 
   <div class="content-row content-right">
     <div class="text">
-      <p>Description of second Legatus picture.</p>
+      <p>The second image illustrates the final Legatus assembly, highlighting the finished structure and electronics setup.</p>
     </div>
     <div class="media">
-      <img src="images/legatus2.png" alt="Legatus Picture 2">
+      <img src="images/download (10).png" alt="Legatus Picture 2">
     </div>
   </div>
 </section>
@@ -153,18 +150,19 @@
 <!-- Praetor -->
 <section id="praetor">
   <h3>Praetor</h3>
+
   <div class="content-row content-left">
     <div class="text">
-      <p>Description of vertical picture for Praetor.</p>
+      <p>Praetor is my Tripoli L1 certification rocket, powered by an H135 motor. I equipped it with live telemetry and an onboard camera for data capture during flights. This project emphasized compact design and robust electronics integration.</p>
     </div>
     <div class="media">
-      <img src="images/praetor1.png" alt="Praetor Picture">
+      <img src="images/praetor_unfinished_finished.png" alt="Praetor Picture">
     </div>
   </div>
 
   <div class="content-row content-right">
     <div class="text">
-      <p>Description of horizontal video for Praetor.</p>
+      <p>A horizontal video demonstrates the rocket’s flight, showcasing the telemetry and camera functionality in action.</p>
     </div>
     <div class="media">
       <video controls>
@@ -177,12 +175,13 @@
 <!-- 1776 -->
 <section id="1776">
   <h3>1776</h3>
+
   <div class="content-row content-left">
     <div class="text">
-      <p>Description of vertical picture for 1776.</p>
+      <p>1776 is a student launch competition rocket, powered by a G74 motor. I worked on the design and assembly, ultimately earning 3rd place out of approximately 25 teams. This project helped me hone rapid prototyping skills and practical rocketry experience.</p>
     </div>
     <div class="media">
-      <img src="images/1776.png" alt="1776 Picture">
+      <img src="images/download (11).png" alt="1776 Picture">
     </div>
   </div>
 </section>
