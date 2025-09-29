@@ -38,9 +38,24 @@
       .before-after { flex-direction: column; gap:1rem; }
       .before-after img { flex:1; min-width:120px; max-width:100%; }
     }
+
     @media(min-width:1000px) {
-      .before-after { flex-direction: column; }
-      .before-after img { max-width:50%; } /* 50% smaller */
+      /* Updated before/after layout */
+      .before-after {
+        flex-direction: row;
+        gap: 1rem;
+        width: 100%;
+        align-items: flex-start;
+      }
+      .before-after .before,
+      .before-after .after {
+        flex: 1; /* images split remaining space */
+        max-width: none;
+        height: auto;
+      }
+      .before-after .before { margin-right: 0.5rem; }
+      .before-after .after { margin-left: 0.5rem; }
+      .content-left .text { width: 40%; } /* shrink text */
     }
 
     .video-container { margin: 1rem auto; text-align:center; }
@@ -52,11 +67,11 @@
     footer { background:#f4f4f4; text-align:center; padding:1rem; margin-top:2rem; }
 
     /* Cropped / resized images */
-    .square-image { width:240px; height:240px; object-fit:cover; } /* 20% smaller than original 300px */
+    .square-image { width:240px; height:240px; object-fit:cover; } /* 20% smaller */
     .pt-graph { width:120%; height:auto; } /* 20% bigger */
-    .team-photo { width:400px; height:250px; object-fit:cover; object-position:center; } /* crop top/bottom for horizontal */
+    .team-photo { width:400px; height:250px; object-fit:cover; object-position:center; } /* crop top/bottom */
     .fsm-diagram { width:140%; height:auto; } /* 40% bigger */
-    .zoom-center { object-fit:cover; object-position:center; } /* used for before/after */
+    .zoom-center { object-fit:cover; object-position:center; } /* for images like before/after */
   </style>
 </head>
 <body>
@@ -94,13 +109,14 @@
       </div>
     </div>
 
+    <!-- Before/After Section -->
     <div class="content-row content-left">
       <div class="text">
         <p>The previous DAQ system suffered from significant sensor noise, largely caused by messy wiring, screw terminals, and suboptimal soldering. In some cases, poor soldering even led to sensor shorting, which compromised data quality. To address this, I resoldered the pressure transducer protoboard, replaced screw terminals with soldered joints and quick-disconnect outlets, and upgraded the voltage regulation system using a buck converter and capacitor. The images on the right illustrate the pressure transducer electronics before and after these improvements.</p>
       </div>
       <div class="media before-after">
-        <img src="images/20250929_103219.jpg" alt="Static Before Wiring" class="zoom-center">
-        <img src="images/20250929_103422.jpg" alt="Static After Wiring" class="zoom-center">
+        <img src="images/20250929_103219.jpg" alt="Static Before Wiring" class="zoom-center before">
+        <img src="images/20250929_103422.jpg" alt="Static After Wiring" class="zoom-center after">
       </div>
     </div>
 
