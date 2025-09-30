@@ -1,201 +1,233 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Other Rocketry Projects | Bryce Christensen</title>
   <link href="https://fonts.googleapis.com/css2?family=Spectral:wght@400;700&display=swap" rel="stylesheet">
   <style>
-    body { font-family: 'Spectral', 'Times New Roman', serif; margin:0; padding:0; line-height:1.6; background:#fff; color:#000; }
-    
-    html { 
-      scroll-behavior: smooth;
-      scroll-padding-top: 80px; /* offset for sticky header */
+    /* --- Variables & base --- */
+    :root{
+      --accent: #1e3a8a;
+      --page-max: 1100px;
+      --img-max-height: 420px; /* consistent tall image height */
+      --img-medium-height: 260px; /* medium images (AV-bay happy medium) */
+    }
+    *{ box-sizing: border-box; }
+    body{
+      margin:0; font-family:'Spectral','Times New Roman',serif; color:#000; background:#fff; line-height:1.6;
+    }
+    a{ color:var(--accent); }
+
+    /* header / hero */
+    header{ background:var(--accent); color:#fff; padding:1rem 1.5rem; position:sticky; top:0; z-index:1000; text-align:center; }
+    header h1{ margin:.25rem 0; font-size:2.2rem; }
+    nav a{ color:#fff; margin:0 .6rem; font-weight:700; text-decoration:none; }
+    nav a:hover{ text-decoration:underline; }
+
+    .hero{
+      height:300px; display:flex; align-items:center; justify-content:center;
+      background-image:url('images/bomb_pop1.png'); background-size:cover; background-position:center;
+      position:relative; text-align:center; color:#fff;
+    }
+    .hero::before{ content:''; position:absolute; inset:0; background:rgba(0,0,0,.45); }
+    .hero h2{ position:relative; z-index:1; font-size:2.8rem; margin:0; }
+
+    .container{ max-width:var(--page-max); margin:0 auto; padding:2rem; }
+    .intro{ max-width:var(--page-max); margin:1rem auto 2rem; text-align:center; font-size:1.05rem; }
+
+    section{ margin-bottom:2.5rem; padding-top:1rem; }
+
+    h3{ color:var(--accent); margin:0 0 .8rem 0; font-size:1.5rem; }
+
+    /* default media */
+    .media img{ width:100%; height:auto; display:block; border-radius:8px; }
+    iframe{ border:0; border-radius:8px; display:block; }
+
+    /* Video row (Bomb Pop) */
+    .video-row{ display:flex; gap:1rem; flex-wrap:wrap; justify-content:center; margin-top:1rem; }
+    .video-row iframe{ width:100%; max-width:520px; height:300px; }
+
+    /* --- Legatus grid: left image | text (center) | right image --- */
+    .legatus-grid{
+      display:grid;
+      grid-template-columns: 28% 44% 28%;
+      gap:1rem;
+      align-items:center;
+    }
+    .legatus-grid .leg-img{
+      max-height: var(--img-max-height);
+      object-fit: contain;
+      width:100%;
+      display:block;
+    }
+    /* AV bay (right) medium / larger than tiny but not huge */
+    .legatus-grid .avbay-img{
+      max-height: var(--img-medium-height);
+      object-fit:contain;
+      width:100%;
+      display:block;
+    }
+    .leg-text{ text-align:center; }
+
+    /* --- Praetor grid: image left (tall) | text+video right --- */
+    .praetor-grid{
+      display:grid;
+      grid-template-columns: 45% 55%;
+      gap:1rem;
+      align-items:start;
+    }
+    .praetor-grid .praetor-img{
+      max-height: var(--img-max-height);
+      object-fit:contain;
+      width:100%;
+      display:block;
+    }
+    .praetor-grid .praetor-content iframe{ width:100%; height:320px; }
+
+    /* 1776 and other alternating rows */
+    .project-row{
+      display:grid;
+      grid-template-columns: 55% 40%;
+      gap:1rem;
+      align-items:center;
+    }
+    .project-row .project-img{ max-height: var(--img-max-height); object-fit:contain; width:100%; }
+
+    /* Bomb Pop image only (targeted change) */
+    .bombpop-img{ max-width:260px; width:50%; height:auto; display:block; border-radius:8px; }
+
+    /* Responsive behavior */
+    @media (max-width:1000px){
+      .legatus-grid{ grid-template-columns: 1fr; }
+      .praetor-grid{ grid-template-columns: 1fr; }
+      .project-row{ grid-template-columns: 1fr; }
+      .video-row iframe{ max-width:100%; height:230px; }
+      .bombpop-img{ width:40%; max-width:220px; }
+    }
+    @media (max-width:520px){
+      .video-row iframe{ height:200px; }
+      :root{ --img-max-height: 300px; --img-medium-height:180px; }
     }
 
-    /* Sticky Header */
-    header { background-color:#1e3a8a; color:#fff; padding:1rem 2rem; text-align:center; position:sticky; top:0; z-index:1000; }
-    header h1 { font-size:3rem; margin:0.5rem 0; }
-    nav a { color:#fff; margin:0 1rem; text-decoration:none; font-weight:700; }
-    nav a:hover { text-decoration:underline; }
-
-    /* Hero Banner */
-    .hero {
-      position: relative;
-      background-image: url('images/bomb_pop1.png'); /* same as main page */
-      background-size: cover;
-      background-position: center;
-      height: 300px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      color: #fff;
-      text-align: center;
-    }
-    .hero::before {
-      content: '';
-      position: absolute;
-      top:0; left:0; right:0; bottom:0;
-      background-color: rgba(0,0,0,0.5); /* dark overlay */
-      z-index:1;
-    }
-    .hero h2 {
-      position: relative;
-      z-index:2;
-      font-size:4rem;
-      margin:0;
-    }
-
-    /* Intro paragraph */
-    .intro { max-width:900px; margin:2rem auto; font-size:1.1rem; }
-
-    /* Sub-project sections */
-    section { padding:2rem; max-width:1000px; margin:auto; }
-    h3 { font-size:1.8rem; color:#1e3a8a; margin-top:2rem; margin-bottom:1rem; }
-
-    /* Alternating content */
-    .content-row { display:flex; flex-direction:column; gap:1rem; margin-bottom:2rem; align-items:center; }
-    .content-row img, .content-row video { max-width:100%; border-radius:8px; }
-    .content-left { flex-direction: column; }
-    .content-right { flex-direction: column; }
-    @media(min-width:900px) {
-      .content-left { flex-direction: row; justify-content: space-between; align-items: center; }
-      .content-left .text { order:1; width:55%; }
-      .content-left .media { order:2; width:40%; }
-
-      .content-right { flex-direction: row; justify-content: space-between; align-items: center; }
-      .content-right .text { order:2; width:55%; text-align:right; }
-      .content-right .media { order:1; width:40%; }
-    }
-
-    /* Custom sizes */
-    .bombpop-img {
-      width: 50% !important; /* make Bomb Pop smaller */
-    }
-
-    .avbay-img {
-      max-height: 500px; /* enlarge AV bay */
-      width: auto;
-    }
-
-    .unfinished-finished {
-      max-height: 500px; /* keep tall but consistent */
-      width: auto;
-      display: inline-block;
-      vertical-align: middle; /* align both images */
-    }
-
-    /* Contact */
-    #contact a { color:#1e3a8a; text-decoration:none; }
-    #contact a:hover { text-decoration:underline; }
-    footer { background:#f4f4f4; text-align:center; padding:1rem; margin-top:2rem; }
-
+    /* small visual spacing */
+    .spacer{ height:1rem; }
+    /* ensure headings never overlap */
+    section + section { margin-top: .5rem; }
   </style>
 </head>
 <body>
+  <header>
+    <h1>Bryce Christensen</h1>
+    <nav>
+      <a href="index.html">Portfolio Home</a>
+      <a href="#bombpop">Bomb Pop</a>
+      <a href="#legatus">Legatus</a>
+      <a href="#praetor">Praetor</a>
+      <a href="#1776">1776</a>
+    </nav>
+  </header>
 
-<header>
-  <h1>Bryce Christensen</h1>
-  <nav>
-    <a href="index.html">Portfolio Home</a>
-    <a href="#bombpop">Bomb Pop</a>
-    <a href="#legatus">Legatus</a>
-    <a href="#praetor">Praetor</a>
-    <a href="#1776">1776</a>
-  </nav>
-</header>
+  <div class="hero"><h2>Other Rocketry Projects</h2></div>
 
-<!-- Hero Banner -->
-<div class="hero">
-  <h2>Other Rocketry Projects</h2>
-</div>
-
-<!-- Intro Paragraph -->
-<div class="intro">
-  <p>I have designed, manufactured, and launched multiple high-power rockets, which have given me experience with simulation software, avionics, composites, and more. Check them out below!</p>
-</div>
-
-<!-- Bomb Pop -->
-<section id="bombpop">
-  <h3>Bomb Pop</h3>
-  <div class="content-row content-left">
-    <div class="text">
-      <p><strong>Bomb Pop</strong> was my team’s advanced launch competition rocket, powered by an L1000 motor. It reached an apogee of 8,055 feet AGL—only 55 feet from the target altitude. Featuring dual-deploy recovery, live telemetry, and an onboard camera, the project earned 1st place in the competition.</p>
+  <main class="container">
+    <div class="intro">
+      <p>I have designed, manufactured, and launched multiple high-power rockets, which have given me experience with simulation software, avionics, composites, and more. Check them out below!</p>
     </div>
-    <div class="media">
-      <img src="images/download (9).png" alt="Bomb Pop Picture" class="bombpop-img">
-    </div>
-  </div>
 
-  <div class="content-row">
-    <div class="media" style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;">
-      <iframe width="360" height="215" src="https://www.youtube.com/embed/IAgb0zFS8ro" frameborder="0" allowfullscreen></iframe>
-      <iframe width="360" height="215" src="https://www.youtube.com/embed/Eq4nalbbasU" frameborder="0" allowfullscreen></iframe>
-    </div>
-  </div>
-</section>
-
-<!-- Legatus -->
-<section id="legatus">
-  <h3>Legatus</h3>
-  <div class="content-row content-left">
-    <div class="media">
-      <img src="images/legatus_unfinished_finished.png" alt="Legatus Picture 1" class="unfinished-finished">
-    </div>
-    <div class="text" style="width:40%;">
-      <p><strong>Legatus</strong> was my Tripoli Level 2 certification rocket, flown on a J270 motor. I fabricated it using carbon fiber and designed a custom avionics bay. The rocket included dual-deploy recovery and an onboard camera.</p>
-    </div>
-    <div class="media">
-      <img src="images/download (10).png" alt="Legatus Picture 2" class="unfinished-finished">
-    </div>
-  </div>
-
-  <div class="content-row" style="text-align:center; margin-top:1rem;">
-    <img src="images/legatus2.png" alt="Legatus AV Bay" class="avbay-img">
-    <p style="font-size:0.9rem; color:#555; margin-top:0.5rem;">Custom hand-soldered avionics bay (including SMT)</p>
-  </div>
-</section>
-
-<!-- Praetor -->
-<section id="praetor">
-  <h3>Praetor</h3>
-  <div class="content-row content-left">
-    <div class="media" style="flex:1;">
-      <img src="images/praetor_unfinished_finished.png" alt="Praetor Picture" style="max-height:500px; width:auto; display:block; margin-right:1rem;">
-    </div>
-    <div class="text" style="flex:1;">
-      <p><strong>Praetor</strong> was my Level 1 certification rocket, flown on an H135 motor. It featured dual-deploy capability, live telemetry integration, and an onboard camera system.</p>
-      <div class="media" style="margin-top:1rem;">
-        <iframe width="400" height="225" src="https://www.youtube.com/embed/x3Cg8c08__Y" frameborder="0" allowfullscreen></iframe>
+    <!-- Bomb Pop -->
+    <section id="bombpop" aria-label="Bomb Pop">
+      <h3>Bomb Pop</h3>
+      <div style="display:flex; gap:1rem; align-items:center; justify-content:space-between; flex-wrap:wrap;">
+        <div style="flex:1; min-width:280px;">
+          <p>Advanced launch competition rocket using an L1000 motor. Dual-deploy with live telemetry and onboard camera. Achieved an apogee of 8,055 feet AGL, landing only 55 feet from the target. Placed 1st in the competition.</p>
+        </div>
+        <div style="flex:0 0 auto;">
+          <!-- targeted smaller image -->
+          <img src="images/download (9).png" alt="Bomb Pop" class="bombpop-img">
+        </div>
       </div>
-    </div>
-  </div>
-</section>
 
-<!-- 1776 -->
-<section id="1776">
-  <h3>1776</h3>
-  <div class="content-row content-left">
-    <div class="text">
-      <p><strong>1776</strong> was a student launch competition rocket powered by a G74 motor. The project placed 3rd out of about 25 rocket teams.</p>
-    </div>
-    <div class="media">
-      <img src="images/download (11).png" alt="1776 Picture" style="max-height:400px; width:auto;">
-    </div>
-  </div>
-</section>
+      <div class="video-row" aria-hidden="false">
+        <iframe src="https://www.youtube.com/embed/Eq4nalbbasU" title="Bomb Pop Onboard" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/IAgb0zFS8ro" title="Bomb Pop Ground" allowfullscreen></iframe>
+      </div>
+    </section>
 
-<!-- Contact -->
-<section id="contact">
-  <h2>Contact</h2>
-  <p>Phone: (936) 900-3932</p>
-  <p>Email: <a href="mailto:brycerichristensen@gmail.com">brycerichristensen@gmail.com</a></p>
-  <p>LinkedIn: <a href="http://www.linkedin.com/in/brycerichristensen" target="_blank">linkedin.com/in/brycerichristensen</a></p>
-</section>
+    <div class="spacer"></div>
 
-<footer>
-  <p>© 2025 Bryce Christensen</p>
-</footer>
+    <!-- Legatus -->
+    <section id="legatus" aria-label="Legatus">
+      <h3>Legatus</h3>
 
+      <div class="legatus-grid" role="group" aria-label="Legatus images and description">
+        <!-- left skinny tall image -->
+        <div>
+          <img src="images/legatus_unfinished_finished.png" alt="Legatus initial/finished" class="leg-img">
+        </div>
+
+        <!-- centered text -->
+        <div class="leg-text">
+          <p>Tripoli L2 certification rocket powered by a J270 motor. Fabricated from carbon fiber with a custom avionics bay. Dual-deploy recovery and onboard camera. I hand-soldered the flight computer (including SMT) and integrated the avionics for reliable flights.</p>
+        </div>
+
+        <!-- right AV bay image (medium larger than before) -->
+        <div>
+          <img src="images/download (10).png" alt="Legatus avionics bay" class="avbay-img">
+        </div>
+      </div>
+    </section>
+
+    <div class="spacer"></div>
+
+    <!-- Praetor -->
+    <section id="praetor" aria-label="Praetor">
+      <h3>Praetor</h3>
+
+      <div class="praetor-grid" role="group" aria-label="Praetor image and content">
+        <!-- left: tall image (matches legatus height) -->
+        <div>
+          <img src="images/praetor_unfinished_finished.png" alt="Praetor image" class="praetor-img">
+        </div>
+
+        <!-- right: text then video -->
+        <div class="praetor-content">
+          <div>
+            <p>Tripoli L1 certification rocket using an H135 motor. Equipped with live telemetry and an onboard camera for data capture on flight.</p>
+          </div>
+          <div>
+            <iframe src="https://www.youtube.com/embed/x3Cg8c08__Y" title="Praetor onboard view" allowfullscreen></iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="spacer"></div>
+
+    <!-- 1776 -->
+    <section id="1776" aria-label="1776">
+      <h3>1776</h3>
+      <div class="project-row" role="group" aria-label="1776 project">
+        <div>
+          <p>Student launch competition rocket powered by a G74 motor. Placed 3rd out of approximately 25 teams.</p>
+        </div>
+        <div>
+          <img src="images/download (11).png" alt="1776 image" class="project-img">
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+      <h3>Contact</h3>
+      <p>Phone: (936) 900-3932</p>
+      <p>Email: <a href="mailto:brycerichristensen@gmail.com">brycerichristensen@gmail.com</a></p>
+      <p>LinkedIn: <a href="http://www.linkedin.com/in/brycerichristensen" target="_blank">linkedin.com/in/brycerichristensen</a></p>
+    </section>
+  </main>
+
+  <footer style="text-align:center; padding:1rem; background:#f4f4f4;">
+    <p>© 2025 Bryce Christensen</p>
+  </footer>
 </body>
 </html>
