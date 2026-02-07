@@ -24,12 +24,12 @@
     nav a { color:#fff; margin:0 1rem; text-decoration:none; font-weight:700; }
     nav a:hover { text-decoration:underline; }
 
-    /* Hero Banner - Using the course image as the background */
+    /* Hero Banner */
     .hero {
       position: relative;
-      background-image: url('images/mechatronics_course.png');
+      background-image: url('images/mechatronics_rover.png');
       background-size: cover;
-      background-position: center;
+      background-position: center 30%;
       height: 300px;
       display: flex;
       justify-content: center;
@@ -101,51 +101,71 @@
 
   <div class="content-row content-left">
     <div class="text">
+      <h3>Course Navigation Challenge</h3>
+      <p>LOREM IPSUM: This image shows the complex layout the rover had to navigate autonomously. The course required a mix of high-speed straights, sharp turns, and precise positioning to interact with course elements. My control logic was designed to handle these transitions seamlessly.</p>
+    </div>
+    <div class="media">
+      <img src="images/mechatronics_course.png" alt="Mechatronics Course Layout">
+    </div>
+  </div>
+
+  <div class="content-row content-right">
+    <div class="text">
       <h3>System Architecture</h3>
-      <p>LOREM IPSUM: This section will describe the high-level electrical architecture of the rover. It includes the integration of the microcontrollers, motor drivers, and various sensors required for autonomous navigation. The wiring diagram highlights the complexity of the signal routing and power distribution needed to prevent electrical noise from interfering with sensor data.</p>
+      <p>LOREM IPSUM: The electrical system was organized to ensure high signal integrity between the ESP32 and the sensors. By mapping out the wiring diagram beforehand, I was able to identify potential EMI issues and plan for the custom PCB implementation.</p>
     </div>
     <div class="media">
       <img src="images/mechatronics_wiring_diagram.png" alt="Wiring Diagram">
     </div>
   </div>
 
-  <div class="content-row content-right">
+  <div class="content-row content-left">
     <div class="text">
       <h3>Custom PCB Design</h3>
-      <p>LOREM IPSUM: To move from a breadboard prototype to a flight-ready system, I designed a custom PCB. This layout was created to minimize the overall footprint of the electronics while ensuring robust connections for the ESP32 and peripheral components. This step was crucial for weight reduction and reliability during high-speed maneuvers.</p>
+      <p>LOREM IPSUM: The PCB was designed to act as the "brain" of the rover. It integrated motor drivers, power regulation, and headers for the sensor arrays, allowing for a compact and vibration-resistant electronics package.</p>
     </div>
     <div class="media">
       <img src="images/mechatronics_pcb_diagram.png" alt="PCB Layout Diagram">
     </div>
   </div>
 
-  <div class="content-row content-left">
+  <div class="content-row content-right">
     <div class="text">
       <h3>Fabrication & Assembly</h3>
-      <p>LOREM IPSUM: Once the boards were manufactured, I performed the surface-mount and through-hole soldering. This physical implementation allowed for a much cleaner assembly compared to traditional wiring, significantly reducing the risk of loose connections during the mechanical vibration of the course run.</p>
+      <p>LOREM IPSUM: Soldering the final board required precision to ensure reliable connections for the micro-components. This custom board significantly reduced the weight of the rover compared to a standard breadboard setup.</p>
     </div>
     <div class="media">
       <img src="images/mechatronics_pcb_soldered.jpg" alt="Soldered PCB Assembly">
     </div>
   </div>
 
-  <div class="content-row content-right">
+  <div class="content-row content-left">
     <div class="text">
       <h3>Mechanical Payload System</h3>
-      <p>LOREM IPSUM: The rover featured a specialized mechanism for handling and deploying ball payloads. This required precise mechanical tolerances and integration with the control software to ensure the balls were released at the correct triggers during the course navigation.</p>
+      <p>LOREM IPSUM: A dedicated mechanical system was engineered to handle the ball payload. This involved mechanical design in SolidWorks to ensure the gravity-fed system worked reliably during movement.</p>
     </div>
     <div class="media">
       <img src="images/mechatronics_ball_system.jpg" alt="Ball Handling Mechanism">
     </div>
   </div>
 
-  <div class="content-row content-left">
+  <div class="content-row content-right">
     <div class="text">
       <h3>Sensor Integration</h3>
-      <p>LOREM IPSUM: Line following and boundary detection were achieved using QRD reflectance sensors. I developed algorithms to calibrate these sensors against varying floor conditions, allowing the rover to maintain high speeds while staying centered on the track.</p>
+      <p>LOREM IPSUM: The QRD reflectance sensors provided the feedback necessary for high-speed line following. These were mounted low to the ground to maximize sensitivity and response time.</p>
     </div>
     <div class="media">
       <img src="images/mechatronics_qrd.png" alt="QRD Sensor Array">
+    </div>
+  </div>
+
+  <div class="content-row content-left">
+    <div class="text">
+      <h3>The Final Prototype</h3>
+      <p>LOREM IPSUM: This is the fully assembled Mechatronics Rover. The final design represents an integration of mechanical engineering, electronics, and software, resulting in a robust autonomous system ready for competition.</p>
+    </div>
+    <div class="media">
+      <img src="images/mechatronics_rover.png" alt="Final Mechatronics Rover">
     </div>
   </div>
 
