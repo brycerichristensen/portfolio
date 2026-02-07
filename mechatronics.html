@@ -90,7 +90,7 @@
 </div>
 
 <div class="intro">
-  <p>Placeholder: This project involved the design, fabrication, and programming of an autonomous rover capable of navigating a complex obstacle course. Using a combination of sensor fusion, custom PCB design, and mechanical actuation, the rover was optimized for speed and reliability in a competitive environment.</p>
+  <p>Working with a group of four, I designed an autonomous line-following robot for a mechatronics class which was capable of completing a variety of tasks.</p>
 </div>
 
 <div class="video-container">
@@ -102,7 +102,7 @@
   <div class="content-row content-left">
     <div class="text">
       <h3>Course Navigation Challenge</h3>
-      <p>LOREM IPSUM: This image shows the complex layout the rover had to navigate autonomously. The course required a mix of high-speed straights, sharp turns, and precise positioning to interact with course elements. My control logic was designed to handle these transitions seamlessly.</p>
+      <p>The course objectives included completing five tasks within a 60-second time limit. The autonomous rover had to exit the lander, follow the white line, collect the sample, deposit the sample, navigate the canyon, and re-enter the lander, beaming a signal to the satellite above.</p>
     </div>
     <div class="media">
       <img src="images/mechatronics_course.png" alt="Mechatronics Course Layout">
@@ -111,8 +111,8 @@
 
   <div class="content-row content-right">
     <div class="text">
-      <h3>System Architecture</h3>
-      <p>LOREM IPSUM: The electrical system was organized to ensure high signal integrity between the ESP32 and the sensors. By mapping out the wiring diagram beforehand, I was able to identify potential EMI issues and plan for the custom PCB implementation.</p>
+      <h3>Electronic System Design</h3>
+      <p>I was primarily responsible for the electronics on my team. As shown in the wiring diagram, I mapped each sensor to the appropriate pin on a PIC24F microcontroller and ensured the correct power was distributed to each node.</p>
     </div>
     <div class="media">
       <img src="images/mechatronics_wiring_diagram.png" alt="Wiring Diagram">
@@ -122,7 +122,7 @@
   <div class="content-row content-left">
     <div class="text">
       <h3>Custom PCB Design</h3>
-      <p>LOREM IPSUM: The PCB was designed to act as the "brain" of the rover. It integrated motor drivers, power regulation, and headers for the sensor arrays, allowing for a compact and vibration-resistant electronics package.</p>
+      <p>Once the wiring diagram was finalized, I converted it into a PCB design, routing each wire to appropriate locations around the board. I made sure that the design was manufacturable and then milled it at the EcEn shop on campus.</p>
     </div>
     <div class="media">
       <img src="images/mechatronics_pcb_diagram.png" alt="PCB Layout Diagram">
@@ -131,8 +131,8 @@
 
   <div class="content-row content-right">
     <div class="text">
-      <h3>Fabrication & Assembly</h3>
-      <p>LOREM IPSUM: Soldering the final board required precision to ensure reliable connections for the micro-components. This custom board significantly reduced the weight of the rover compared to a standard breadboard setup.</p>
+      <h3>PCB Assembly</h3>
+      <p>Once the board was manufactured, I soldered the correct components in each location, testing the continuity of each solder joint. I then wired up the sensors and outputs to test the functionality of the custom PCB.</p>
     </div>
     <div class="media">
       <img src="images/mechatronics_pcb_soldered.jpg" alt="Soldered PCB Assembly">
@@ -141,8 +141,8 @@
 
   <div class="content-row content-left">
     <div class="text">
-      <h3>Mechanical Payload System</h3>
-      <p>LOREM IPSUM: A dedicated mechanical system was engineered to handle the ball payload. This involved mechanical design in SolidWorks to ensure the gravity-fed system worked reliably during movement.</p>
+      <h3>Sample Collection System</h3>
+      <p>In order to reliably collect and deposit the sample (ping-pong ball), we designed a funnel system that stored the ball between collection and deposition. An optical detector sensor was used to detect whether the ball was black or white, and the robot's finite state machine was programmed to respond accordingly. Once the rover was in position, a servomotor actuated an arm, releasing the sample.</p>
     </div>
     <div class="media">
       <img src="images/mechatronics_ball_system.jpg" alt="Ball Handling Mechanism">
@@ -151,8 +151,8 @@
 
   <div class="content-row content-right">
     <div class="text">
-      <h3>Sensor Integration</h3>
-      <p>LOREM IPSUM: The QRD reflectance sensors provided the feedback necessary for high-speed line following. These were mounted low to the ground to maximize sensitivity and response time.</p>
+      <h3>Line Following</h3>
+      <p>For line following, we incorporated five reflectance sensors which detected whether they were on a black or white surface. The microcontroller incorporated a PID control system to provide the feedback necessary for high-speed line following.</p>
     </div>
     <div class="media">
       <img src="images/mechatronics_qrd.png" alt="QRD Sensor Array">
@@ -161,8 +161,8 @@
 
   <div class="content-row content-left">
     <div class="text">
-      <h3>The Final Prototype</h3>
-      <p>LOREM IPSUM: This is the fully assembled Mechatronics Rover. The final design represents an integration of mechanical engineering, electronics, and software, resulting in a robust autonomous system ready for competition.</p>
+      <h3>Final Prototype</h3>
+      <p>This is the fully assembled autonomous rover. The final design integrated mechanical, electrical, and software elements to produce a robust autonomous system ready for competition.</p>
     </div>
     <div class="media">
       <img src="images/mechatronics_rover.png" alt="Final Mechatronics Rover">
