@@ -83,7 +83,8 @@
 </div>
 
 <div class="intro">
-  <p>As a Payload Engineer for BYU’s High Power Rocketry team, I am developing a 3U CubeSat payload for the 2026 SDL Payload Challenge. The goal of this payload is to provide a proof-of-concept design for an alternative to traditional energy sources in space. Phoenix stores energy using custom-designed negator rotational generator (NRG) springs, which are released to generate power. This payload will launch to 30,000 feet in June at IREC (Spaceport America).</p>
+  <p>As a Payload Engineer for BYU’s High Power Rocketry team, I am developing a 3U CubeSat payload for the 2026 SDL Payload Challenge. This project addresses the critical limitations of traditional chemical batteries in space—specifically cyclic fatigue, thermal degradation, and radiation sensitivity. <br>
+Our solution, Phoenix, stores energy within Negator Rotational Generator (NRG) cells. By utilizing strain energy in compliant mechanisms rather than chemical reactions, the Phoenix payload offers a thermally resilient, long-life power alternative capable of withstanding the extreme environments of deep space. This system is scheduled to flight-validate at IREC 2026, launching to 30,000 feet at Spaceport America.</p>
 </div>
 
 <section>
@@ -91,7 +92,7 @@
   <div class="content-row content-left">
     <div class="text">
       <h3>The NRG Cell Architecture</h3>
-      <p>The core of our power system is the Negator Rotational Generator (NRG) cell. This building block consists of constant-force negator strip springs wrapped around a planetary gear configuration. As the cell is wound by a motor, the springs deflect around a central "sun" cylinder, storing energy in the form of mechanical strain. This approach eliminates the failure modes associated with chemical storage in extreme space environments.</p>
+      <p>The core of the system is the NRG cell, which utilizes 301 Stainless Steel negator strip springs wrapped in a planetary configuration. As a motor winds the cell, the springs deflect from the 'planets' onto a central 'sun' gear, storing energy as mechanical strain. Because 301 Stainless Steel does not undergo a ductile-to-brittle transition at low temperatures and resists creep up to 400°C, the NRG cell remains operational in temperature swings that would cause traditional batteries to fail.</p>
     </div>
     <div class="media">
       <img src="images/phoenix_NRG_cad.png" alt="NRG Spring Building Block Concept">
@@ -101,7 +102,7 @@
   <div class="content-row content-right">
     <div class="text">
       <h3>Rapid Prototyping & Validation</h3>
-      <p>To validate the mechanical logic of the compliant mechanisms, we utilized high-precision 3D printing to create functional physical models. These prototypes allowed us to verify the ratcheting system’s ability to maintain spring deflection for energy storage and ensure smooth transition logic during the rewind phase, where strain energy is converted back into electrical current.</p>
+      <p>A key advantage of the NRG architecture is its modularity. Much like chemical cells, individual NRG units can be arranged in series or parallel to tune voltage and current output. During the prototyping phase, we utilized high-precision 3D printing and FEA to optimize geometries, ensuring the system could be scaled to meet mission-specific power, volume, and weight requirements without redesigning the fundamental storage logic.</p>
     </div>
     <div class="media">
       <img src="images/phoenix_NRG.png" alt="Physical 3D Printed Prototype">
@@ -111,7 +112,7 @@
   <div class="content-row content-left">
     <div class="text">
       <h3>Performance Characterization</h3>
-      <p>Rigorous testing was performed using a custom torque tester to characterize the energy density of the Stainless Steel 301 springs. Because this material resists creep up to 400°C and maintains ductility at cryogenic temperatures, the NRG cell is uniquely suited for deep-space applications where traditional batteries require heavy thermal regulation systems.</p>
+      <p>To convert stored strain into usable power, the NRG cell's ratcheting mechanism is released, allowing the springs to rewind and backdrive the motor to generate an electrical current. Our torque testing campaign (shown right) focuses on characterizing the torque-displacement curves to calculate exact energy density.</p>
     </div>
     <div class="media">
       <img src="images/phoenix_torque_testing.png" alt="Torque Testing Setup">
@@ -121,7 +122,7 @@
   <div class="content-row content-right">
     <div class="text">
       <h3>Data-Driven Optimization</h3>
-      <p>The results from our torque testing (shown right) provided the necessary data to verify the efficiency of the mechanical-to-electrical conversion. By analyzing the torque-displacement curves, we optimized the planetary geometries to maximize power output. This data serves as the baseline for our projected power generation during the 30,000 ft flight test.</p>
+      <p>These ground tests provide the baseline data needed to verify power output efficiency when the system deploys at apogee during its 30,000 ft flight test.</p>
     </div>
     <div class="media">
       <img src="images/phoenix_torque_graph.png" alt="Torque Test Results Graph">
@@ -131,7 +132,7 @@
   <div class="content-row content-left">
     <div class="text">
       <h3>Future Plans & Flight Validation</h3>
-      <p>The Phoenix payload represents a robust, long-life supplement to traditional satellite power systems. Following our launch at IREC, we will log power output data to compare flight performance with our ground tests. Our subteam is currently focusing on final structural integration to ensure the 3U assembly withstands the extreme forces of rocket ascent.</p>
+      <p>By eliminating the common failure modes of chemical storage, the Phoenix payload demonstrates a path toward significantly extended mission lifetimes. Whether as a primary source for deep-space probes or a robust supplement for satellites in Low Earth Orbit (LEO), the NRG cell offers a level of thermal resilience and shelf-life that traditional systems cannot match.</p>
     </div>
     <div class="media">
       <img src="images/snowbird_payload_subteam.jpg" alt="BYU Rocketry Payload Subteam">
