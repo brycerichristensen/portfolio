@@ -66,9 +66,6 @@
       .content-right .media { order:1; width:40%; }
     }
 
-    /* Contact */
-    #contact a { color:#1e3a8a; text-decoration:none; }
-    #contact a:hover { text-decoration:underline; }
     footer { background:#f4f4f4; text-align:center; padding:1rem; margin-top:2rem; }
   </style>
 </head>
@@ -82,39 +79,39 @@
 </header>
 
 <div class="hero">
-  <h2>Phoenix Payload <br>(NRG Battery)</h></h2>
+  <h2>Phoenix Payload <br> (NRG Battery)</h2>
 </div>
 
 <div class="intro">
-  <p>As a Payload Engineer for BYU’s Rocketry team, I am developing a 3U CubeSat payload for the 2026 SDL Payload Challenge. This project centers on a mechanical battery utilizing a compliant mechanism and negator springs to store energy, serving as a concept demonstration for mechanical energy storage in space environments.</p>
+  <p>As a Payload Engineer for BYU’s High Power Rocketry team, I am developing a 3U CubeSat payload for the 2026 SDL Payload Challenge. The goal of this payload is to provide a proof-of-concept design for an alternative to traditional energy sources in space. Phoenix stores energy using custom-designed negator rotational generator (NRG) springs, which are released to generate power. This payload will launch to 30,000 feet in June at IREC (Spaceport America).</p>
 </div>
 
 <section>
 
   <div class="content-row content-left">
     <div class="text">
-      <h3>Concept & Base Building Blocks</h3>
-      <p>The development began with defining the core storage unit. The "NRG" building block utilizes a specific spring geometry designed for constant torque and energy density. By starting with this base unit, we could iteratively test the mechanical properties before scaling up to the full 3U payload assembly.</p>
+      <h3>The NRG Cell Architecture</h3>
+      <p>The core of our power system is the Negator Rotational Generator (NRG) cell. This building block consists of constant-force negator strip springs wrapped around a planetary gear configuration. As the cell is wound by a motor, the springs deflect around a central "sun" cylinder, storing energy in the form of mechanical strain. This approach eliminates the failure modes associated with chemical storage in extreme space environments.</p>
     </div>
     <div class="media">
-      <img src="images/phoenix_NRG_cad.png" alt="NRG Spring Concept CAD">
+      <img src="images/phoenix_NRG_cad.png" alt="NRG Spring Building Block Concept">
     </div>
   </div>
 
   <div class="content-row content-right">
     <div class="text">
-      <h3>Prototyping & Physical Modeling</h3>
-      <p>LOREM IPSUM: To validate the CAD models, we moved into rapid prototyping using high-precision 3D printing. This physical model allowed the subteam to verify the compliant mechanism's movement and ensure that the ratchet and pawl systems engaged correctly under initial tension.</p>
+      <h3>Rapid Prototyping & Validation</h3>
+      <p>To validate the mechanical logic of the compliant mechanisms, we utilized high-precision 3D printing to create functional physical models. These prototypes allowed us to verify the ratcheting system’s ability to maintain spring deflection for energy storage and ensure smooth transition logic during the rewind phase, where strain energy is converted back into electrical current.</p>
     </div>
     <div class="media">
-      <img src="images/phoenix_NRG.png" alt="3D Printed Prototype">
+      <img src="images/phoenix_NRG.png" alt="Physical 3D Printed Prototype">
     </div>
   </div>
 
   <div class="content-row content-left">
     <div class="text">
-      <h3>Torque Testing & Verification</h3>
-      <p>LOREM IPSUM: Rigorous testing was performed using a custom torque tester. This setup allowed us to measure the exact energy input versus output, ensuring the compliant mechanism handled the spring's force without deformation or failure during repeated cycles.</p>
+      <h3>Performance Characterization</h3>
+      <p>Rigorous testing was performed using a custom torque tester to characterize the energy density of the Stainless Steel 301 springs. Because this material resists creep up to 400°C and maintains ductility at cryogenic temperatures, the NRG cell is uniquely suited for deep-space applications where traditional batteries require heavy thermal regulation systems.</p>
     </div>
     <div class="media">
       <img src="images/phoenix_torque_testing.png" alt="Torque Testing Setup">
@@ -123,31 +120,31 @@
 
   <div class="content-row content-right">
     <div class="text">
-      <h3>Data Analysis & Results</h3>
-      <p>LOREM IPSUM: The resulting data from the torque tests provided a clear picture of the system's efficiency. By analyzing the torque-displacement curves, we identified areas for geometric optimization in the pawls to further reduce friction and improve energy retention.</p>
+      <h3>Data-Driven Optimization</h3>
+      <p>The results from our torque testing (shown right) provided the necessary data to verify the efficiency of the mechanical-to-electrical conversion. By analyzing the torque-displacement curves, we optimized the planetary geometries to maximize power output. This data serves as the baseline for our projected power generation during the 30,000 ft flight test.</p>
     </div>
     <div class="media">
-      <img src="images/phoenix_torque_graph.png" alt="Torque Test Graph">
+      <img src="images/phoenix_torque_graph.png" alt="Torque Test Results Graph">
     </div>
   </div>
 
   <div class="content-row content-left">
     <div class="text">
-      <h3>Future Plans & Flight Integration</h3>
-      <p>LOREM IPSUM: Looking forward to the 2026 SDL Payload Challenge, the team is focusing on final material selection and structural flight integration. The goal is to demonstrate that this mechanical battery can reliably provide power to secondary systems in a CubeSat form factor during launch and orbit.</p>
+      <h3>Future Plans & Flight Validation</h3>
+      <p>The Phoenix payload represents a robust, long-life supplement to traditional satellite power systems. Following our launch at IREC, we will log power output data to compare flight performance with our ground tests. Our subteam is currently focusing on final structural integration to ensure the 3U assembly withstands the extreme forces of rocket ascent.</p>
     </div>
     <div class="media">
-      <img src="images/snowbird_payload_subteam.jpg" alt="Phoenix Payload Subteam">
+      <img src="images/snowbird_payload_subteam.jpg" alt="BYU Rocketry Payload Subteam">
     </div>
   </div>
 
 </section>
 
-<section id="contact">
+<section id="contact" style="padding:2rem; max-width:900px; margin:auto;">
   <h2>Contact</h2>
   <p>Phone: (936) 900-3932</p>
-  <p>Email: <a href="mailto:brycerichristensen@gmail.com">brycerichristensen@gmail.com</a></p>
-  <p>LinkedIn: <a href="http://www.linkedin.com/in/brycerichristensen" target="_blank">linkedin.com/in/brycerichristensen</a></p>
+  <p>Email: <a href="mailto:brycerichristensen@gmail.com" style="color:#1e3a8a; text-decoration:none;">brycerichristensen@gmail.com</a></p>
+  <p>LinkedIn: <a href="http://www.linkedin.com/in/brycerichristensen" target="_blank" style="color:#1e3a8a; text-decoration:none;">linkedin.com/in/brycerichristensen</a></p>
 </section>
 
 <footer>
