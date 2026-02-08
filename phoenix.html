@@ -27,7 +27,7 @@
     /* Hero Banner */
     .hero {
       position: relative;
-      background-image: url('images/ratchet_pawl_design.png');
+      background-image: url('images/phoenix_cad.png');
       background-size: cover;
       background-position: center;
       height: 300px;
@@ -51,7 +51,7 @@
 
     /* Alternating content */
     section { padding:2rem; max-width:900px; margin:auto; }
-    h3 { font-size:1.8rem; color:#1e3a8a; margin-top:2rem; margin-bottom:1rem; }
+    h3 { font-size:1.8rem; color:#1e3a8a; margin-top:2rem; margin-bottom:1rem; border-bottom: 2px solid #e0e7ff; padding-bottom: 0.5rem; }
     .content-row { display:flex; flex-direction:column; gap:2rem; margin-bottom:4rem; align-items:center; }
     .content-row img { max-width:100%; width:100%; border-radius:8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
     .text { text-align:left; }
@@ -93,31 +93,51 @@
 
   <div class="content-row content-left">
     <div class="text">
-      <h3>Compliant Mechanism Design</h3>
-      <p>LOREM IPSUM: The heart of the Phoenix payload is a custom-designed ratchet and pawl system utilizing compliant mechanisms. This design eliminates traditional joints and bearings, reducing friction and potential points of failure. I used geometric optimization to ensure the pawls provide secure engagement while maintaining flexibility for energy release.</p>
+      <h3>Concept & Base Building Blocks</h3>
+      <p>The development began with defining the core storage unit. The "NRG" building block utilizes a specific spring geometry designed for constant torque and energy density. By starting with this base unit, we could iteratively test the mechanical properties before scaling up to the full 3U payload assembly.</p>
     </div>
     <div class="media">
-      <img src="images/ratchet_pawl_design.png" alt="Ratchet and Pawl Design">
+      <img src="images/phoenix_NRG_cad.png" alt="NRG Spring Concept CAD">
     </div>
   </div>
 
   <div class="content-row content-right">
     <div class="text">
-      <h3>Structural Analysis & FEA</h3>
-      <p>LOREM IPSUM: To ensure the payload survives the high-G environment of a rocket launch, I conducted extensive Finite Element Analysis (FEA). By simulating stress and strain on the 3D-printed components, I was able to optimize the material thickness and internal lattice structures to balance energy density with structural integrity.</p>
+      <h3>Prototyping & Physical Modeling</h3>
+      <p>LOREM IPSUM: To validate the CAD models, we moved into rapid prototyping using high-precision 3D printing. This physical model allowed the subteam to verify the compliant mechanism's movement and ensure that the ratchet and pawl systems engaged correctly under initial tension.</p>
     </div>
     <div class="media">
-      <img src="images/phoenix_fea_placeholder.png" alt="FEA Analysis Results">
+      <img src="images/phoenix_NRG.png" alt="3D Printed Prototype">
     </div>
   </div>
 
   <div class="content-row content-left">
     <div class="text">
-      <h3>Energy Storage Strategy</h3>
-      <p>LOREM IPSUM: The battery utilizes negator (constant-torque) springs to provide a steady energy output. My research focused on material selection to find a spring steel that could withstand the thermal cycling of a space-simulated flight without losing its mechanical properties.</p>
+      <h3>Torque Testing & Verification</h3>
+      <p>LOREM IPSUM: Rigorous testing was performed using a custom torque tester. This setup allowed us to measure the exact energy input versus output, ensuring the compliant mechanism handled the spring's force without deformation or failure during repeated cycles.</p>
     </div>
     <div class="media">
-      <img src="images/phoenix_assembly_placeholder.png" alt="Payload Assembly">
+      <img src="images/phoenix_torque_testing.png" alt="Torque Testing Setup">
+    </div>
+  </div>
+
+  <div class="content-row content-right">
+    <div class="text">
+      <h3>Data Analysis & Results</h3>
+      <p>LOREM IPSUM: The resulting data from the torque tests provided a clear picture of the system's efficiency. By analyzing the torque-displacement curves, we identified areas for geometric optimization in the pawls to further reduce friction and improve energy retention.</p>
+    </div>
+    <div class="media">
+      <img src="images/phoenix_torque_graph.png" alt="Torque Test Graph">
+    </div>
+  </div>
+
+  <div class="content-row content-left">
+    <div class="text">
+      <h3>Future Plans & Flight Integration</h3>
+      <p>LOREM IPSUM: Looking forward to the 2026 SDL Payload Challenge, the team is focusing on final material selection and structural flight integration. The goal is to demonstrate that this mechanical battery can reliably provide power to secondary systems in a CubeSat form factor during launch and orbit.</p>
+    </div>
+    <div class="media">
+      <img src="images/snowbird_payload_subteam.jpg" alt="Phoenix Payload Subteam">
     </div>
   </div>
 
