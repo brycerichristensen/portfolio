@@ -21,14 +21,20 @@
     .hero { position: relative; background-image: url('images/test_fire.png'); background-size: cover; background-position: center; height: 200px; display: flex; justify-content: center; align-items: center; color: #fff; text-align: center; }
     .hero::before { content: ''; position: absolute; top:0; left:0; right:0; bottom:0; background-color: rgba(0,0,0,0.3); z-index:1; }
     .hero h2 { position: relative; z-index:2; font-size:3rem; margin:0; }
+    
+    .intro-summary { max-width:900px; margin:2rem auto; text-align:center; padding: 0 1rem; font-size: 1.15rem; }
+
     .video-container { display:flex; justify-content:center; margin:2rem 0; padding: 0 1rem; }
     .video-container iframe { width:100%; max-width:800px; height:450px; border:none; border-radius:8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+    
     section { padding:2rem; max-width:900px; margin:auto; }
     h3 { font-size:1.8rem; color:#1e3a8a; margin-top:2rem; margin-bottom:1rem; border-bottom: 2px solid #e0e7ff; padding-bottom: 0.5rem; }
     .content-row { display:flex; flex-direction:column; gap:2rem; margin-bottom:4rem; align-items:center; }
     .content-row img { max-width:100%; border-radius:8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+    
     .before-after { display: flex; gap: 1rem; width: 100%; }
     .before-after img { flex: 1; object-fit: cover; height: 250px; }
+
     @media(min-width:700px) {
       .content-left { flex-direction: row; }
       .content-left .text { order:1; width:55%; } .content-left .media { order:2; width:40%; }
@@ -54,11 +60,25 @@
   <h2>Static Configuration</h2>
 </div>
 
+<div class="intro-summary">
+  <p>Our static fire test stand serves as the primary proving ground for our hybrid engine developments. By conducting controlled burns on the ground, we can safely characterize thrust curves, refine oxidizer flow rates, and validate our DAQ and control systems before moving to flight hardware.</p>
+</div>
+
 <div class="video-container">
   <iframe src="https://www.youtube.com/embed/AE4wkad1krM" title="Static Fire Video" allowfullscreen></iframe>
 </div>
 
 <section>
+  <div class="content-row content-right">
+    <div class="text">
+      <h3>System Timing & Reliability</h3>
+      <p>I modified the LabVIEW control logic to correct critical timing issues between ignition and run-valve actuation. Additionally, I expanded the system's sensing capability from three to five pressure transducers and replaced bulky ignition switches with high-power MOSFETs, making the control box more compact and reliable.</p>
+    </div>
+    <div class="media">
+      <img src="images/20241207_101705.jpg" alt="Setting up electronics">
+    </div>
+  </div>
+
   <div class="content-row content-left">
     <div class="text">
       <h3>Noise Mitigation & DAQ Refinement</h3>
@@ -71,16 +91,6 @@
   </div>
 
   <div class="content-row content-right">
-    <div class="text">
-      <h3>System Timing & Reliability</h3>
-      <p>I modified the LabVIEW control logic to correct critical timing issues between ignition and run-valve actuation. Additionally, I expanded the system's sensing capability from three to five pressure transducers and replaced bulky ignition switches with high-power MOSFETs, making the control box more compact and reliable.</p>
-    </div>
-    <div class="media">
-      <img src="images/20241207_101705.jpg" alt="Setting up electronics">
-    </div>
-  </div>
-
-  <div class="content-row content-left">
     <div class="text">
       <h3>Data Analysis</h3>
       <p>The graph on the right shows pressure transducer data from a recent hot-fire. PT1 tracks the oxidizer tank pressure drop over the 10-second test. These high-quality results allowed us to calculate combustion efficiency and refine our engine parameters for the next iteration.</p>
