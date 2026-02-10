@@ -2,13 +2,12 @@
 <html lang="en">
 <head>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-Z92FZCG7CS"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-Z92FZCG7CS');
-</script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-Z92FZCG7CS');
+  </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Bryce Christensen | Portfolio</title>
@@ -37,7 +36,7 @@
 
     section { padding:2rem; max-width:1000px; margin:auto; }
 
-    h2 { color:#1e3a8a; font-weight:700; }
+    h2 { color:#1e3a8a; font-weight:700; border-bottom: 2px solid #e0e7ff; padding-bottom: 0.5rem; margin-bottom: 1.5rem; }
 
     #about-container { display:flex; flex-direction:column; gap:1rem; align-items:flex-start; }
     #about-text { flex:1; }
@@ -47,20 +46,20 @@
     @media(min-width:700px) { #about-container { flex-direction:row; } }
 
     /* Projects Grid */
-    .projects { display:grid; grid-template-columns:1fr; gap:1rem; margin-top:2rem; }
+    .projects { display:grid; grid-template-columns:1fr; gap:1.5rem; margin-top:1rem; }
     
     @media(min-width:700px) { 
       .projects { grid-template-columns: 1fr 1fr; } 
-      /* Centering the 5th (odd) project */
+      /* Centering the last card if it's the 3rd one in the design section */
       .last-card {
         grid-column: 1 / span 2;
         justify-self: center;
-        width: calc(50% - 0.5rem); 
+        width: calc(50% - 0.75rem); 
       }
     }
 
     .card { border:1px solid #ccc; border-radius:8px; padding:1rem; cursor:pointer; transition:0.3s; background:#f9f9f9; text-align:center; text-decoration:none; color:inherit; display:block; }
-    .card:hover { background:#e0e7ff; }
+    .card:hover { background:#e0e7ff; transform: translateY(-3px); box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
     .card img { width:100%; max-height:150px; object-fit:cover; border-radius:5px; margin-bottom:0.5rem; }
 
     .bomb-pop { object-position: center 30%; }
@@ -71,7 +70,7 @@
     #contact a:hover { text-decoration:underline; }
 
     footer { background:#f4f4f4; text-align:center; padding:1rem; margin-top:2rem; }
-    html { scroll-behavior:smooth; }
+    html { scroll-behavior:smooth; scroll-padding-top: 60px; }
   </style>
 </head>
 <body>
@@ -86,7 +85,8 @@
     <h1>Bryce Christensen</h1>
     <nav>
       <a href="#about">About</a>
-      <a href="#projects">Projects</a>
+      <a href="#research">Research</a>
+      <a href="#projects">Design Projects</a>
       <a href="#contact">Contact</a>
     </nav>
   </header>
@@ -95,7 +95,7 @@
     <h2>About Me</h2>
     <div id="about-container">
       <div id="about-text">
-        <p>Hi! I’m Bryce Christensen, a junior studying mechanical engineering at Brigham Young University. I’m interested in aerospace, especially propulsion and control systems. I’m currently leading the development of a hybrid rocket engine as the Controls Lead for BYU’s Propulsion Research Division. I’m always excited to learn new things and tackle engineering challenges. Check out some of my projects below!</p>
+        <p>Hi! I’m Bryce Christensen, a junior studying mechanical engineering at Brigham Young University. I’m interested in aerospace, especially propulsion and control systems. I’m currently leading the development of a hybrid rocket engine as the Controls Lead for BYU’s Propulsion Research Division. I’m always excited to learn new things and tackle engineering challenges. Check out some of my work below!</p>
       </div>
       <div id="profile-pic">
         <img src="images/profile_pic" alt="Bryce Christensen">
@@ -103,10 +103,9 @@
     </div>
   </section>
 
-  <section id="projects">
-    <h2>Projects</h2>
+  <section id="research">
+    <h2>Research</h2>
     <div class="projects">
-
       <a href="propulsion.html" class="card">
         <img src="images/test_fire.png" alt="Propulsion Control System">
         <h3>Propulsion Control System</h3>
@@ -116,7 +115,12 @@
         <img src="images/phoenix_cad.png" alt="Phoenix Payload (NRG Battery)">
         <h3>Phoenix Payload (NRG Battery)</h3>
       </a>
+    </div>
+  </section>
 
+  <section id="projects">
+    <h2>Design Projects</h2>
+    <div class="projects">
       <a href="mechatronics.html" class="card">
         <img src="images/mechatronics_rover.png" alt="Mechatronics Rover">
         <h3>Mechatronics Rover</h3>
@@ -131,7 +135,6 @@
         <img src="images/bomb_pop1.png" alt="Other Rocketry Projects" class="bomb-pop">
         <h3>Other Rocketry Projects</h3>
       </a>
-
     </div>
   </section>
 
