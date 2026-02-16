@@ -73,7 +73,7 @@
 </div>
 
 <div class="intro">
-  <p>The flight configuration represents the integration of our control systems into the actual vehicle airframe. Moving from a lab setting to the rocket requires robust hardware, safety-critical software, and wireless ground-to-air communication. This system is designed to manage the launch sequence and maintain real-time telemetry from ignition through flight.</p>
+  <p>When this engine propels a rocket to 12,000 feet this Spring, it will become the first successful SRAD hybrid engine in the state of Utah. I am responsible for developing all of the controls and electronics both on board the rocket and on the ground. In order to feel confident that the engine would perform correctly, we strapped the engine to the launch rail and performed a series of hot fire tests. You can watch one of these tests below!</p>
 </div>
 
 <div class="video-container">
@@ -84,7 +84,7 @@
   <div class="content-row content-right">
     <div class="text">
       <h3>Software Architecture</h3>
-      <p>I developed a comprehensive Finite State Machine (FSM) implemented in C++. This logic manages safety-critical transitions during fueling and launch, coordinating the propulsion unit, ground station, and fill trailer simultaneously.</p>
+      <p>I developed a comprehensive Finite State Machine (FSM) implemented in C++. This FSM is run simultaneously on three devices- the onboard flight computer, the oxidizer fill trailer, and the ground station. Each device is set to transition into energetic states only if it has an active connection to the other devices. Complex safety and control logic was implemented to manage critical transitions during fueling and launch.</p>
     </div>
     <div class="media">
       <img src="images/download (3).png" alt="State Machine Diagram">
@@ -94,7 +94,7 @@
   <div class="content-row content-left">
     <div class="text">
       <h3>Custom PCB Design</h3>
-      <p>I designed a custom PCB to interface the ESP32 flight computer with our sensor suite. This reduced potential failure points by eliminating bulk wiring and integrated voltage regulation and signal conditioning for thermocouples and pressure transducers.</p>
+      <p>I designed a custom printed circuit board (PCB) to interface the ESP32 flight computer with our sensor suite. The PCB contains connection points for four pressure transducers, a thermocouple amplifier, a servomotor, and an optional load cell. It provides voltage regulation, signal processing, and status LEDs, ensuring the system is controlled safely and data is accurately processed.</p>
     </div>
     <div class="media">
       <img src="images/propulsion_pcb_design.png" alt="PCB Design">
@@ -104,7 +104,7 @@
   <div class="content-row content-right">
     <div class="text">
       <h3>Propulsion Control Unit (PCU)</h3>
-      <p>The PCU is the core of the flight electronics. I led the development of the internal sled (shown top right) and the integrated subassembly (bottom right). This modular design allows the entire electronics package to slide into the rocket's avionics bay for easy maintenance and testing.</p>
+      <p>Using OnShape, I CAD-modeled an avionics sled for the PCU. The sled was designed to precisely house each electronic component, including the PCB, thermocouple shield, load cell amplifier, UBEC, and two batteries. Attention was given to tolerances to ensure each component fit snugly.</p>
     </div>
     <div class="media stacked-media">
       <img src="images/propulsion_pcu_sled.png" alt="PCU Sled">
@@ -115,7 +115,7 @@
   <div class="content-row content-left">
     <div class="text">
       <h3>Integrated Assembly</h3>
-      <p>This CAD model shows the flight-ready propulsion configuration. I worked closely with the mechanical team to ensure the PCU and plumbing were optimized for center-of-gravity requirements and flight vibrations.</p>
+      <p>This CAD model shows the flight-ready propulsion configuration. I designed a bracket that integrates the PCU onto threaded rods while ensuring that the control system did not interfere with any fluid components or structural components. It also had to be designed so that a 6-inch diameter body tube could fit around it. I worked closely with the fluids and structures teams to meet all necessary design requirements.</p>
     </div>
     <div class="media">
       <img src="images/propulsion_cad_assembly.png" alt="Full CAD Assembly">
@@ -124,18 +124,18 @@
 
   <div class="content-row content-right">
     <div class="text">
-      <h3>Lab Validation</h3>
-      <p>Hardware validation is performed in the lab before integration. Here, we run full launch simulations to check state transition timing and wireless communication reliability under various power loads.</p>
+      <h3>Physical Assembly</h3>
+      <p>Once the design was finalized, the PCB was milled at a shop on campus. I soldered each component on, taking great care to avoid shorts or damaging sensitive components. I then 3D-printed the sled and integrated each part into the assembly./p>.</p>
     </div>
     <div class="media">
-      <img src="images/propulsion_pcu_lab.jpg" alt="PCU Lab Testing">
+      <img src="images/propulsion_pcu_lab.jpg" alt="PCU Assembly">
     </div>
   </div>
 
   <div class="content-row content-left">
     <div class="text">
       <h3>Fill Trailer Control</h3>
-      <p>The fill trailer acts as our ground support equipment. I designed the electronics system that manages remote fueling, ensuring our team remains at a safe distance while monitoring tank pressures wirelessly.</p>
+      <p>To properly fill the flight tank with nitrous oxide prior to launch, a control system was designed for the oxidizer fill trailer (OFT). These controls commmunicate via radio with the ground station and PCU, actuating solenoid values at appropriate times to safely fill the tank remotely.</p>
     </div>
     <div class="media">
       <img src="images/propulsion_trailer_electronics.jpg" alt="Trailer Electronics">
@@ -145,7 +145,7 @@
   <div class="content-row content-right">
     <div class="text">
       <h3>Ground Station UI</h3>
-      <p>I developed a custom ground station interface to monitor real-time telemetry. This provides the team with live pressure readings, valve states, and system health checks during the countdown.</p>
+      <p>In order to monitor the status of each device, I designed a user interface using Python to display the status of each valve and current data readings from each sensor. It provides warnings and connectivity status to enable a safe launch.</p>
     </div>
     <div class="media">
       <img src="images/propulsion_ui_screenshot_testing.png" alt="UI Screenshot">
@@ -155,7 +155,7 @@
   <div class="content-row content-left">
     <div class="text">
       <h3>Burst Testing</h3>
-      <p>To ensure structural integrity, we perform destructive burst tests on our propellant tanks. My team monitors these tests to validate factor-of-safety calculations and structural FEA models.</p>
+      <p>To ensure structural integrity of our SRAD flight tank, we performed a destructive hydrostatic burst test. FEA showed that the tank would burst at 4000 psi (a factor of safety of 4), and the tank actually burst at 4050 psi. These results validated our FEA and gave us confidence in future tanks.</p>
     </div>
     <div class="media">
       <img src="images/propulsion_burst_tank_cropped.JPG" alt="Burst Tank">
@@ -164,8 +164,8 @@
 
   <div class="content-row content-right">
     <div class="text">
-      <h3>Block 2 Engine</h3>
-      <p>This is the flight-ready Block 2 engine. My controls work on this configuration focused on optimizing flow-rate precision and valve timing for the hybrid combustion cycle.</p>
+      <h3>Hot Fire Campaign</h3>
+      <p>The culmination of these efforts resulted in a successful hot fire campaign to validate each subsystem. The control system worked as intended, safely filling, igniting, and then depressurizing the hybrid engine configuration.</p>
     </div>
     <div class="media">
       <img src="images/propulsion_block_2.JPG" alt="Block 2 Engine">
