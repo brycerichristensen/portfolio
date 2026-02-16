@@ -34,6 +34,10 @@
 
     .intro { max-width:900px; margin:2rem auto; font-size:1.1rem; text-align:center; padding: 0 1rem; }
 
+    /* Video Container Styling */
+    .video-container { display:flex; justify-content:center; margin:2rem 0; padding: 0 1rem; }
+    .video-container iframe { width:100%; max-width:800px; height:450px; border:none; border-radius:8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+
     section { padding:2rem; max-width:900px; margin:auto; }
     h3 { font-size:1.8rem; color:#1e3a8a; margin-top:2rem; margin-bottom:1rem; border-bottom: 2px solid #e0e7ff; padding-bottom: 0.5rem; }
     .content-row { display:flex; flex-direction:column; gap:2rem; margin-bottom:4rem; align-items:center; }
@@ -70,6 +74,10 @@
 
 <div class="intro">
   <p>The flight configuration represents the integration of our control systems into the actual vehicle airframe. Moving from a lab setting to the rocket requires robust hardware, safety-critical software, and wireless ground-to-air communication. This system is designed to manage the launch sequence and maintain real-time telemetry from ignition through flight.</p>
+</div>
+
+<div class="video-container">
+  <iframe src="https://www.youtube.com/embed/EWHsmf_2Grc" title="Flight Configuration Demo" allowfullscreen></iframe>
 </div>
 
 <section>
@@ -140,7 +148,7 @@
       <p>I developed a custom ground station interface to monitor real-time telemetry. This provides the team with live pressure readings, valve states, and system health checks during the countdown.</p>
     </div>
     <div class="media">
-      <img src="images/propulsion_ui_screenshot.png" alt="UI Screenshot">
+      <img src="images/propulsion_ui_screenshot_testing.png" alt="UI Screenshot">
     </div>
   </div>
 
