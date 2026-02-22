@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-Z92FZCG7CS"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-Z92FZCG7CS');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pipsqueak Engine | Bryce Christensen</title>
+  <link href="https://fonts.googleapis.com/css2?family=Spectral:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="images/favicon.png">
+  <style>
+    body { font-family: 'Spectral', 'Times New Roman', serif; margin:0; padding:0; line-height:1.6; background:#fff; color:#000; }
+    
+    html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+
+    /* Sticky Header */
+    header { background-color:#1e3a8a; color:#fff; padding:1rem 2rem; text-align:center; position:sticky; top:0; z-index:1000; }
+    header h1 { font-size:3rem; margin:0.5rem 0; }
+    nav a { color:#fff; margin:0 1rem; text-decoration:none; font-weight:700; }
+    nav a:hover { text-decoration:underline; }
+
+    /* Hero Banner */
+    .hero {
+      position: relative;
+      background-image: url('images/air_engine.png');
+      background-size: cover;
+      background-position: center;
+      height: 300px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #fff;
+      text-align: center;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top:0; left:0; right:0; bottom:0;
+      background-color: rgba(0,0,0,0.5);
+      z-index:1;
+    }
+    .hero h2 { position: relative; z-index:2; font-size:4rem; margin:0; }
+
+    /* Intro paragraph */
+    .intro { max-width:900px; margin:2rem auto; font-size:1.2rem; text-align:center; padding: 0 1rem; }
+
+    /* YouTube Video */
+    .video-container { display:flex; justify-content:center; margin:2rem 0; padding: 0 1rem; }
+    .video-container iframe { width:100%; max-width:800px; height:450px; border:none; border-radius:8px; }
+
+    /* Alternating content */
+    section { padding:2rem; max-width:900px; margin:auto; }
+    h3 { font-size:1.8rem; color:#1e3a8a; margin-top:2rem; margin-bottom:1rem; }
+    .content-row { display:flex; flex-direction:column; gap:2rem; margin-bottom:4rem; align-items:center; }
+    .content-row img { max-width:100%; width:100%; border-radius:8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+    .text { text-align:left; }
+
+    @media(min-width:700px) {
+      .content-left { flex-direction: row; justify-content: space-between; }
+      .content-left .text { order:1; width:55%; }
+      .content-left .media { order:2; width:40%; }
+
+      .content-right { flex-direction: row; justify-content: space-between; }
+      .content-right .text { order:2; width:55%; text-align:left; }
+      .content-right .media { order:1; width:40%; }
+    }
+
+    /* Contact */
+    #contact a { color:#1e3a8a; text-decoration:none; }
+    #contact a:hover { text-decoration:underline; }
+    footer { background:#f4f4f4; text-align:center; padding:1rem; margin-top:2rem; }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Bryce Christensen</h1>
+  <nav>
+    <a href="index.html">Portfolio Home</a>
+  </nav>
+</header>
+
+<div class="hero">
+  <h2>Pipsqueak Engine</h2>
+</div>
+
+<div class="intro">
+  <p>The "Pipsqueak" is a small-scale, oscillating-cylinder steam engine designed to run on compressed air. This project involved full-cycle mechanical development, from initial CAD modeling and technical drafting to precision machining in the shop.</p>
+</div>
+
+<div class="video-container">
+  <iframe src="https://www.youtube.com/embed/R5MlXsRmYUs" title="Pipsqueak Engine Demonstration" allowfullscreen></iframe>
+</div>
+
+<section>
+
+  <div class="content-row content-left">
+    <div class="text">
+      <h3>CAD Modeling & Design</h3>
+      <p>I started by modeling the entire assembly in SolidWorks. The design features a simple oscillating cylinder mechanism where the cylinder itself pivots to open and close the intake and exhaust ports, eliminating the need for a complex valve train.</p>
+    </div>
+    <div class="media">
+      <img src="images/air_engine_cad.png" alt="Pipsqueak Engine CAD Model">
+    </div>
+  </div>
+
+  <div class="content-row content-right">
+    <div class="text">
+      <h3>Technical Drawing</h3>
+      <p>Detailed engineering drawings were created for each component, including the base, upright, cylinder, and flywheel. I focused on proper tolerancing and GD&T to ensure that the moving parts would maintain a tight seal while still allowing for smooth rotation.</p>
+    </div>
+    <div class="media">
+      <img src="images/air_engine_drawing.png" alt="Pipsqueak Engine Technical Drawing">
+    </div>
+  </div>
+
+  <div class="content-row content-left">
+    <div class="text">
+      <h3>Bill of Materials (BOM)</h3>
+      <p>To prepare for manufacturing, I developed a complete Bill of Materials. This included raw stock selection—primarily brass for the cylinder and aluminum for the base—along with the specific fasteners and springs required for the tensioning mechanism.</p>
+    </div>
+    <div class="media">
+      <img src="images/air_engine_bom.png" alt="Pipsqueak Engine BOM">
+    </div>
+  </div>
+
+  <div class="content-row content-right">
+    <div class="text">
+      <h3>Machining and Final Assembly</h3>
+      <p>The final engine was manufactured using manual lathes and mills. Precision was key, particularly when lapping the mating surfaces between the cylinder and the upright to prevent air leaks. The result is a robust, functional air engine that operates at high RPMs.</p>
+    </div>
+    <div class="media">
+      <img src="images/air_engine.jpg" alt="Final Assembled Pipsqueak Engine">
+    </div>
+  </div>
+
+</section>
+
+<section id="contact">
+  <h2>Contact</h2>
+  <p>Phone: (936) 900-3932</p>
+  <p>Email: <a href="mailto:brycerichristensen@gmail.com">brycerichristensen@gmail.com</a></p>
+  <p>LinkedIn: <a href="http://www.linkedin.com/in/brycerichristensen" target="_blank">linkedin.com/in/brycerichristensen</a></p>
+</section>
+
+<footer>
+  <p>© 2026 Bryce Christensen</p>
+</footer>
+
+</body>
+</html>
