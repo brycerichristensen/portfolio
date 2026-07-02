@@ -41,7 +41,7 @@
     section { padding:2rem; max-width:900px; margin:auto; }
     h3 { font-size:1.8rem; color:#1e3a8a; margin-top:2rem; margin-bottom:1rem; border-bottom: 2px solid #e0e7ff; padding-bottom: 0.5rem; }
     .content-row { display:flex; flex-direction:column; gap:2rem; margin-bottom:4rem; align-items:center; }
-    .content-row img { max-width:100%; border-radius:8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+    .content-row img { width:100%; max-width:100%; border-radius:8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
     
     .stacked-media { display: flex; flex-direction: column; gap: 1rem; width: 100%; }
 
@@ -50,6 +50,10 @@
       .content-left .text { order:1; width:55%; } .content-left .media { order:2; width:40%; }
       .content-right { flex-direction: row; justify-content: space-between; }
       .content-right .text { order:2; width:55%; } .content-right .media { order:1; width:40%; }
+      
+      /* Specific UI Section Overrides for larger desktop displays */
+      .ui-row .text { order:2; width:40%; } 
+      .ui-row .media { order:1; width:55%; }
     }
 
     #contact a { color:#1e3a8a; text-decoration:none; }
@@ -73,7 +77,7 @@
 </div>
 
 <div class="intro">
-  <p>When this engine propels a rocket to 12,000 feet next month, it will become the first successful SRAD hybrid engine in the state of Utah. I am responsible for developing all of the controls and electronics both on board the rocket and on the ground. In order to feel confident that the engine would perform correctly, we strapped the engine to the launch rail and performed a series of hot fire tests. You can watch one of these tests below!</p>
+  <p>When this engine propels a rocket to 12,000 feet this Spring, it will become the first successful SRAD hybrid engine in the state of Utah. I am responsible for developing all of the controls and electronics both on board the rocket and on the ground. In order to feel confident that the engine would perform correctly, we strapped the engine to the launch rail and performed a series of hot fire tests. You can watch one of these tests below!</p>
 </div>
 
 <div class="video-container">
@@ -94,10 +98,11 @@
   <div class="content-row content-left">
     <div class="text">
       <h3>Custom PCB Design</h3>
-      <p>I designed a custom printed circuit board (PCB) to interface the ESP32 flight computer with our sensor suite. The PCB contains connection points for four pressure transducers, a thermocouple amplifier, a servo-motor (controlling the valve), and an optional load cell. It provides voltage regulation, signal processing, and status LEDs, ensuring the system is controlled safely and data is accurately processed.</p>
+      <p>I designed a custom printed circuit board (PCB) to interface the ESP32 flight computer with our sensor suite. The PCB contains connection points for four pressure transducers, a thermocouple amplifier, a servomotor, and an optional load cell. It provides voltage regulation, signal processing, and status LEDs, ensuring the system is controlled safely and data is accurately processed.</p>
     </div>
-    <div class="media">
-      <img src="images/propulsion_pcb_design.png" alt="PCB Design">
+    <div class="media stacked-media">
+      <img src="images/propulsion_pcb_design.png" alt="PCB Design Diagram">
+      <img src="images/propulsion_pcb_image.png" alt="PCB Hardware Image">
     </div>
   </div>
 
@@ -106,9 +111,8 @@
       <h3>Propulsion Control Unit (PCU)</h3>
       <p>Using OnShape, I CAD-modeled an avionics sled for the PCU. The sled was designed to precisely house each electronic component, including the PCB, thermocouple shield, load cell amplifier, UBEC, and two batteries. Attention was given to tolerances to ensure each component fit snugly.</p>
     </div>
-    <div class="media stacked-media">
-      <img src="images/propulsion_pcu_sled.png" alt="PCU Sled">
-      <img src="images/propulsion_pcu_subassembly.png" alt="PCU Subassembly">
+    <div class="media">
+      <img src="images/propulsion_pcu_sled_cad.png" alt="PCU Subassembly">
     </div>
   </div>
 
@@ -118,17 +122,17 @@
       <p>This CAD model shows the flight-ready propulsion configuration. I designed a bracket that integrates the PCU onto threaded rods while ensuring that the control system did not interfere with any fluid components or structural components. It also had to be designed so that a 6-inch diameter body tube could fit around it. I worked closely with the fluids and structures teams to meet all necessary design requirements.</p>
     </div>
     <div class="media">
-      <img src="images/propulsion_cad_assembly.png" alt="Full CAD Assembly">
+      <img src="images/propulsion_cad_assembly_v2.png" alt="Full CAD Assembly">
     </div>
   </div>
 
   <div class="content-row content-right">
     <div class="text">
       <h3>Physical Assembly</h3>
-      <p>Once the design was finalized, the PCB was milled at a shop on campus. I soldered each component on, taking great care to avoid shorts or damaging sensitive components. I then 3D-printed the sled and integrated each part into the assembly./p>.</p>
+      <p>Once the design was finalized, the PCB was milled at a shop on campus. I soldered each component on, taking great care to avoid shorts or damaging sensitive components. I then 3D-printed the sled and integrated each part into the assembly.</p>
     </div>
     <div class="media">
-      <img src="images/propulsion_pcu_lab.jpg" alt="PCU Assembly">
+      <img src="images/image-1783027337058-0.png" alt="PCU Assembly">
     </div>
   </div>
 
@@ -142,7 +146,7 @@
     </div>
   </div>
 
-  <div class="content-row content-right">
+  <div class="content-row content-right ui-row">
     <div class="text">
       <h3>Ground Station UI</h3>
       <p>In order to monitor the status of each device, I designed a user interface using Python to display the status of each valve and current data readings from each sensor. It provides warnings and connectivity status to enable a safe launch.</p>
