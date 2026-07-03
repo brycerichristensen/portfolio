@@ -41,12 +41,12 @@
 
     /* Layout Grids */
     @media(min-width:800px) {
-      /* Snowbird Grid: Text left, multi-media block right */
-      .snowbird-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 2.5rem; align-items: start; }
-      .snowbird-gallery { display: grid; grid-template-columns: repeat(6, 1fr); gap: 1rem; }
-      .sb-video { grid-column: span 6; height: 320px; }
-      .sb-img-main { grid-column: span 6; }
-      .sb-img-sub { grid-column: span 3; }
+      /* Balanced Snowbird Layout */
+      .snowbird-grid { display: grid; grid-template-columns: 1fr 1.1fr; gap: 2.5rem; align-items: start; }
+      .snowbird-left-col { display: flex; flex-direction: column; gap: 1.5rem; }
+      .snowbird-right-col { display: flex; flex-direction: column; gap: 1.5rem; }
+      .sb-stack-images { display: flex; flex-direction: column; gap: 1.5rem; }
+      .sb-video { height: 300px; }
 
       /* Bomb Pop Grid: Image on left, 2 videos stacked on right */
       .bomb-pop-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; align-items: stretch; }
@@ -59,10 +59,9 @@
       .legatus-images img { width: 48%; object-fit: contain; max-height: 500px; }
     }
 
-    /* Fallbacks for smaller screens to keep gallery items square/neat */
     @media(max-width:799px) {
-      .snowbird-gallery { display: flex; flex-direction: column; gap: 1rem; }
-      .snowbird-gallery iframe { height: 250px; }
+      .snowbird-left-col, .snowbird-right-col, .sb-stack-images { display: flex; flex-direction: column; gap: 1.5rem; }
+      .sb-video { height: 250px; }
     }
 
     /* Common Media Styling */
@@ -93,21 +92,22 @@
 <section id="snowbird">
   <h3>Snowbird (IREC)</h3>
   <div class="snowbird-grid">
-    <div class="snowbird-text">
-      <p>Snowbird is a high-performance competition rocket engineered to push the boundaries of our school's aerospace capabilities. Our team competed with Snowbird at the Intercollegiate Rocket Engineering Competition (IREC), the largest rocketry competition in the world.</p>
-      <p style="margin-top: 1.5rem;">The vehicle successfully launched and recovered, becoming the <strong>highest and fastest rocket in school history</strong>. Snowbird achieved a phenomenal peak velocity of <strong>Mach 1.8</strong> and reached an official apogee of over <strong>26,000 feet</strong>, demonstrating exceptional aerodynamic stability and structural integrity under extreme supersonic conditions.</p>
+    <!-- Left Column: Text and Stacked Small Images -->
+    <div class="snowbird-left-col">
+      <div class="sb-text">
+        <p>Snowbird is a high-performance competition rocket engineered to push the boundaries of our school's aerospace capabilities. Our team competed with Snowbird at the Intercollegiate Rocket Engineering Competition (IREC), the largest rocketry competition in the world.</p>
+        <p style="margin-top: 1.5rem;">The vehicle successfully launched and recovered, becoming the highest and fastest rocket in school history. Snowbird achieved a phenomenal peak velocity of Mach 1.8 and reached an official apogee of over 26,000 feet, demonstrating exceptional aerodynamic stability and structural integrity under extreme supersonic conditions.</p>
+      </div>
+      <div class="sb-stack-images">
+        <img src="images/launch_photo.jpg" alt="Team reaction to Snowbird launch">
+        <img src="images/horse_irec.jpg" alt="Team at IREC with a cowboy">
+      </div>
     </div>
     
-    <div class="snowbird-gallery">
-      <!-- Embedded Launch Video -->
+    <!-- Right Column: Professional Main Photo and Video below it -->
+    <div class="snowbird-right-col">
+      <img src="images/HPT_2026.jpg" alt="Team and Snowbird Rocket">
       <iframe class="sb-video" src="https://www.youtube.com/embed/rubaTvGcXjc" title="Snowbird Rocket Launch" allowfullscreen></iframe>
-      
-      <!-- Professional Team Pic (Main Wide) -->
-      <img src="images/HPT_2026.jpg" alt="Team and Snowbird Rocket" class="sb-img-main">
-      
-      <!-- Sub Pics (Side-by-Side) -->
-      <img src="images/launch_photo.jpg" alt="Team reaction to Snowbird launch" class="sb-img-sub" style="aspect-ratio: 4/3;">
-      <img src="images/horse_irec.jpg" alt="Team at IREC with a cowboy" class="sb-img-sub" style="aspect-ratio: 4/3;">
     </div>
   </div>
 </section>
