@@ -42,11 +42,12 @@
     /* Layout Grids */
     @media(min-width:800px) {
       /* Balanced Snowbird Layout */
-      .snowbird-grid { display: grid; grid-template-columns: 1fr 1.1fr; gap: 2.5rem; align-items: start; }
+      .snowbird-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 2.5rem; align-items: start; }
       .snowbird-left-col { display: flex; flex-direction: column; gap: 1.5rem; }
-      .snowbird-right-col { display: flex; flex-direction: column; gap: 1.5rem; }
+      .snowbird-right-col { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+      .sb-full-width-media { grid-column: span 2; }
       .sb-stack-images { display: flex; flex-direction: column; gap: 1.5rem; }
-      .sb-video { height: 300px; }
+      .sb-video { height: 100%; min-height: 220px; }
 
       /* Bomb Pop Grid: Image on left, 2 videos stacked on right */
       .bomb-pop-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; align-items: stretch; }
@@ -92,12 +93,10 @@
 <section id="snowbird">
   <h3>Snowbird</h3>
   <div class="snowbird-grid">
-    <!-- Left Column: Text and Stacked Small Images -->
     <div class="snowbird-left-col">
       <div class="sb-text">
         <p>Snowbird is a high-power (L3, O5500) competition rocket designed and built to compete in the 30K COTS category at the 2026 Intercollegiate Rocket Engineering Competition (IREC), the world's largest collegiate rocketry competition. In addition to designing and integrating the payload system, I was on the flight analysis team, where I analyzed data from our test launch to identify the causes of vehicle anomalies and helped develop corrective actions prior to competition.</p>
-        <p style="margin-top: 1.5rem;">Our team successfully launched and recovered the vehicle at IREC, making Snowbird the highest-flying and fastest rocket in school history. The rocket reached a peak velocity of Mach 1.8 and achieved an official apogee of over 26,000 feet, demonstrating strong aerodynamic performance, structural integrity, and flight stability throughout supersonic flight.
-</p>
+        <p style="margin-top: 1.5rem;">Our team successfully launched and recovered the vehicle at IREC, making Snowbird the highest-flying and fastest rocket in school history. The rocket reached a peak velocity of Mach 1.8 and achieved an official apogee of over 26,000 feet, demonstrating strong aerodynamic performance, structural integrity, and flight stability throughout supersonic flight.</p>
       </div>
       <div class="sb-stack-images">
         <img src="images/launch_photo.jpg" alt="Team reaction to Snowbird launch">
@@ -105,10 +104,10 @@
       </div>
     </div>
     
-    <!-- Right Column: Professional Main Photo and Video below it -->
     <div class="snowbird-right-col">
       <img src="images/HPT_2026.jpg" alt="Team and Snowbird Rocket">
       <iframe class="sb-video" src="https://www.youtube.com/embed/rubaTvGcXjc" title="Snowbird Rocket Launch" allowfullscreen></iframe>
+      <img src="images/team_photo_irec.jpg" alt="Team photo at IREC competition setup" class="sb-full-width-media">
     </div>
   </div>
 </section>
