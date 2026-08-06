@@ -88,9 +88,8 @@
     .card { border:1px solid #ccc; border-radius:8px; padding:1.5rem; cursor:pointer; transition:0.3s; background:#f9f9f9; text-align:center; text-decoration:none; color:inherit; display:block; }
     .card:hover { background:#e0e7ff; transform: translateY(-5px); box-shadow: 0 8px 20px rgba(0,0,0,0.15); }
 
-    /* Card Image Container & Logo Badge Overlay */
-    .card-image-wrapper {
-      position: relative;
+    /* Standard Card Image Wrapper (Full Width) */
+    .card-image-wrapper-full {
       width: 100%;
       height: 180px;
       margin-bottom: 1rem;
@@ -98,30 +97,53 @@
       border-radius: 5px;
     }
 
-    .card-image-wrapper img.main-img {
+    .card-image-wrapper-full img {
       width: 100%;
       height: 100%;
       object-fit: cover;
       display: block;
     }
 
-    .company-badge {
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      background: rgba(255, 255, 255, 0.95);
-      padding: 4px 8px;
-      border-radius: 4px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.25);
+    /* Option A: 50/50 Side-by-Side Split Image Container */
+    .card-image-wrapper {
+      display: flex;
+      width: 100%;
+      height: 180px;
+      margin-bottom: 1rem;
+      overflow: hidden;
+      border-radius: 5px;
+    }
+
+    /* Photo Half */
+    .card-image-wrapper .photo-half {
+      width: 50%;
+      height: 100%;
+    }
+
+    .card-image-wrapper .photo-half img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* Logo Half (Solid background) */
+    .card-image-wrapper .logo-half {
+      width: 50%;
+      height: 100%;
+      background-color: #1e3a8a; /* Deep blue matching header theme */
       display: flex;
       align-items: center;
       justify-content: center;
+      padding: 1rem;
+      box-sizing: border-box;
     }
 
-    .company-badge img {
-      height: 24px;
-      width: auto;
-      display: block;
+    .card-image-wrapper .logo-half img {
+      max-width: 85%;
+      max-height: 80%;
+      object-fit: contain;
+      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
     }
 
     .rocket { object-position: center 30%; }
@@ -149,7 +171,7 @@
 <body>
 
   <div class="banner">
-    Work in Progress
+    Site Under Construction
   </div>
 
   <header>
@@ -179,11 +201,13 @@
     <h2>Internships</h2>
     <div class="projects">
 
-      <!-- NASA MSFC Card -->
+      <!-- NASA MSFC Card: Photo on Left, Logo on Right -->
       <a href="nasa.html" class="card">
         <div class="card-image-wrapper">
-          <img src="images/hls-spacex.jpeg" alt="HLS Mission Analysis & Visualization" class="main-img">
-          <div class="company-badge">
+          <div class="photo-half">
+            <img src="images/hls-spacex.jpeg" alt="HLS Mission Analysis & Visualization">
+          </div>
+          <div class="logo-half">
             <img src="images/nasa-meatball-transparent.png" alt="NASA Logo">
           </div>
         </div>
@@ -191,12 +215,14 @@
         <p class="card-subtitle">NASA Marshall Space Flight Center</p>
       </a>
 
-      <!-- Fortress Technologies Card -->
+      <!-- Fortress Technologies Card: Logo on Left, Photo on Right -->
       <a href="fortress.html" class="card">
         <div class="card-image-wrapper">
-          <img src="images/bolt-render.png" alt="C-UAS Development & Testing" class="main-img">
-          <div class="company-badge">
+          <div class="logo-half">
             <img src="images/fti-logo.png" alt="Fortress Technologies Logo">
+          </div>
+          <div class="photo-half">
+            <img src="images/bolt-render.png" alt="C-UAS Development & Testing">
           </div>
         </div>
         <h3>C-UAS Development & Testing</h3>
@@ -210,15 +236,15 @@
     <h2>Research</h2>
     <div class="projects">
       <a href="propulsion.html" class="card">
-        <div class="card-image-wrapper">
-          <img src="images/test_fire.png" alt="Propulsion Control System" class="main-img">
+        <div class="card-image-wrapper-full">
+          <img src="images/test_fire.png" alt="Propulsion Control System">
         </div>
         <h3>Propulsion Control System</h3>
       </a>
 
       <a href="phoenix.html" class="card">
-        <div class="card-image-wrapper">
-          <img src="images/payload_irec_rotated.jpg" alt="Phoenix Payload (NRG Battery)" class="main-img">
+        <div class="card-image-wrapper-full">
+          <img src="images/payload_irec_rotated.jpg" alt="Phoenix Payload (NRG Battery)">
         </div>
         <h3>Phoenix Payload (NRG Battery)</h3>
       </a>
@@ -229,29 +255,29 @@
     <h2>Design Projects</h2>
     <div class="projects">
       <a href="rocketry.html" class="card">
-        <div class="card-image-wrapper">
-          <img src="images/snowbird_launch.png" alt="Rocketry Projects" class="main-img rocket">
+        <div class="card-image-wrapper-full">
+          <img src="images/snowbird_launch.png" alt="Rocketry Projects" class="rocket">
         </div>
         <h3>Rocketry Projects</h3>
       </a>
       
       <a href="mechatronics.html" class="card">
-        <div class="card-image-wrapper">
-          <img src="images/mechatronics_rover.png" alt="Autonomous Rover" class="main-img">
+        <div class="card-image-wrapper-full">
+          <img src="images/mechatronics_rover.png" alt="Autonomous Rover">
         </div>
         <h3>Autonomous Rover</h3>
       </a>
 
       <a href="landing.html" class="card">
-        <div class="card-image-wrapper">
-          <img src="images/CAD_legs.png" alt="Vertical-Landing Leg Deployment System" class="main-img">
+        <div class="card-image-wrapper-full">
+          <img src="images/CAD_legs.png" alt="Vertical-Landing Leg Deployment System">
         </div>
         <h3>Vertical-Landing Leg Deployment System</h3>
       </a>
 
       <a href="air_engine.html" class="card">
-        <div class="card-image-wrapper">
-          <img src="images/air_engine.jpg" alt="Pipsqueak Engine" class="main-img">
+        <div class="card-image-wrapper-full">
+          <img src="images/air_engine.jpg" alt="Pipsqueak Engine">
         </div>
         <h3>Pipsqueak Engine</h3>
       </a>
