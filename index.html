@@ -112,6 +112,7 @@
       margin-bottom: 1rem;
       overflow: hidden;
       border-radius: 5px;
+      border: 1px solid #e5e7eb;
     }
 
     /* Photo Half */
@@ -127,11 +128,15 @@
       display: block;
     }
 
-    /* Logo Half (Solid background) */
+    /* Shifts frame focus to the left side of the render */
+    .card-image-wrapper .photo-half img.bolt-photo {
+      object-position: left center;
+    }
+
+    /* Logo Half Base */
     .card-image-wrapper .logo-half {
       width: 50%;
       height: 100%;
-      background-color: #1e3a8a; /* Deep blue matching header theme */
       display: flex;
       align-items: center;
       justify-content: center;
@@ -139,11 +144,20 @@
       box-sizing: border-box;
     }
 
+    /* Logo Half Background Variants */
+    .logo-half.nasa-bg {
+      background-color: #ffffff; /* Clean white for blue NASA logo */
+    }
+
+    .logo-half.fti-bg {
+      background-color: #0a192f; /* Deep navy blue for FTI logo */
+    }
+
     .card-image-wrapper .logo-half img {
       max-width: 85%;
       max-height: 80%;
       object-fit: contain;
-      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.15));
     }
 
     .rocket { object-position: center 30%; }
@@ -201,28 +215,28 @@
     <h2>Internships</h2>
     <div class="projects">
 
-      <!-- NASA MSFC Card: Photo on Left, Logo on Right -->
+      <!-- NASA MSFC Card: Logo on Left (White BG), Photo on Right -->
       <a href="nasa.html" class="card">
         <div class="card-image-wrapper">
-          <div class="photo-half">
-            <img src="images/hls-spacex.jpeg" alt="HLS Mission Analysis & Visualization">
-          </div>
-          <div class="logo-half">
+          <div class="logo-half nasa-bg">
             <img src="images/nasa-meatball-transparent.png" alt="NASA Logo">
+          </div>
+          <div class="photo-half">
+            <img src="images/hls-spacex.jpg" alt="HLS Mission Analysis & Visualization">
           </div>
         </div>
         <h3>HLS Mission Analysis & Visualization</h3>
         <p class="card-subtitle">NASA Marshall Space Flight Center</p>
       </a>
 
-      <!-- Fortress Technologies Card: Logo on Left, Photo on Right -->
+      <!-- Fortress Technologies Card: Logo on Left (Navy BG), Photo on Right (Shifted Left) -->
       <a href="fortress.html" class="card">
         <div class="card-image-wrapper">
-          <div class="logo-half">
+          <div class="logo-half fti-bg">
             <img src="images/fti-logo.png" alt="Fortress Technologies Logo">
           </div>
           <div class="photo-half">
-            <img src="images/bolt-render.png" alt="C-UAS Development & Testing">
+            <img src="images/bolt-render.png" alt="C-UAS Development & Testing" class="bolt-photo">
           </div>
         </div>
         <h3>C-UAS Development & Testing</h3>
