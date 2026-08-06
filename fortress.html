@@ -1,1 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-Z92FZCG7CS"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-Z92FZCG7CS');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fortress Technologies | Bryce Christensen</title>
+  <link href="https://fonts.googleapis.com/css2?family=Spectral:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="images/favicon.png">
+  <style>
+    body { font-family: 'Spectral', 'Times New Roman', serif; margin:0; padding:0; line-height:1.6; background:#fff; color:#000; }
+    html { scroll-behavior: smooth; scroll-padding-top: 80px; }
 
+    header { background-color:#1e3a8a; color:#fff; padding:1rem 2rem; text-align:center; position:sticky; top:0; z-index:1000; }
+    header h1 { font-size:3rem; margin:0.5rem 0; }
+    nav a { color:#fff; margin:0 1rem; text-decoration:none; font-weight:700; }
+    nav a:hover { text-decoration:underline; }
+
+    .hero {
+      position: relative;
+      background-image: url('images/bolt-render.png');
+      background-size: cover;
+      background-position: 25% center;
+      height: 350px;
+      display: flex; justify-content: center; align-items: center; color: #fff; text-align: center;
+    }
+    .hero::before { content: ''; position: absolute; inset:0; background: rgba(0,0,0,0.5); z-index:1; }
+    .hero h2 { position: relative; z-index:2; font-size:3.5rem; margin:0; }
+
+    section { padding:2rem; max-width:900px; margin:auto; }
+    h3 { font-size:1.8rem; color:#1e3a8a; margin-top:2rem; margin-bottom:1rem; border-bottom: 2px solid #e0e7ff; padding-bottom: 0.5rem; }
+    
+    .content-row { display:flex; flex-direction:column; gap:2rem; margin-bottom:4rem; align-items:center; }
+    .content-row img { max-width:100%; width:100%; border-radius:8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+    .text { text-align:left; }
+
+    @media(min-width:700px) {
+      .content-left { flex-direction: row; justify-content: space-between; }
+      .content-left .text { order:1; width:55%; }
+      .content-left .media { order:2; width:40%; }
+
+      .content-right { flex-direction: row; justify-content: space-between; }
+      .content-right .text { order:2; width:55%; text-align:left; }
+      .content-right .media { order:1; width:40%; }
+
+      .width-text-left { order:1; width:55%; }
+      .width-media-right { order:2; width:40%; }
+      
+      .width-media-left { order:1; width:40%; }
+      .width-text-right { order:2; width:55%; }
+    }
+
+    footer { background:#f4f4f4; text-align:center; padding:1rem; margin-top:2rem; }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Bryce Christensen</h1>
+  <nav>
+    <a href="index.html">Portfolio Home</a>
+  </nav>
+</header>
+
+<div class="hero">
+  <h2>C-UAS Systems Engineering <br> (Fortress Technologies Inc.)</h2>
+</div>
+
+<section>
+  <div class="intro-text">
+    <p style="font-size:1.1rem;">In 2026, I served as the C-UAS Project Lead at Fortress Technologies Inc. In this role, I directed an 8-person engineering team tasked with designing, integrating, and evaluating counter-unmanned aircraft systems (C-UAS) for force-protection applications. My work focused on systems leadership, CFD aerodynamic modeling, and advanced trajectory visualization.</p>
+  </div>
+
+  <div class="content-row content-left">
+    <div class="text width-text-left">
+      <h3>Project Leadership & Systems Engineering</h3>
+      <p>Managing an 8-person multidisciplinary engineering team required establishing rigorous design milestone structures, hardware interface control documents, and rapid prototyping schedules. I coordinated task allocation across mechanical design, embedded software, and dynamic testing groups.</p>
+      <p style="margin-top: 1rem;">By leading regular design reviews and hardware-in-the-loop validation milestones, our team accelerated assembly iterations while ensuring full alignment with structural and electronic integration constraints.</p>
+    </div>
+    <div class="media width-media-right">
+      <img src="images/fortress_sys_arch.png" alt="High-level Systems Engineering Architecture Diagram">
+    </div>
+  </div>
+
+  <div class="content-row content-right">
+    <div class="media width-media-left">
+      <img src="images/fortress_cfd.png" alt="CFD Aerodynamic Pressure Distribution Contour">
+    </div>
+    <div class="text width-text-right">
+      <h3>Aerodynamic CFD Modeling & Flight Dynamics</h3>
+      <p>To characterize flight behavior across varying speed regimes, I performed Computational Fluid Dynamics (CFD) simulations using Ansys Fluent to model vehicle aerodynamic surface pressures, drag coefficients, and moment derivatives.</p>
+      <p style="margin-top: 1rem;">Extracted stability derivatives were fed directly into 6-DOF (Six Degrees of Freedom) flight dynamics control algorithms. This mathematical modeling ensured predictable trim states and dynamic stability during aggressive tactical maneuvers.</p>
+    </div>
+  </div>
+
+  <div class="content-row content-left">
+    <div class="text width-text-left">
+      <h3>3D Telemetry Visualization Pipeline (Unreal Engine)</h3>
+      <p>To turn complex multidimensional telemetry streams into actionable spatial visual insight, I developed a high-fidelity visualization rendering pipeline using Unreal Engine 5.</p>
+      <p style="margin-top: 1rem;">The pipeline ingests spatial coordinate telemetry logs and maps full vehicle state orientations (pitch, roll, yaw) into rendered 3D environments in real time. This allowed our engineering team to visually evaluate flight performance, track state vector deviations, and inspect dynamic target intercept trajectories.</p>
+    </div>
+    <div class="media width-media-right">
+      <img src="images/fortress_ue5_render.png" alt="3D Flight Trajectory Visualization Render in Unreal Engine">
+    </div>
+  </div>
+</section>
+
+<section id="contact" style="padding:2rem; max-width:900px; margin:auto;">
+  <h2>Contact</h2>
+  <p>Phone: (936) 900-3932</p>
+  <p>Email: <a href="mailto:brycerichristensen@gmail.com" style="color:#1e3a8a; text-decoration:none;">brycerichristensen@gmail.com</a></p>
+  <p>LinkedIn: <a href="http://www.linkedin.com/in/brycerichristensen" target="_blank" style="color:#1e3a8a; text-decoration:none;">linkedin.com/in/brycerichristensen</a></p>
+</section>
+
+<footer>
+  <p>© 2026 Bryce Christensen</p>
+</footer>
+
+</body>
+</html>
