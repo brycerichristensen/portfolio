@@ -65,42 +65,21 @@
     .vertical-stack { display: flex; flex-direction: column; gap: 1rem; width: 100%; }
     .image-subnote { font-size: 0.85rem; color: #64748b; text-align: center; margin-top: 0.25rem; font-style: italic; }
 
-    /* Photo Gallery Grid for On-Site Photos */
-    .photo-gallery {
+    /* Photo Collage Grid (Dynamic masonry/collage layout) */
+    .photo-collage {
       display: grid;
       grid-template-columns: 1fr;
-      gap: 1.5rem;
+      gap: 1rem;
       margin-top: 1.5rem;
+      align-items: start;
     }
-    .photo-card {
-      text-align: center;
-    }
-    .photo-card img {
+
+    .photo-collage img {
       width: 100%;
+      height: auto;
       border-radius: 8px;
       box-shadow: 0 4px 10px rgba(0,0,0,0.1);
       display: block;
-    }
-
-    /* Aspect Ratio Handlers for Gallery */
-    .photo-card img.img-vertical {
-      height: 320px;
-      object-fit: cover;
-    }
-    .photo-card img.img-horizontal {
-      height: 220px;
-      object-fit: cover;
-    }
-    .photo-card img.img-square {
-      height: 260px;
-      object-fit: cover;
-    }
-
-    .photo-card p {
-      font-size: 0.9rem;
-      color: #475569;
-      margin-top: 0.5rem;
-      font-style: italic;
     }
 
     @media(min-width:700px) {
@@ -118,9 +97,23 @@
       .width-media-left { order:1; width:40%; }
       .width-text-right { order:2; width:55%; }
 
-      .photo-gallery {
-        grid-template-columns: 1fr 1fr;
+      /* Desktop Collage Grid Spanning Rules */
+      .photo-collage {
+        grid-template-columns: repeat(12, 1fr);
       }
+
+      /* Image 1: Vertical Primary (Spans 5 cols, 2 rows) */
+      .collage-item-1 { grid-column: span 5; grid-row: span 2; }
+      /* Image 2: Horizontal (Spans 7 cols) */
+      .collage-item-2 { grid-column: span 7; }
+      /* Image 3: Square (Spans 7 cols) */
+      .collage-item-3 { grid-column: span 7; }
+      /* Image 4: Vertical (Spans 5 cols, 2 rows) */
+      .collage-item-4 { grid-column: span 5; grid-row: span 2; }
+      /* Image 5: Horizontal (Spans 7 cols) */
+      .collage-item-5 { grid-column: span 7; }
+      /* Image 6: Horizontal (Spans 7 cols) */
+      .collage-item-6 { grid-column: span 7; }
     }
 
     /* Modal / Lightbox Overlay for Click-to-Enlarge Images */
@@ -175,16 +168,16 @@
 
 <section>
   <div class="intro-text">
-    <p style="font-size:1.15rem;">During my time at NASA Marshall Space Flight Center (MSFC) in Huntsville, AL, I supported the Human Landing System (HLS) program focused on two main technical initiatives:</p>
+    <p style="font-size:1.15rem;">During my time at NASA Marshall Space Flight Center (MSFC) in Huntsville, Alabama, I supported the Human Landing System (HLS) program focused on two main technical initiatives:</p>
     <ol style="font-size:1.1rem; margin-top:0.5rem; padding-left: 1.5rem;">
       <li style="margin-bottom: 0.4rem;">Terrain-Relative Navigation (TRN) in-the-loop co-simulation capabilities</li>
       <li>Automated telemetry analysis pipelines for SpaceX Orbital Flight Tests (OFT)</li>
     </ol>
-    <p style="font-size:1.1rem; margin-top: 0.75rem;">Additionally, I led an intern team tasked with Reaction Control System (RCS) thruster sizing and preliminary design to support overall GNC maneuvering requirements.</p>
+    <p style="font-size:1.1rem; margin-top: 0.75rem;">Additionally, I was part of an intern team tasked with Reaction Control System (RCS) thruster sizing and preliminary design to support a novel propellant storage technology.</p>
   </div>
 
   <div class="disclaimer-box">
-    <strong>Public Information & Compliance Notice:</strong> Due to Export Control (ITAR/EAR), Controlled Unclassified Information (CUI), and proprietary program restrictions, operational flight data, classified mission trajectories, and restricted hardware models cannot be displayed. All visual assets and block diagrams shown feature non-sensitive simulation frameworks, synthetic state vectors, and open-source models.
+    <strong>Public Information & Compliance Notice:</strong> Due to Export Control (ITAR/EAR), Controlled Unclassified Information (CUI), and proprietary program restrictions, operational flight data, classified mission trajectories, and restricted hardware models cannot be displayed. All visual assets and block diagrams shown feature non-sensitive information.
   </div>
 
   <!-- SECTION 1: TRN CO-SIMULATION -->
@@ -203,22 +196,24 @@
     </div>
   </div>
 
+  <!-- SECTION 2: OPTICAL DESCENT DEMO -->
+  <h3>Optical Descent Co-Simulation Demonstration</h3>
+
   <div class="content-row content-right">
     <div class="media width-media-left">
       <video controls autoplay muted loop playsinline>
         <source src="images/test_TRN_generic.mp4" type="video/mp4">
         Your browser does not support the video tag.
       </video>
-      <p class="image-subnote">Note: Lunar elevation models are accurate, but trajectory profiles are non-representative of actual landers (such as SpaceX or Blue Origin), and camera parameters are not tuned to flight hardware.</p>
+      <p class="image-subnote">Note: Lunar elevation models are accurate, but trajectory profiles are non-representative of actual landers, and camera parameters are not tuned to flight hardware.</p>
     </div>
     <div class="text width-text-right">
-      <p><strong>Optical Descent Co-Simulation Demonstration</strong></p>
       <p>This sequence consists of individual rendered optical images stitched together at a specified framerate. As each image is generated inside Unreal Engine, it is fed directly into the TRN algorithm to calculate state estimates and determine vehicle position and attitude in real time.</p>
       <p style="margin-top: 1rem;">This real-time optical loop allows GNC engineers to evaluate feature-tracking confidence under dynamic solar lighting angles and crater terrain conditions during powered descent.</p>
     </div>
   </div>
 
-  <!-- SECTION 2: STARSHIP TELEMETRY & OFT ANALYSIS -->
+  <!-- SECTION 3: STARSHIP TELEMETRY & OFT ANALYSIS -->
   <h3>Starship Orbital Flight Test (OFT) Telemetry Automation</h3>
 
   <div class="content-row content-left">
@@ -238,56 +233,25 @@
     </div>
   </div>
 
-  <!-- SECTION 3: PROPULSION RCS SIZING -->
+  <!-- SECTION 4: PROPULSION RCS SIZING -->
   <h3>Auxiliary Propulsion: RCS Thruster Sizing</h3>
   
   <div class="content-row content-right">
     <div class="text width-text-right" style="width: 100%;">
-      <p>To support broader GNC maneuvering and attitude control requirements, I was tasked with taking the lead on an intern-driven project to perform preliminary sizing and trade studies for a Reaction Control System (RCS) thruster block. Working alongside two other interns, our team owned the design process from initial velocity increment (&Delta;v) requirements through preliminary architecture layout.</p>
+      <p>To support broader GNC maneuvering and attitude control requirements, I served as the GNC expert on an intern team tasked with performing preliminary sizing and trade studies for a Reaction Control System (RCS) thruster block. Working alongside two other interns, our team owned the design process from initial velocity increment (&Delta;v) requirements through preliminary architecture layout.</p>
       <p style="margin-top: 1rem;">The system was evaluated for versatile translational and attitude maneuvers across various orbital environments, whether operating in Earth orbit, lunar transfer trajectories, or proximity operations. Our team focused primarily on sizing liquid methane and liquid oxygen (methalox) thruster configurations—evaluating injector orifice geometries, spark torch igniter integration, feed system pressure drops, and film cooling thermal management. We also conducted comparative baseline sizing calculations for hydrolox (liquid hydrogen / liquid oxygen) architectures to analyze mass-efficiency and impulse performance trade-offs.</p>
     </div>
   </div>
 
-  <!-- SECTION 4: ON-SITE HIGHLIGHTS -->
+  <!-- SECTION 5: ON-SITE HIGHLIGHTS (COLLAGE) -->
   <h3>On-Site Highlights & MSFC Experience</h3>
-  <div class="photo-gallery">
-
-    <!-- Image 1: Vertical (Primary) -->
-    <div class="photo-card">
-      <img src="images/me-nasa-logo.jpg" alt="Bryce Christensen at NASA MSFC" class="zoomable-img img-vertical" onclick="openModal(this)">
-      <p>At NASA Marshall Space Flight Center in Huntsville, AL.</p>
-    </div>
-
-    <!-- Image 2: Horizontal -->
-    <div class="photo-card">
-      <img src="images/andre-douglass.jpg" alt="Meeting with Andre Douglass" class="zoomable-img img-horizontal" onclick="openModal(this)">
-      <p>Connecting with NASA leadership and engineering mentors.</p>
-    </div>
-
-    <!-- Image 3: Square -->
-    <div class="photo-card">
-      <img src="images/rs25.jpg" alt="RS-25 Rocket Engine at MSFC" class="zoomable-img img-square" onclick="openModal(this)">
-      <p>Examining RS-25 flight hardware at Marshall Space Flight Center.</p>
-    </div>
-
-    <!-- Image 4: Vertical -->
-    <div class="photo-card">
-      <img src="images/mission-control.jpg" alt="Huntsville Operations Support Center" class="zoomable-img img-vertical" onclick="openModal(this)">
-      <p>Inside NASA Mission Control facilities in Huntsville.</p>
-    </div>
-
-    <!-- Image 5: Horizontal -->
-    <div class="photo-card">
-      <img src="images/hosc.jpg" alt="Huntsville Operations Support Center Room" class="zoomable-img img-horizontal" onclick="openModal(this)">
-      <p>Huntsville Operations Support Center (HOSC).</p>
-    </div>
-
-    <!-- Image 6: Horizontal -->
-    <div class="photo-card">
-      <img src="images/adam-steltnzer.jpg" alt="Meeting Adam Steltzner" class="zoomable-img img-horizontal" onclick="openModal(this)">
-      <p>Meeting with Adam Steltzner during leadership events.</p>
-    </div>
-
+  <div class="photo-collage">
+    <img src="images/me-nasa-logo.jpg" alt="Bryce Christensen at NASA MSFC" class="zoomable-img collage-item-1" onclick="openModal(this)">
+    <img src="images/andre-douglass.jpg" alt="Meeting with Andre Douglass" class="zoomable-img collage-item-2" onclick="openModal(this)">
+    <img src="images/rs25.jpg" alt="RS-25 Rocket Engine at MSFC" class="zoomable-img collage-item-3" onclick="openModal(this)">
+    <img src="images/mission-control.jpg" alt="Huntsville Operations Support Center" class="zoomable-img collage-item-4" onclick="openModal(this)">
+    <img src="images/hosc.jpg" alt="Huntsville Operations Support Center Room" class="zoomable-img collage-item-5" onclick="openModal(this)">
+    <img src="images/adam-steltnzer.jpg" alt="Meeting Adam Steltzner" class="zoomable-img collage-item-6" onclick="openModal(this)">
   </div>
 
 </section>
