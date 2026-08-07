@@ -62,8 +62,8 @@
     .content-row img, .content-row video { max-width:100%; width:100%; border-radius:8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
     .text { text-align:left; }
 
-    .vertical-stack { display: flex; flex-direction: column; gap: 1.25rem; width: 100%; }
-    .video-caption { font-size: 0.85rem; color: #64748b; text-align: center; margin-top: 0.4rem; font-style: italic; }
+    .vertical-stack { display: flex; flex-direction: column; gap: 1rem; width: 100%; }
+    .image-subnote { font-size: 0.85rem; color: #64748b; text-align: center; margin-top: 0.25rem; font-style: italic; }
 
     @media(min-width:700px) {
       .content-left { flex-direction: row; justify-content: space-between; }
@@ -133,11 +133,16 @@
 
 <section>
   <div class="intro-text">
-    <p style="font-size:1.15rem;">During my engineering internship at NASA Marshall Space Flight Center (MSFC) in Huntsville, AL, I supported the Human Landing System (HLS) program across two primary technical initiatives: advancing <strong>Terrain-Relative Navigation (TRN) in-the-loop co-simulation capabilities</strong> and engineering <strong>automated telemetry analysis pipelines for SpaceX Orbital Flight Tests (OFT)</strong>. Additionally, I supported MSFC's propulsion branch with Reaction Control System (RCS) thruster sizing evaluations.</p>
+    <p style="font-size:1.15rem;">During my engineering internship at NASA Marshall Space Flight Center (MSFC) in Huntsville, AL, I supported the Human Landing System (HLS) program focused on two main technical initiatives:</p>
+    <ol style="font-size:1.1rem; margin-top:0.5rem; padding-left: 1.5rem;">
+      <li style="margin-bottom: 0.4rem;"><strong>Terrain-Relative Navigation (TRN) in-the-loop co-simulation capabilities</strong></li>
+      <li><strong>Automated telemetry analysis pipelines for SpaceX Orbital Flight Tests (OFT)</strong></li>
+    </ol>
+    <p style="font-size:1.1rem; margin-top: 0.75rem;">Additionally, I worked with MSFC's propulsion branch performing Reaction Control System (RCS) thruster sizing evaluations.</p>
   </div>
 
   <div class="disclaimer-box">
-    <strong>Public Information & Compliance Notice:</strong> Due to Export Control (ITAR/EAR), Controlled Unclassified Information (CUI), and proprietary program restrictions, the vast majority of operational flight data, mission trajectories, and vehicle models cannot be displayed. All visual assets, block diagrams, and video renders featured below utilize entirely generic geometries, synthetic state vectors, and open-source public models.
+    <strong>Compliance & Data Notice:</strong> The Simulink and Unreal Engine architectures featured below reflect the actual simulation frameworks developed during my internship. However, all visual assets, state vectors, and trajectory plots contain no sensitive, proprietary, or restricted operational data.
   </div>
 
   <!-- SECTION 1: TRN CO-SIMULATION -->
@@ -146,24 +151,27 @@
   <div class="content-row content-left">
     <div class="text width-text-left">
       <p>Precision lunar landing requires real-time optical matching between onboard descent cameras and digital elevation models. Previously, TRN visualization operated in an offline "Playback Mode," passing static pre-set <code>.csv</code> telemetry files through Python scripts into Unreal Engine to export individual frame sequences.</p>
-      <p style="margin-top: 1rem;">I helped transition this architecture into a closed-loop <strong>Co-Simulation (In-The-Loop) framework</strong> (shown in the bottom diagram on the right). By linking the GNC simulation directly to an Unreal Engine executable via a custom Simulink-to-UE block, the system streams state vectors in real time, receives synthetic optical frames back, and dynamically adjusts the landing trajectory during simulation runs.</p>
-      <p style="margin-top: 1rem; font-size: 0.9rem; color: #475569;"><em>Tip: Click on any diagram to expand it in full detail.</em></p>
+      <p style="margin-top: 1rem;">I helped transition this architecture into a closed-loop <strong>Co-Simulation (In-The-Loop) framework</strong>. By linking the GNC simulation directly to an Unreal Engine executable via a custom Simulink-to-UE block, the system streams state vectors in real time, receives synthetic optical frames back, and dynamically adjusts the landing trajectory during simulation runs.</p>
+      <p style="margin-top: 1rem;">The top diagram shows the Simulink side of the connection bridge, while the bottom diagram shows how data passed into Unreal Engine is acted on to dynamically update vehicle position and rotation.</p>
     </div>
     <div class="vertical-stack width-media-right">
-      <img src="images/simulink-trn.png" alt="Simulink to Unreal Engine Integration Block Diagram" class="zoomable-img" onclick="openModal(this)">
-      <img src="images/unreal-trn.png" alt="Unreal Engine TRN Render Environment" class="zoomable-img" onclick="openModal(this)">
+      <img src="images/simulink-trn.png" alt="Simulink Connection Bridge Diagram" class="zoomable-img" onclick="openModal(this)">
+      <img src="images/unreal-trn.png" alt="Unreal Engine State Execution Diagram" class="zoomable-img" onclick="openModal(this)">
+      <p class="image-subnote">Click on any diagram to expand in full detail</p>
     </div>
   </div>
 
-  <h3>TRN Optical Descent Video Demonstration</h3>
-
-  <div class="content-row" style="margin-bottom: 4rem;">
-    <div style="width: 100%;">
-      <video controls autoplay muted loop playsinline style="width: 100%;">
+  <div class="content-row content-right">
+    <div class="media width-media-left">
+      <video controls autoplay muted loop playsinline>
         <source src="images/test_TRN_generic.mp4" type="video/mp4">
         Your browser does not support the video tag.
       </video>
-      <p class="video-caption">Notice: Trajectory profiles, terrain elevation models, solar lighting angles, and sensor camera parameters shown in this 35-second demo sequence are strictly generic synthetic models created for public demonstration.</p>
+      <p class="image-subnote">Note: Lunar elevation models are accurate, but trajectory profiles are non-representative of actual landers (such as SpaceX or Blue Origin), and camera parameters are not tuned to flight hardware.</p>
+    </div>
+    <div class="text width-text-right">
+      <p><strong>Optical Descent Co-Simulation Demonstration</strong></p>
+      <p>The 35-second sequence demonstrates the closed-loop visualization pipeline rendering lunar surface features during descent. Real-time rendering allows GNC engineers to evaluate optical feature-tracking algorithms under realistic lighting and crater terrain conditions.</p>
     </div>
   </div>
 
@@ -183,6 +191,7 @@
     <div class="media width-media-right vertical-stack">
       <img src="images/OFT-pipeline.png" alt="Starship Telemetry Processing Pipeline Comparison Flowchart" class="zoomable-img" onclick="openModal(this)">
       <img src="images/VISOR-gui.png" alt="VISOR Telemetry and Video Overlay GUI Interface" class="zoomable-img" onclick="openModal(this)">
+      <p class="image-subnote">Click on any diagram to expand in full detail</p>
     </div>
   </div>
 
