@@ -133,16 +133,16 @@
 
 <section>
   <div class="intro-text">
-    <p style="font-size:1.15rem;">During my engineering internship at NASA Marshall Space Flight Center (MSFC) in Huntsville, AL, I supported the Human Landing System (HLS) program focused on two main technical initiatives:</p>
+    <p style="font-size:1.15rem;">During my time at NASA Marshall Space Flight Center (MSFC) in Huntsville, AL, I supported the Human Landing System (HLS) program across two primary technical initiatives:</p>
     <ol style="font-size:1.1rem; margin-top:0.5rem; padding-left: 1.5rem;">
-      <li style="margin-bottom: 0.4rem;"><strong>Terrain-Relative Navigation (TRN) in-the-loop co-simulation capabilities</strong></li>
-      <li><strong>Automated telemetry analysis pipelines for SpaceX Orbital Flight Tests (OFT)</strong></li>
+      <li style="margin-bottom: 0.4rem;">Terrain-Relative Navigation (<strong>TRN</strong>) in-the-loop co-simulation capabilities</li>
+      <li>Automated telemetry analysis pipelines for SpaceX Orbital Flight Tests (<strong>OFT</strong>)</li>
     </ol>
-    <p style="font-size:1.1rem; margin-top: 0.75rem;">Additionally, I worked with MSFC's propulsion branch performing Reaction Control System (RCS) thruster sizing evaluations.</p>
+    <p style="font-size:1.1rem; margin-top: 0.75rem;">Additionally, I led an intern team tasked with Reaction Control System (<strong>RCS</strong>) thruster sizing and preliminary design to support overall GNC maneuvering requirements.</p>
   </div>
 
   <div class="disclaimer-box">
-    <strong>Compliance & Data Notice:</strong> The Simulink and Unreal Engine architectures featured below reflect the actual simulation frameworks developed during my internship. However, all visual assets, state vectors, and trajectory plots contain no sensitive, proprietary, or restricted operational data.
+    <strong>Public Information & Compliance Notice:</strong> Due to Export Control (ITAR/EAR), Controlled Unclassified Information (CUI), and proprietary program restrictions, operational flight data, classified mission trajectories, and restricted hardware models cannot be displayed. All visual assets and block diagrams shown feature non-sensitive simulation frameworks, synthetic state vectors, and open-source models.
   </div>
 
   <!-- SECTION 1: TRN CO-SIMULATION -->
@@ -150,9 +150,9 @@
 
   <div class="content-row content-left">
     <div class="text width-text-left">
-      <p>Precision lunar landing requires real-time optical matching between onboard descent cameras and digital elevation models. Previously, TRN visualization operated in an offline "Playback Mode," passing static pre-set <code>.csv</code> telemetry files through Python scripts into Unreal Engine to export individual frame sequences.</p>
+      <p>Precision lunar landing requires real-time optical matching between onboard descent cameras and digital elevation models. Previously, TRN visualization operated in an offline "Playback Mode," passing static pre-set <code>.csv</code> telemetry files through Python scripts into <strong>Unreal Engine</strong> to export individual frame sequences.</p>
       <p style="margin-top: 1rem;">I helped transition this architecture into a closed-loop <strong>Co-Simulation (In-The-Loop) framework</strong>. By linking the GNC simulation directly to an Unreal Engine executable via a custom Simulink-to-UE block, the system streams state vectors in real time, receives synthetic optical frames back, and dynamically adjusts the landing trajectory during simulation runs.</p>
-      <p style="margin-top: 1rem;">The top diagram shows the Simulink side of the connection bridge, while the bottom diagram shows how data passed into Unreal Engine is acted on to dynamically update vehicle position and rotation.</p>
+      <p style="margin-top: 1rem;">The top diagram shows the <strong>Simulink side</strong> of the connection bridge, while the bottom diagram illustrates how data passed into Unreal Engine is acted on to dynamically update vehicle position and rotation.</p>
     </div>
     <div class="vertical-stack width-media-right">
       <img src="images/simulink-trn.png" alt="Simulink Connection Bridge Diagram" class="zoomable-img" onclick="openModal(this)">
@@ -171,7 +171,8 @@
     </div>
     <div class="text width-text-right">
       <p><strong>Optical Descent Co-Simulation Demonstration</strong></p>
-      <p>The 35-second sequence demonstrates the closed-loop visualization pipeline rendering lunar surface features during descent. Real-time rendering allows GNC engineers to evaluate optical feature-tracking algorithms under realistic lighting and crater terrain conditions.</p>
+      <p>This sequence consists of individual rendered optical images stitched together at a specified framerate. As each image is generated inside Unreal Engine, it is fed directly into the <strong>TRN algorithm</strong> to calculate state estimates and determine vehicle position and attitude in real time.</p>
+      <p style="margin-top: 1rem;">This real-time optical loop allows GNC engineers to evaluate feature-tracking confidence under dynamic solar lighting angles and crater terrain conditions during powered descent.</p>
     </div>
   </div>
 
@@ -180,7 +181,7 @@
 
   <div class="content-row content-left">
     <div class="text width-text-left">
-      <p>Evaluating flight data from SpaceX Starship test launches historically required a manual 2 to 4 day post-flight process involving separate MATLAB plot generation, video splicing in DaVinci Resolve, and manual state inspection (shown in the top "Previous State" branch of the flowchart).</p>
+      <p>Evaluating flight data from SpaceX Starship test launches previously required a manual 2 to 4 day post-flight process involving separate MATLAB plot generation, video splicing in DaVinci Resolve, and manual state inspection (shown in the top "Previous State" branch of the flowchart).</p>
       <p style="margin-top: 1rem;">To streamline this workflow, I engineered an automated processing suite (highlighted inside the red bounding box in the pipeline diagram):</p>
       <ul style="margin-top: 0.5rem; padding-left: 1.2rem;">
         <li><strong>SPAR (State Parser with Anomaly Recognition):</strong> Automatically parses raw <code>.mat</code> telemetry files in 1–2 seconds to detect state transitions and dynamic flight anomalies.</li>
@@ -200,8 +201,8 @@
   
   <div class="content-row content-right">
     <div class="text width-text-right" style="width: 100%;">
-      <p>In addition to GNC visualization work, I collaborated with MSFC's <strong>propulsion branch</strong> on preliminary Reaction Control System (RCS) thruster sizing trade studies for deep-space lunar lander attitude control.</p>
-      <p style="margin-top: 1rem;">My work centered primarily on sizing liquid methane and liquid oxygen (methalox) thruster configurations, evaluating injector orifice geometries, spark torch igniter integration options, feed system pressure drops, and film cooling thermal management. I also performed comparative baseline sizing calculations for hydrolox (liquid hydrogen / liquid oxygen) attitude thruster architectures to evaluate mass-efficiency trade-offs across extended vacuum stay times.</p>
+      <p>To support broader GNC maneuvering and attitude control requirements, I was tasked with taking the lead on an intern-driven project to perform preliminary sizing and trade studies for a <strong>Reaction Control System (RCS)</strong> thruster block. Working alongside two other interns, our team owned the design process from initial velocity increment ($\Delta v$) requirements through preliminary architecture layout.</p>
+      <p style="margin-top: 1rem;">The system was evaluated for versatile translational and attitude maneuvers across various orbital environments, whether operating in Earth orbit, lunar transfer trajectories, or proximity operations. Our team focused primarily on sizing liquid methane and liquid oxygen (<strong>methalox</strong>) thruster configurations—evaluating injector orifice geometries, spark torch igniter integration, feed system pressure drops, and film cooling thermal management. We also conducted comparative baseline sizing calculations for <strong>hydrolox</strong> (liquid hydrogen / liquid oxygen) architectures to analyze mass-efficiency and impulse performance trade-offs.</p>
     </div>
   </div>
 </section>
