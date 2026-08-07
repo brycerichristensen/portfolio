@@ -36,11 +36,34 @@
     section { padding:2rem; max-width:900px; margin:auto; }
     h3 { font-size:1.8rem; color:#1e3a8a; margin-top:2rem; margin-bottom:1rem; border-bottom: 2px solid #e0e7ff; padding-bottom: 0.5rem; }
     
+    /* Disclaimer / Compliance Callout Box */
+    .disclaimer-box {
+      background-color: #f8fafc;
+      border-left: 4px solid #1e3a8a;
+      padding: 1rem 1.25rem;
+      margin: 1.5rem 0 2rem 0;
+      border-radius: 0 6px 6px 0;
+      font-size: 0.95rem;
+      color: #334155;
+    }
+
     .content-row { display:flex; flex-direction:column; gap:2rem; margin-bottom:4rem; align-items:center; }
+    
+    /* Clickable / Zoomable Images */
+    .zoomable-img {
+      cursor: zoom-in;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .zoomable-img:hover {
+      transform: scale(1.02);
+      box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+    }
+
     .content-row img, .content-row video { max-width:100%; width:100%; border-radius:8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
     .text { text-align:left; }
 
-    .vertical-stack { display: flex; flex-direction: column; gap: 1rem; width: 100%; }
+    .vertical-stack { display: flex; flex-direction: column; gap: 1.25rem; width: 100%; }
+    .video-caption { font-size: 0.85rem; color: #64748b; text-align: center; margin-top: 0.4rem; font-style: italic; }
 
     @media(min-width:700px) {
       .content-left { flex-direction: row; justify-content: space-between; }
@@ -57,6 +80,40 @@
       .width-media-left { order:1; width:40%; }
       .width-text-right { order:2; width:55%; }
     }
+
+    /* Modal / Lightbox Overlay for Click-to-Enlarge Images */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 3000;
+      padding-top: 50px;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0,0,0,0.85);
+      backdrop-filter: blur(4px);
+    }
+    .modal-content {
+      margin: auto;
+      display: block;
+      max-width: 90%;
+      max-height: 85vh;
+      border-radius: 6px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.5);
+    }
+    .modal-close {
+      position: absolute;
+      top: 20px;
+      right: 35px;
+      color: #fff;
+      font-size: 40px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: color 0.2s ease;
+    }
+    .modal-close:hover { color: #cbd5e1; }
 
     footer { background:#f4f4f4; text-align:center; padding:1rem; margin-top:2rem; }
   </style>
@@ -76,7 +133,11 @@
 
 <section>
   <div class="intro-text">
-    <p style="font-size:1.15rem;">During my engineering internship at NASA Marshall Space Flight Center (MSFC) in Huntsville, AL, I supported the Human Landing System (HLS) program across two primary initiatives: advancing <strong>Terrain-Relative Navigation (TRN) in-the-loop co-simulation capabilities</strong> and building <strong>automated telemetry analysis pipelines for SpaceX Orbital Flight Tests (OFT)</strong>. Additionally, I supported the propulsion division with methalox Reaction Control System (RCS) thruster sizing evaluations.</p>
+    <p style="font-size:1.15rem;">During my engineering internship at NASA Marshall Space Flight Center (MSFC) in Huntsville, AL, I supported the Human Landing System (HLS) program across two primary technical initiatives: advancing <strong>Terrain-Relative Navigation (TRN) in-the-loop co-simulation capabilities</strong> and engineering <strong>automated telemetry analysis pipelines for SpaceX Orbital Flight Tests (OFT)</strong>. Additionally, I supported MSFC's propulsion branch with Reaction Control System (RCS) thruster sizing evaluations.</p>
+  </div>
+
+  <div class="disclaimer-box">
+    <strong>Public Information & Compliance Notice:</strong> Due to Export Control (ITAR/EAR), Controlled Unclassified Information (CUI), and proprietary program restrictions, the vast majority of operational flight data, mission trajectories, and vehicle models cannot be displayed. All visual assets, block diagrams, and video renders featured below utilize entirely generic geometries, synthetic state vectors, and open-source public models.
   </div>
 
   <!-- SECTION 1: TRN CO-SIMULATION -->
@@ -84,27 +145,25 @@
 
   <div class="content-row content-left">
     <div class="text width-text-left">
-      <p>Precision lunar landing requires dynamic optical feature matching between onboard cameras and digital elevation models. Previously, TRN visualization operated in an offline "Playback Mode," passing static pre-set <code>.csv</code> telemetry through Python scripts into Unreal Engine to export individual frame files.</p>
-      <p style="margin-top: 1rem;">I helped transition this architecture into a closed-loop <strong>Co-Simulation (In-The-Loop) framework</strong>. By linking the GNC simulation directly to an Unreal Engine executable via a custom Simulink-to-UE interface block, the system passes dynamic state vectors in real time, receives rendered optical camera frames and metrics back, and continuously adjusts landing trajectories during flight validation testing.</p>
+      <p>Precision lunar landing requires real-time optical matching between onboard descent cameras and digital elevation models. Previously, TRN visualization operated in an offline "Playback Mode," passing static pre-set <code>.csv</code> telemetry files through Python scripts into Unreal Engine to export individual frame sequences.</p>
+      <p style="margin-top: 1rem;">I helped transition this architecture into a closed-loop <strong>Co-Simulation (In-The-Loop) framework</strong> (shown in the bottom diagram on the right). By linking the GNC simulation directly to an Unreal Engine executable via a custom Simulink-to-UE block, the system streams state vectors in real time, receives synthetic optical frames back, and dynamically adjusts the landing trajectory during simulation runs.</p>
+      <p style="margin-top: 1rem; font-size: 0.9rem; color: #475569;"><em>Tip: Click on any diagram to expand it in full detail.</em></p>
     </div>
     <div class="vertical-stack width-media-right">
-      <img src="images/simulink-trn.png" alt="Simulink to Unreal Engine Integration Block Diagram">
-      <img src="images/unreal-trn.png" alt="Unreal Engine TRN Render Environment">
+      <img src="images/simulink-trn.png" alt="Simulink to Unreal Engine Integration Block Diagram" class="zoomable-img" onclick="openModal(this)">
+      <img src="images/unreal-trn.png" alt="Unreal Engine TRN Render Environment" class="zoomable-img" onclick="openModal(this)">
     </div>
   </div>
 
-  <div class="content-row content-right">
-    <div class="media width-media-left vertical-stack">
-      <video controls autoplay muted loop playsinline>
+  <h3>TRN Optical Descent Video Demonstration</h3>
+
+  <div class="content-row" style="margin-bottom: 4rem;">
+    <div style="width: 100%;">
+      <video controls autoplay muted loop playsinline style="width: 100%;">
         <source src="images/test_TRN_generic.mp4" type="video/mp4">
         Your browser does not support the video tag.
       </video>
-      <img src="images/generic-lunar-site.jpg" alt="Lunar Landing Site Monte Carlo Dispersion Map">
-    </div>
-    <div class="text width-text-right">
-      <p><strong>Optical Descent & Landing Site Validation</strong></p>
-      <p>The co-simulation pipeline renders realistic lunar surface conditions—including extreme low-angle solar shadowing and crater topography—to test TRN camera tracking robustness during powered descent.</p>
-      <p style="margin-top: 1rem;">This real-time optical loop allows GNC engineers to evaluate optical feature-tracking algorithms, quantify camera alignment tolerances, and analyze Monte Carlo dispersion patterns across targeted lunar landing sites.</p>
+      <p class="video-caption">Notice: Trajectory profiles, terrain elevation models, solar lighting angles, and sensor camera parameters shown in this 35-second demo sequence are strictly generic synthetic models created for public demonstration.</p>
     </div>
   </div>
 
@@ -113,30 +172,36 @@
 
   <div class="content-row content-left">
     <div class="text width-text-left">
-      <p>Evaluating flight data from SpaceX Starship test launches historically required a manual 2 to 4 day post-flight process involving separate MATLAB plot generation, video splicing in DaVinci Resolve, and manual state inspection.</p>
-      <p style="margin-top: 1rem;">To streamline this workflow, I engineered an automated processing suite using two core tools:</p>
+      <p>Evaluating flight data from SpaceX Starship test launches historically required a manual 2 to 4 day post-flight process involving separate MATLAB plot generation, video splicing in DaVinci Resolve, and manual state inspection (shown in the top "Previous State" branch of the flowchart).</p>
+      <p style="margin-top: 1rem;">To streamline this workflow, I engineered an automated processing suite (highlighted inside the red bounding box in the pipeline diagram):</p>
       <ul style="margin-top: 0.5rem; padding-left: 1.2rem;">
-        <li><strong>SPAR (State Parser with Anomaly Recognition):</strong> Automatically parses <code>.mat</code> telemetry files in 1–2 seconds to detect state changes and trajectory anomalies.</li>
-        <li><strong>VISOR (Video Integration, Splicing, and Overlay Renderer):</strong> Slices Unreal Engine renders, overlays telemetry telemetry graphs, and exports completed analysis videos in under an hour.</li>
+        <li><strong>SPAR (State Parser with Anomaly Recognition):</strong> Automatically parses raw <code>.mat</code> telemetry files in 1–2 seconds to detect state transitions and dynamic flight anomalies.</li>
+        <li><strong>VISOR (Video Integration, Splicing, and Overlay Renderer):</strong> Slices Unreal Engine renders, overlays synchronized telemetry graphics, and renders finished analysis videos in under an hour (GUI interface previewed on the right).</li>
       </ul>
-      <p style="margin-top: 1rem;">This automated pipeline slashed total analysis turn-around time from days down to a single day, establishing a pathway toward 2–4 hour turnaround via standalone Unreal Engine executables.</p>
+      <p style="margin-top: 1rem;">This pipeline reduced total turnaround time down to a single day, establishing a path toward 2–4 hour automated turns via standalone Unreal Engine executables.</p>
     </div>
     <div class="media width-media-right vertical-stack">
-      <img src="images/OFT-pipeline.png" alt="Starship Telemetry Processing Pipeline Comparison Flowchart">
-      <img src="images/VISOR-gui.png" alt="VISOR Telemetry and Video Overlay GUI">
+      <img src="images/OFT-pipeline.png" alt="Starship Telemetry Processing Pipeline Comparison Flowchart" class="zoomable-img" onclick="openModal(this)">
+      <img src="images/VISOR-gui.png" alt="VISOR Telemetry and Video Overlay GUI Interface" class="zoomable-img" onclick="openModal(this)">
     </div>
   </div>
 
   <!-- SECTION 3: PROPULSION RCS SIZING -->
-  <h3>Auxiliary Propulsion: Methalox RCS Thruster Sizing</h3>
+  <h3>Auxiliary Propulsion: RCS Thruster Sizing</h3>
   
   <div class="content-row content-right">
     <div class="text width-text-right" style="width: 100%;">
-      <p>In addition to GNC visualization projects, I completed propulsive sizing trade studies for a liquid methane and liquid oxygen (methalox) Reaction Control System (RCS) thruster block tailored for deep-space lander attitude control.</p>
-      <p style="margin-top: 1rem;">The evaluation covered injector orifice geometry trades, spark torch igniter integration options, feed system line pressure drops, and film cooling thermal management calculations to maintain stable impulse bit performance during vacuum operations.</p>
+      <p>In addition to GNC visualization work, I collaborated with MSFC's <strong>propulsion branch</strong> on preliminary Reaction Control System (RCS) thruster sizing trade studies for deep-space lunar lander attitude control.</p>
+      <p style="margin-top: 1rem;">My work centered primarily on sizing liquid methane and liquid oxygen (methalox) thruster configurations, evaluating injector orifice geometries, spark torch igniter integration options, feed system pressure drops, and film cooling thermal management. I also performed comparative baseline sizing calculations for hydrolox (liquid hydrogen / liquid oxygen) attitude thruster architectures to evaluate mass-efficiency trade-offs across extended vacuum stay times.</p>
     </div>
   </div>
 </section>
+
+<!-- Lightbox Modal for Enlarging Images -->
+<div id="imageModal" class="modal" onclick="closeModal()">
+  <span class="modal-close" onclick="closeModal()">&times;</span>
+  <img class="modal-content" id="modalImg">
+</div>
 
 <section id="contact" style="padding:2rem; max-width:900px; margin:auto;">
   <h2>Contact</h2>
@@ -148,6 +213,19 @@
 <footer>
   <p>© 2026 Bryce Christensen</p>
 </footer>
+
+<script>
+  function openModal(imgElement) {
+    var modal = document.getElementById("imageModal");
+    var modalImg = document.getElementById("modalImg");
+    modal.style.display = "block";
+    modalImg.src = imgElement.src;
+  }
+
+  function closeModal() {
+    document.getElementById("imageModal").style.display = "none";
+  }
+</script>
 
 </body>
 </html>
