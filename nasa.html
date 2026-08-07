@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-Z92FZCG7CS"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-Z92FZCG7CS');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NASA MSFC Internship | Bryce Christensen</title>
+  <link href="https://fonts.googleapis.com/css2?family=Spectral:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="images/favicon.png">
+  <style>
+    body { font-family: 'Spectral', 'Times New Roman', serif; margin:0; padding:0; line-height:1.6; background:#fff; color:#000; }
+    html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+
+    header { background-color:#1e3a8a; color:#fff; padding:1rem 2rem; text-align:center; position:sticky; top:0; z-index:1000; }
+    header h1 { font-size:3rem; margin:0.5rem 0; }
+    nav a { color:#fff; margin:0 1rem; text-decoration:none; font-weight:700; }
+    nav a:hover { text-decoration:underline; }
+
+    .hero {
+      position: relative;
+      background-image: url('images/hls-docking.jpg');
+      background-size: cover;
+      background-position: center 20%;
+      height: 350px;
+      display: flex; justify-content: center; align-items: center; color: #fff; text-align: center;
+    }
+    .hero::before { content: ''; position: absolute; inset:0; background: rgba(0,0,0,0.5); z-index:1; }
+    .hero h2 { position: relative; z-index:2; font-size:3.5rem; margin:0; }
+
+    section { padding:2rem; max-width:900px; margin:auto; }
+    h3 { font-size:1.8rem; color:#1e3a8a; margin-top:2rem; margin-bottom:1rem; border-bottom: 2px solid #e0e7ff; padding-bottom: 0.5rem; }
+    
+    .content-row { display:flex; flex-direction:column; gap:2rem; margin-bottom:4rem; align-items:center; }
+    .content-row img, .content-row video { max-width:100%; width:100%; border-radius:8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+    .text { text-align:left; }
+
+    .vertical-stack { display: flex; flex-direction: column; gap: 1rem; width: 100%; }
+
+    @media(min-width:700px) {
+      .content-left { flex-direction: row; justify-content: space-between; }
+      .content-left .text { order:1; width:55%; }
+      .content-left .media { order:2; width:40%; }
+
+      .content-right { flex-direction: row; justify-content: space-between; }
+      .content-right .text { order:2; width:55%; text-align:left; }
+      .content-right .media { order:1; width:40%; }
+
+      .width-text-left { order:1; width:55%; }
+      .width-media-right { order:2; width:40%; }
+      
+      .width-media-left { order:1; width:40%; }
+      .width-text-right { order:2; width:55%; }
+    }
+
+    footer { background:#f4f4f4; text-align:center; padding:1rem; margin-top:2rem; }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Bryce Christensen</h1>
+  <nav>
+    <a href="index.html">Portfolio Home</a>
+  </nav>
+</header>
+
+<div class="hero">
+  <h2>HLS Mission Analysis & Visualization</h2>
+</div>
+
+<section>
+  <div class="intro-text">
+    <p style="font-size:1.15rem;">During my engineering internship at NASA Marshall Space Flight Center (MSFC) in Huntsville, AL, I supported the Human Landing System (HLS) program across two primary initiatives: advancing <strong>Terrain-Relative Navigation (TRN) in-the-loop co-simulation capabilities</strong> and building <strong>automated telemetry analysis pipelines for SpaceX Orbital Flight Tests (OFT)</strong>. Additionally, I supported the propulsion division with methalox Reaction Control System (RCS) thruster sizing evaluations.</p>
+  </div>
+
+  <!-- SECTION 1: TRN CO-SIMULATION -->
+  <h3>Terrain-Relative Navigation (TRN) In-The-Loop Co-Simulation</h3>
+
+  <div class="content-row content-left">
+    <div class="text width-text-left">
+      <p>Precision lunar landing requires dynamic optical feature matching between onboard cameras and digital elevation models. Previously, TRN visualization operated in an offline "Playback Mode," passing static pre-set <code>.csv</code> telemetry through Python scripts into Unreal Engine to export individual frame files.</p>
+      <p style="margin-top: 1rem;">I helped transition this architecture into a closed-loop <strong>Co-Simulation (In-The-Loop) framework</strong>. By linking the GNC simulation directly to an Unreal Engine executable via a custom Simulink-to-UE interface block, the system passes dynamic state vectors in real time, receives rendered optical camera frames and metrics back, and continuously adjusts landing trajectories during flight validation testing.</p>
+    </div>
+    <div class="vertical-stack width-media-right">
+      <img src="images/simulink-trn.png" alt="Simulink to Unreal Engine Integration Block Diagram">
+      <img src="images/unreal-trn.png" alt="Unreal Engine TRN Render Environment">
+    </div>
+  </div>
+
+  <div class="content-row content-right">
+    <div class="media width-media-left vertical-stack">
+      <video controls autoplay muted loop playsinline>
+        <source src="images/test_TRN_generic.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <img src="images/generic-lunar-site.jpg" alt="Lunar Landing Site Monte Carlo Dispersion Map">
+    </div>
+    <div class="text width-text-right">
+      <p><strong>Optical Descent & Landing Site Validation</strong></p>
+      <p>The co-simulation pipeline renders realistic lunar surface conditions—including extreme low-angle solar shadowing and crater topography—to test TRN camera tracking robustness during powered descent.</p>
+      <p style="margin-top: 1rem;">This real-time optical loop allows GNC engineers to evaluate optical feature-tracking algorithms, quantify camera alignment tolerances, and analyze Monte Carlo dispersion patterns across targeted lunar landing sites.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 2: STARSHIP TELEMETRY & OFT ANALYSIS -->
+  <h3>Starship Orbital Flight Test (OFT) Telemetry Automation</h3>
+
+  <div class="content-row content-left">
+    <div class="text width-text-left">
+      <p>Evaluating flight data from SpaceX Starship test launches historically required a manual 2 to 4 day post-flight process involving separate MATLAB plot generation, video splicing in DaVinci Resolve, and manual state inspection.</p>
+      <p style="margin-top: 1rem;">To streamline this workflow, I engineered an automated processing suite using two core tools:</p>
+      <ul style="margin-top: 0.5rem; padding-left: 1.2rem;">
+        <li><strong>SPAR (State Parser with Anomaly Recognition):</strong> Automatically parses <code>.mat</code> telemetry files in 1–2 seconds to detect state changes and trajectory anomalies.</li>
+        <li><strong>VISOR (Video Integration, Splicing, and Overlay Renderer):</strong> Slices Unreal Engine renders, overlays telemetry telemetry graphs, and exports completed analysis videos in under an hour.</li>
+      </ul>
+      <p style="margin-top: 1rem;">This automated pipeline slashed total analysis turn-around time from days down to a single day, establishing a pathway toward 2–4 hour turnaround via standalone Unreal Engine executables.</p>
+    </div>
+    <div class="media width-media-right vertical-stack">
+      <img src="images/OFT-pipeline.png" alt="Starship Telemetry Processing Pipeline Comparison Flowchart">
+      <img src="images/VISOR-gui.png" alt="VISOR Telemetry and Video Overlay GUI">
+    </div>
+  </div>
+
+  <!-- SECTION 3: PROPULSION RCS SIZING -->
+  <h3>Auxiliary Propulsion: Methalox RCS Thruster Sizing</h3>
+  
+  <div class="content-row content-right">
+    <div class="text width-text-right" style="width: 100%;">
+      <p>In addition to GNC visualization projects, I completed propulsive sizing trade studies for a liquid methane and liquid oxygen (methalox) Reaction Control System (RCS) thruster block tailored for deep-space lander attitude control.</p>
+      <p style="margin-top: 1rem;">The evaluation covered injector orifice geometry trades, spark torch igniter integration options, feed system line pressure drops, and film cooling thermal management calculations to maintain stable impulse bit performance during vacuum operations.</p>
+    </div>
+  </div>
+</section>
+
+<section id="contact" style="padding:2rem; max-width:900px; margin:auto;">
+  <h2>Contact</h2>
+  <p>Phone: (936) 900-3932</p>
+  <p>Email: <a href="mailto:brycerichristensen@gmail.com" style="color:#1e3a8a; text-decoration:none;">brycerichristensen@gmail.com</a></p>
+  <p>LinkedIn: <a href="http://www.linkedin.com/in/brycerichristensen" target="_blank" style="color:#1e3a8a; text-decoration:none;">linkedin.com/in/brycerichristensen</a></p>
+</section>
+
+<footer>
+  <p>© 2026 Bryce Christensen</p>
+</footer>
+
+</body>
+</html>
