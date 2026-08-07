@@ -65,13 +65,13 @@
     .vertical-stack { display: flex; flex-direction: column; gap: 1rem; width: 100%; }
     .image-subnote { font-size: 0.85rem; color: #64748b; text-align: center; margin-top: 0.25rem; font-style: italic; }
 
-    /* Photo Gallery - Natural Aspect Ratio Grid (Zero Cropping) */
+    /* Photo Gallery - Natural Aspect Ratio Grid with Targeted Expansion */
     .photo-collage {
       display: grid;
       grid-template-columns: 1fr;
       gap: 1rem;
       margin-top: 1.5rem;
-      align-items: start;
+      align-items: stretch;
     }
 
     .photo-card {
@@ -79,6 +79,7 @@
       border-radius: 8px;
       overflow: hidden;
       box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      display: flex;
     }
 
     .photo-card img {
@@ -104,10 +105,22 @@
 
       .photo-collage {
         grid-template-columns: repeat(3, 1fr);
+        grid-auto-flow: dense;
       }
       
       .photo-card.vertical {
         grid-row: span 2;
+      }
+
+      /* Expands Andre Douglass photo across 2 columns to fill remaining gap */
+      .photo-card.span-large {
+        grid-column: span 2;
+        grid-row: span 2;
+      }
+
+      .photo-card.span-large img {
+        height: 100%;
+        object-fit: cover;
       }
     }
 
@@ -258,11 +271,11 @@
       <img src="images/adam-steltnzer.jpg" alt="Meeting Adam Steltzner" class="zoomable-img" onclick="openModal(this)">
     </div>
 
-    <!-- Column 3 -->
+    <!-- Column 3 & Expansion Area -->
     <div class="photo-card">
       <img src="images/hosc.jpg" alt="Huntsville Operations Support Center Building" class="zoomable-img" onclick="openModal(this)">
     </div>
-    <div class="photo-card vertical">
+    <div class="photo-card span-large">
       <img src="images/andre-douglass.jpg" alt="Meeting with Andre Douglass" class="zoomable-img" onclick="openModal(this)">
     </div>
 
