@@ -65,18 +65,19 @@
     .vertical-stack { display: flex; flex-direction: column; gap: 1rem; width: 100%; }
     .image-subnote { font-size: 0.85rem; color: #64748b; text-align: center; margin-top: 0.25rem; font-style: italic; }
 
-    /* Photo Collage Grid (Dynamic masonry/collage layout) */
+    /* Photo Collage Grid (Single Solid Block) */
     .photo-collage {
       display: grid;
       grid-template-columns: 1fr;
-      gap: 1rem;
+      gap: 0.75rem;
       margin-top: 1.5rem;
-      align-items: start;
+      align-items: center;
     }
 
     .photo-collage img {
       width: 100%;
-      height: auto;
+      height: 100%;
+      object-fit: cover;
       border-radius: 8px;
       box-shadow: 0 4px 10px rgba(0,0,0,0.1);
       display: block;
@@ -97,23 +98,19 @@
       .width-media-left { order:1; width:40%; }
       .width-text-right { order:2; width:55%; }
 
-      /* Desktop Collage Grid Spanning Rules */
+      /* Desktop Unified Collage Layout */
       .photo-collage {
         grid-template-columns: repeat(12, 1fr);
+        grid-auto-rows: 180px;
       }
 
-      /* Image 1: Vertical Primary (Spans 5 cols, 2 rows) */
-      .collage-item-1 { grid-column: span 5; grid-row: span 2; }
-      /* Image 2: Horizontal (Spans 7 cols) */
-      .collage-item-2 { grid-column: span 7; }
-      /* Image 3: Square (Spans 7 cols) */
-      .collage-item-3 { grid-column: span 7; }
-      /* Image 4: Vertical (Spans 5 cols, 2 rows) */
-      .collage-item-4 { grid-column: span 5; grid-row: span 2; }
-      /* Image 5: Horizontal (Spans 7 cols) */
-      .collage-item-5 { grid-column: span 7; }
-      /* Image 6: Horizontal (Spans 7 cols) */
-      .collage-item-6 { grid-column: span 7; }
+      /* Image placement for tight, single-block layout */
+      .item-rs25 { grid-column: span 5; grid-row: span 2; }            /* Square / Large accent */
+      .item-mission { grid-column: span 7; grid-row: span 1; }         /* Horizontal Top Right */
+      .item-andre { grid-column: span 4; grid-row: span 1; }           /* Small fill */
+      .item-steltzner { grid-column: span 3; grid-row: span 1; }       /* Small compact fill */
+      .item-hosc { grid-column: span 7; grid-row: span 1; }            /* Wide banner bottom left */
+      .item-me-nasa { grid-column: span 5; grid-row: span 1; }         /* Vertical / End Anchor */
     }
 
     /* Modal / Lightbox Overlay for Click-to-Enlarge Images */
@@ -171,7 +168,7 @@
     <p style="font-size:1.15rem;">During my time at NASA Marshall Space Flight Center (MSFC) in Huntsville, Alabama, I supported the Human Landing System (HLS) program focused on two main technical initiatives:</p>
     <ol style="font-size:1.1rem; margin-top:0.5rem; padding-left: 1.5rem;">
       <li style="margin-bottom: 0.4rem;">Terrain-Relative Navigation (TRN) in-the-loop co-simulation capabilities</li>
-      <li>Automated telemetry analysis pipelines for SpaceX Orbital Flight Tests (OFT)</li>
+      <li>Automated telemetry analysis pipelines for SpaceX Starship test campaigns</li>
     </ol>
     <p style="font-size:1.1rem; margin-top: 0.75rem;">Additionally, I was part of an intern team tasked with Reaction Control System (RCS) thruster sizing and preliminary design to support a novel propellant storage technology.</p>
   </div>
@@ -185,8 +182,8 @@
 
   <div class="content-row content-left">
     <div class="text width-text-left">
-      <p>Precision lunar landing requires real-time optical matching between onboard descent cameras and digital elevation models. Previously, TRN visualization operated in an offline "Playback Mode," passing static pre-set <code>.csv</code> telemetry files through Python scripts into Unreal Engine to export individual frame sequences.</p>
-      <p style="margin-top: 1rem;">I helped transition this architecture into a closed-loop Co-Simulation (In-The-Loop) framework. By linking the GNC simulation directly to an Unreal Engine executable via a custom Simulink-to-UE block, the system streams state vectors in real time, receives synthetic optical frames back, and dynamically adjusts the landing trajectory during simulation runs.</p>
+      <p>Precision lunar landing requires real-time camera matching between onboard descent hardware and digital elevation models. Previously, TRN visualization operated in an offline "Playback Mode," passing static pre-set <code>.csv</code> telemetry files through Python scripts into Unreal Engine to export individual frame sequences.</p>
+      <p style="margin-top: 1rem;">I helped transition this architecture into a closed-loop Co-Simulation (In-The-Loop) framework. By linking the GNC simulation directly to an Unreal Engine executable via a custom Simulink-to-UE block, the system streams transformation data in real time, receives TRN images and metrics back, and dynamically adjusts the landing trajectory during simulation runs.</p>
       <p style="margin-top: 1rem;">The top diagram shows the Simulink side of the connection bridge, while the bottom diagram illustrates how data passed into Unreal Engine is acted on to dynamically update vehicle position and rotation.</p>
     </div>
     <div class="vertical-stack width-media-right">
@@ -196,8 +193,8 @@
     </div>
   </div>
 
-  <!-- SECTION 2: OPTICAL DESCENT DEMO -->
-  <h3>Optical Descent Co-Simulation Demonstration</h3>
+  <!-- SECTION 2: TRN DEMO -->
+  <h3>TRN In-The-Loop Co-Simulation Demonstration</h3>
 
   <div class="content-row content-right">
     <div class="media width-media-left">
@@ -208,13 +205,13 @@
       <p class="image-subnote">Note: Lunar elevation models are accurate, but trajectory profiles are non-representative of actual landers, and camera parameters are not tuned to flight hardware.</p>
     </div>
     <div class="text width-text-right">
-      <p>This sequence consists of individual rendered optical images stitched together at a specified framerate. As each image is generated inside Unreal Engine, it is fed directly into the TRN algorithm to calculate state estimates and determine vehicle position and attitude in real time.</p>
-      <p style="margin-top: 1rem;">This real-time optical loop allows GNC engineers to evaluate feature-tracking confidence under dynamic solar lighting angles and crater terrain conditions during powered descent.</p>
+      <p>This sequence consists of individual rendered images stitched together at a specified framerate. As each image is generated inside Unreal Engine, it is fed directly into the TRN algorithm to calculate state estimates and determine vehicle position and attitude in real time.</p>
+      <p style="margin-top: 1rem;">This real-time loop allows GNC engineers to evaluate feature-tracking confidence under dynamic solar lighting angles and crater terrain conditions during powered descent.</p>
     </div>
   </div>
 
-  <!-- SECTION 3: STARSHIP TELEMETRY & OFT ANALYSIS -->
-  <h3>Starship Orbital Flight Test (OFT) Telemetry Automation</h3>
+  <!-- SECTION 3: STARSHIP TELEMETRY -->
+  <h3>Starship Test Campaign Telemetry Automation</h3>
 
   <div class="content-row content-left">
     <div class="text width-text-left">
@@ -238,20 +235,20 @@
   
   <div class="content-row content-right">
     <div class="text width-text-right" style="width: 100%;">
-      <p>To support broader GNC maneuvering and attitude control requirements, I served as the GNC expert on an intern team tasked with performing preliminary sizing and trade studies for a Reaction Control System (RCS) thruster block. Working alongside two other interns, our team owned the design process from initial velocity increment (&Delta;v) requirements through preliminary architecture layout.</p>
-      <p style="margin-top: 1rem;">The system was evaluated for versatile translational and attitude maneuvers across various orbital environments, whether operating in Earth orbit, lunar transfer trajectories, or proximity operations. Our team focused primarily on sizing liquid methane and liquid oxygen (methalox) thruster configurations—evaluating injector orifice geometries, spark torch igniter integration, feed system pressure drops, and film cooling thermal management. We also conducted comparative baseline sizing calculations for hydrolox (liquid hydrogen / liquid oxygen) architectures to analyze mass-efficiency and impulse performance trade-offs.</p>
+      <p>To support broader GNC maneuvering and attitude control requirements, I was part of an intern team tasked with Reaction Control System (RCS) thruster sizing and preliminary design to support a novel propellant storage technology. As the intern in charge of GNC requirements, I helped define velocity increment (&Delta;v) targets and preliminary architecture layouts.</p>
+      <p style="margin-top: 1rem;">The system was evaluated for versatile translational and attitude maneuvers across various orbital environments, whether operating in Earth orbit, lunar transfer trajectories, or proximity operations. Our team focused primarily on sizing liquid methane and liquid oxygen (methalox) thruster configurations - evaluating injector orifice geometries, spark torch igniter integration, feed system pressure drops, and film cooling thermal management. We also conducted comparative baseline sizing calculations for hydrolox (liquid hydrogen / liquid oxygen) architectures to analyze mass-efficiency and impulse performance trade-offs.</p>
     </div>
   </div>
 
   <!-- SECTION 5: ON-SITE HIGHLIGHTS (COLLAGE) -->
   <h3>On-Site Highlights & MSFC Experience</h3>
   <div class="photo-collage">
-    <img src="images/me-nasa-logo.jpg" alt="Bryce Christensen at NASA MSFC" class="zoomable-img collage-item-1" onclick="openModal(this)">
-    <img src="images/andre-douglass.jpg" alt="Meeting with Andre Douglass" class="zoomable-img collage-item-2" onclick="openModal(this)">
-    <img src="images/rs25.jpg" alt="RS-25 Rocket Engine at MSFC" class="zoomable-img collage-item-3" onclick="openModal(this)">
-    <img src="images/mission-control.jpg" alt="Huntsville Operations Support Center" class="zoomable-img collage-item-4" onclick="openModal(this)">
-    <img src="images/hosc.jpg" alt="Huntsville Operations Support Center Room" class="zoomable-img collage-item-5" onclick="openModal(this)">
-    <img src="images/adam-steltnzer.jpg" alt="Meeting Adam Steltzner" class="zoomable-img collage-item-6" onclick="openModal(this)">
+    <img src="images/rs25.jpg" alt="RS-25 Rocket Engine at MSFC" class="zoomable-img item-rs25" onclick="openModal(this)">
+    <img src="images/mission-control.jpg" alt="Huntsville Operations Support Center" class="zoomable-img item-mission" onclick="openModal(this)">
+    <img src="images/andre-douglass.jpg" alt="Meeting with Andre Douglass" class="zoomable-img item-andre" onclick="openModal(this)">
+    <img src="images/adam-steltnzer.jpg" alt="Meeting Adam Steltzner" class="zoomable-img item-steltzner" onclick="openModal(this)">
+    <img src="images/hosc.jpg" alt="Huntsville Operations Support Center Room" class="zoomable-img item-hosc" onclick="openModal(this)">
+    <img src="images/me-nasa-logo.jpg" alt="Bryce Christensen at NASA MSFC" class="zoomable-img item-me-nasa" onclick="openModal(this)">
   </div>
 
 </section>
